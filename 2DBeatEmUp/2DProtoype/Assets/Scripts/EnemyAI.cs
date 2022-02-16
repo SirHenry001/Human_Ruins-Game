@@ -8,15 +8,16 @@ public class EnemyAI : MonoBehaviour
     public Animator myAnimator;
 
     public int enemyHealth = 100;
+    public int getHittedCount = 5;
 
     public float speed = 3f;
     public float fleeSpeed = 3f;
     public Rigidbody2D myRigidbody;
 
     public Transform target;
-    public Transform fleeTarget;
-    public float attackDistance = 10f;
-    public float hitDistance = 1f;
+    public float attackDistance = 15f;
+    public float hitDistance = 6f;
+    public float standDistance = 3f;
     public float minY = -0.3f, maxY = 3f;
     public float minX = -0.3f, maxX = 3f;
 
@@ -28,6 +29,7 @@ public class EnemyAI : MonoBehaviour
     public bool attackingLeft = true;
     public bool canHit = false;
     public bool canWalk = false;
+    public bool getHitted = false;
     public LayerMask layerMask;
 
     public FightCollisionEnemy fightCollisionEnemy;
@@ -126,6 +128,13 @@ public class EnemyAI : MonoBehaviour
             StartCoroutine(Punch());
         }
 
+        /*
+        if(Vector2.Distance(transform.position, target.position) <= standDistance)
+        {
+            
+        }
+        */        
+
         if (facingLeft)
         {
             attackingLeft = true;
@@ -148,7 +157,6 @@ public class EnemyAI : MonoBehaviour
         myAnimator.SetBool("MonsterHit", false);
         fightCollisionEnemy.GetComponent<CircleCollider2D>().enabled = false;
         StartCoroutine(Flee(movement));
-
     }
 
     public IEnumerator Flee(Vector2 direction)
@@ -167,15 +175,40 @@ public class EnemyAI : MonoBehaviour
 
     public IEnumerator GetHitted()
     {
-        myAnimator.SetBool("GetHitted", true); // animaatiota eikä boolia vielä tehty
-        yield return new WaitForSeconds(1f);
-        Flee(movement);
+
+        
+
+        if(getHittedCount <= 4 && getHitted == true)
+        {
+            
+            myAnimator.SetBool("GetHitted", true);
+            alertOn = false;
+            isFleeing = false;
+            myRigidbody.velocity = Vector3.zero;
+            yield return new WaitForSeconds(0.4f);
+            getHitted = false;
+            myAnimator.SetBool("GetHitted", false);
+            
+        }
+
+        if(5 <= getHittedCount)
+        {
+            getHittedCount = 0;
+            KnockDown();
+        }
+
+        if (enemyHealth <= 0)
+        {
+            StartCoroutine(Dead());
+        }
+        
+
+        
     }
 
-
-    void EnemyBoundaries()
+    public void KnockDown()
     {
-        transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, minY, maxY));
+        myAnimator.SetBool("KnockedDown", true);
     }
 
     public void EnemyHealth()
@@ -184,13 +217,21 @@ public class EnemyAI : MonoBehaviour
 
         if(enemyHealth <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(Dead());
         }
     }
 
 
-    void Dead()
+    public IEnumerator Dead()
     {
-
+        myAnimator.SetBool("Dead",true);
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
+
+    void EnemyBoundaries()
+    {
+        transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, minY, maxY));
+    }
+
 }

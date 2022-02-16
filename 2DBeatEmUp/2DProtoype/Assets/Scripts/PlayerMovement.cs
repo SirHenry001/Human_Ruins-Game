@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     // VARIABLES FOR MOVEMENT
     public float speed = 5f;
+    public float jumpSpeed = 600f;
     public float x;
     public float y;
 
@@ -37,8 +39,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator myAnimator;
 
     // VARIABLE FOR OTHER SCRIPTS
-    //public FightCollision fightCollision;
-    //public FightCollision fightCollision2;
+    public EnemyAI enemyScript;
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +49,7 @@ public class PlayerMovement : MonoBehaviour
         // CALL ANIMATOR COMPONENT FROM UNITY TO CODE
         myAnimator = GetComponentInChildren<Animator>();
         // CALL FIGHT COLLISION SCRIPT
-        //fightCollision = GameObject.Find("BackFist").GetComponent<FightCollision>();
-        //fightCollision2 = GameObject.Find("FrontFist").GetComponent<FightCollision>();
+        enemyScript = GameObject.Find("Monster").GetComponent<EnemyAI>();
     }
 
     // Update is called once per frame
@@ -66,7 +66,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //StartCoroutine(Jump());
-            print("hyppyhommia");
+            myRigidbody.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
+            transform.position = new Vector2(Mathf.Clamp(transform.position.x,minX,maxX), Mathf.Clamp(transform.position.y, -10f, 10f));
+            myRigidbody.AddForce(Vector2.up * jumpSpeed);
         }
 
     }
@@ -119,11 +121,9 @@ public class PlayerMovement : MonoBehaviour
         
         myAnimator.SetBool("Punch", true);
         canPunch = true;
-        //fightCollision.GetComponent<CircleCollider2D>().enabled = true;
-        //fightCollision2.GetComponent<CircleCollider2D>().enabled = true;
         lastTime = Time.time;
         combo++;
-        Debug.Log("Hit" + combo);
+        //Debug.Log("Hit" + combo);
 
         while (true)
         {
@@ -133,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if(combo == 2)
                 {
+                    //StartCoroutine(enemyScript.GetHitted());
                     canPunch2 = true;
                     myAnimator.SetBool("Punch2", true);
                 }
@@ -152,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (combo ==5)
                 {
+
                     canKick2 = true;
                     myAnimator.SetBool("Kick2", true);
                 }
@@ -169,9 +171,9 @@ public class PlayerMovement : MonoBehaviour
             canPunch3 = false;
             canKick = false;
             canKick2 = false;
-            //fightCollision.GetComponent<CircleCollider2D>().enabled = false;
-            //fightCollision2.GetComponent<CircleCollider2D>().enabled = false;
+            enemyScript.getHitted = false;
             combo = 0;
+            enemyScript.getHittedCount = 0;
             
             yield return new WaitForSeconds(cooldown - (Time.time - lastTime));
             

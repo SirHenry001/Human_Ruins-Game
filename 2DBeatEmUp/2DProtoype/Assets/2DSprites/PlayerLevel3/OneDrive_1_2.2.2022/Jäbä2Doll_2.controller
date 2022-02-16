@@ -67,7 +67,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -169,7 +169,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.1431884
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0
   m_HasExitTime: 0
@@ -235,7 +235,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: hit4
-  m_Speed: 0.69
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5744876562525917523}
@@ -288,7 +288,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hit2
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7742011562978914642}
@@ -353,43 +353,43 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Kick
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Punch3
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Punch2
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Punch
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Horizontal
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Vertical
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -629,39 +629,39 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -1763193091285071194}
-    m_Position: {x: 460, y: -10, z: 0}
+    m_Position: {x: 680, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7287339198140917425}
     m_Position: {x: 1500, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6410549414604996882}
-    m_Position: {x: 730, y: -10, z: 0}
+    m_Position: {x: 200, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4931393204056140539}
-    m_Position: {x: 750, y: -140, z: 0}
+    m_Position: {x: 740, y: -250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6400495716080819733}
     m_Position: {x: 1530, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1969924076630032401}
-    m_Position: {x: 730, y: -230, z: 0}
+    m_Position: {x: 500, y: -280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8738676294696892703}
-    m_Position: {x: 480, y: -340, z: 0}
+    m_Position: {x: 240, y: -280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3709913092809101989}
-    m_Position: {x: 210, y: -230, z: 0}
+    m_Position: {x: 210, y: -170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1187952019951583648}
-    m_Position: {x: 180, y: 50, z: 0}
+    m_Position: {x: 210, y: -70, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 480, y: 380, z: 0}
-  m_EntryPosition: {x: 480, y: 260, z: 0}
-  m_ExitPosition: {x: 480, y: 320, z: 0}
+  m_EntryPosition: {x: 700, y: 250, z: 0}
+  m_ExitPosition: {x: 700, y: 310, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -1763193091285071194}
 --- !u!1102 &4931393204056140539
@@ -672,7 +672,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hit
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7682049247261217731}
@@ -827,7 +827,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hit3
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7688478766669104418}

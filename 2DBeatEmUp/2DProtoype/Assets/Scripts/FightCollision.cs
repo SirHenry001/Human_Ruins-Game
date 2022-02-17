@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FightCollision : MonoBehaviour
 {
@@ -22,15 +23,10 @@ public class FightCollision : MonoBehaviour
         {
             enemyScript.getHittedCount += 1;
             StartCoroutine(enemyScript.GetHitted());
-            //StartCoroutine(enemyScript.GetHitted());
             enemyScript.getHitted = true;
+            enemyScript.isActive = false;
             enemyScript.EnemyHealth();
-        }
 
-        /*
-        else
-        {
-            enemyScript.getHitted = false;
         }
 
         /*

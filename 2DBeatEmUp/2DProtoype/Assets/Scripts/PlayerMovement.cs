@@ -21,6 +21,15 @@ public class PlayerMovement : MonoBehaviour
     public float x;
     public float y;
 
+    // VARIABLE FOR JUMP DETECTION
+    public bool canJump;
+    public Transform feet;
+    public float radius = 0.1f;
+    public LayerMask layerMask;
+    public float storedY = 0;
+    public GameObject jumpPlatform;
+    public GameObject jumpPlatformSpawn;
+
     public float minY = -0.3f, maxY = 3f;
     public float minX = -25f, maxX = 55f;
 
@@ -65,10 +74,24 @@ public class PlayerMovement : MonoBehaviour
         // PLAYER JUMP
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //StartCoroutine(Jump());
-            myRigidbody.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
-            transform.position = new Vector2(Mathf.Clamp(transform.position.x,minX,maxX), Mathf.Clamp(transform.position.y, -10f, 10f));
+
+            myRigidbody.GetComponent<Rigidbody2D>().gravityScale = 30f;
             myRigidbody.AddForce(Vector2.up * jumpSpeed);
+            GameObject platform = Instantiate(jumpPlatform, jumpPlatformSpawn.transform.position, jumpPlatformSpawn.transform.rotation);
+            Destroy(platform, 1f);
+
+            // PLAYER FEET COLLISION DETECTION
+            canJump = Physics2D.OverlapCircle(feet.position, radius, layerMask);
+
+            if (canJump == true)
+            {
+                storedY = transform.position.y;
+            }
+
+
+            //canJump = true;
+            //StartCoroutine(Jump());
+           
         }
 
     }
@@ -183,7 +206,10 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator Jump()
     {
+
+
         yield return new WaitForSeconds(1f);
+        canJump = false;
     }
 
     public void PlayerHealth()

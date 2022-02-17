@@ -30,6 +30,7 @@ public class EnemyAI : MonoBehaviour
     public bool canHit = false;
     public bool canWalk = false;
     public bool getHitted = false;
+    public bool isActive = true;
     public LayerMask layerMask;
 
     public FightCollisionEnemy fightCollisionEnemy;
@@ -97,107 +98,129 @@ public class EnemyAI : MonoBehaviour
         
         myAnimator.SetBool("MonsterWalk", false);
         EnemyBoundaries();
-        Notice();
+
+        if(isActive == true)
+        {
+            Notice();
+        }
+        
 
     }
 
     void Notice()
     {
-
-        if (Vector3.Distance(transform.position, target.position) <= attackDistance && !isFleeing)
-         {
-            alertOn = true;
-         }
-
-        if (alertOn == true)
+        if (isActive == true)
         {
-            Approach(movement);
+            if (Vector3.Distance(transform.position, target.position) <= attackDistance && !isFleeing)
+            {
+                alertOn = true;
+            }
+
+            if (alertOn == true)
+            {
+                Approach(movement);
+            }
         }
+
+
+
 
     }
 
     void Approach(Vector3 direction)
     {
-        // RIGIDBODY BASED ENEMY MOVEMENT
-        myRigidbody.MovePosition((Vector3)transform.position + (direction * speed * Time.deltaTime));
-        canWalk = true;
-        myAnimator.SetBool("MonsterWalk", true);
 
-        if (Vector3.Distance(transform.position, target.position) <= hitDistance)
+        if (isActive == true)
         {
-            StartCoroutine(Punch());
+            // RIGIDBODY BASED ENEMY MOVEMENT
+            myRigidbody.MovePosition((Vector3)transform.position + (direction * speed * Time.deltaTime));
+            canWalk = true;
+            myAnimator.SetBool("MonsterWalk", true);
+
+            if (Vector3.Distance(transform.position, target.position) <= hitDistance)
+            {
+                StartCoroutine(Punch());
+            }
+
+            if (facingLeft)
+            {
+                attackingLeft = true;
+            }
+
+            else if (!facingLeft)
+            {
+                attackingLeft = false;
+            }
         }
 
-        /*
-        if(Vector2.Distance(transform.position, target.position) <= standDistance)
-        {
-            
-        }
-        */        
 
-        if (facingLeft)
-        {
-            attackingLeft = true;
-        }
-
-        else if (!facingLeft)
-        {
-            attackingLeft = false;
-        }
     }
 
     public IEnumerator Punch()
     {
-        canHit = true;
-        myAnimator.SetBool("MonsterHit", true);
-        fightCollisionEnemy.GetComponent<CircleCollider2D>().enabled = true;
 
-        yield return new WaitForSeconds(1f);
-        canHit = false;
-        myAnimator.SetBool("MonsterHit", false);
-        fightCollisionEnemy.GetComponent<CircleCollider2D>().enabled = false;
-        StartCoroutine(Flee(movement));
+        if(isActive == true)
+        {
+            canHit = true;
+            myAnimator.SetBool("MonsterHit", true);
+            fightCollisionEnemy.GetComponent<CircleCollider2D>().enabled = true;
+
+            yield return new WaitForSeconds(1f);
+            canHit = false;
+            myAnimator.SetBool("MonsterHit", false);
+            fightCollisionEnemy.GetComponent<CircleCollider2D>().enabled = false;
+            StartCoroutine(Flee(movement));
+        }
+
     }
 
     public IEnumerator Flee(Vector2 direction)
     {
+        if(isActive == true)
+        {
+            isFleeing = true;
+            alertOn = false;
+            myAnimator.SetBool("MonsterFlee", true);
+            myAnimator.SetBool("MonsterHit", false);
 
-        isFleeing = true;
-        alertOn = false;
-        myAnimator.SetBool("MonsterFlee", true);
-        myAnimator.SetBool("MonsterHit", false);
-        
-        yield return new WaitForSeconds(2f);
-        myAnimator.SetBool("MonsterFlee", false);
-        isFleeing = false;
-        Idle();
+            yield return new WaitForSeconds(2f);
+            myAnimator.SetBool("MonsterFlee", false);
+            isFleeing = false;
+            Idle();
+        }
+
     }
 
     public IEnumerator GetHitted()
     {
 
-        
-
-        if(getHittedCount <= 4 && getHitted == true)
+        if(getHittedCount <= 4 && getHitted == true && isActive == false)
         {
-            
             myAnimator.SetBool("GetHitted", true);
-            alertOn = false;
-            isFleeing = false;
-            myRigidbody.velocity = Vector3.zero;
-            yield return new WaitForSeconds(0.4f);
-            getHitted = false;
+            //alertOn = false;
+            //isFleeing = false;
+            //myRigidbody.velocity = Vector3.zero;
+            print("odotus alkaa");
+            yield return new WaitForSeconds(1f);
+            print("odotus ohi");
+
             myAnimator.SetBool("GetHitted", false);
-            
+
         }
 
-        if(5 <= getHittedCount)
+        else if(getHitted == false)
+        {
+            myAnimator.SetBool("GetHitted", false);
+            isActive = true;
+        }
+
+        else if(5 <= getHittedCount)
         {
             getHittedCount = 0;
-            KnockDown();
+            StartCoroutine(KnockDown());
         }
 
-        if (enemyHealth <= 0)
+        else if (enemyHealth <= 0)
         {
             StartCoroutine(Dead());
         }
@@ -206,9 +229,13 @@ public class EnemyAI : MonoBehaviour
         
     }
 
-    public void KnockDown()
+    public IEnumerator KnockDown()
     {
         myAnimator.SetBool("KnockedDown", true);
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(2f);
+        GetComponent<CapsuleCollider2D>().enabled = true;
+        myAnimator.SetBool("KnockedDown", false);
     }
 
     public void EnemyHealth()

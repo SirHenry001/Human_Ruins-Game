@@ -1,22 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameMenuScreen : MonoBehaviour
 {
-
+    // VARIABLES FOR IN GAME MANU UI AND NAVIGATION
     public GameObject pauseText;
     public GameObject resumeButton;
     public GameObject retryButton;
     public GameObject quitButton;
 
-    //public PlayerMovement playerMovement;
+    // VARIABLES FOR SCORESCREEN 1 UI AND NAVIGATION
+    public Image fadeInImage;
+    public Image scoreScreenBG;
+    public Image firstLevelPlayerImage;
+    
+    public GameObject levelOne1ClearText;
+    public GameObject clearedTextScorecreen;
+    public GameObject scoreTextEnd;
+    public GameObject hpBonusTextEnd;
+    public GameObject totalTextEnd;
+    public GameObject continueButton;
+    public GameObject backButton;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+
     }
 
     // Update is called once per frame
@@ -73,5 +86,34 @@ public class GameMenuScreen : MonoBehaviour
             retryButton.SetActive(false);
             quitButton.SetActive(false);
         }
+    }
+
+
+    //FUNCTION WHICH NEEDED TO SCORESCREEN IN LEVEL ONE TO POP UP
+    public IEnumerator ScoreScreen()
+    {
+        print("alku");
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 1;
+        print("loppu");
+        levelOne1ClearText.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        fadeInImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        scoreScreenBG.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        firstLevelPlayerImage.gameObject.SetActive(true);
+        clearedTextScorecreen.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        scoreTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        hpBonusTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        totalTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        continueButton.SetActive(true);
+        backButton.SetActive(true);
+
+
     }
 }

@@ -33,13 +33,13 @@ public class EnemyAI : MonoBehaviour
     public bool isActive = true;
     public LayerMask layerMask;
 
-    public FightCollisionEnemy fightCollisionEnemy;
+    //public FightCollisionEnemy fightCollisionEnemy;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        fightCollisionEnemy = GameObject.Find("BackHand").GetComponent<FightCollisionEnemy>();
+        //fightCollisionEnemy = GetComponentInChildren<FightCollisionEnemy>(); // KORVAA TÄMÄ ANIMAATTORISSA PÄÄLL/POIS JA KOODI POIS KAIKISTA KOHDISTA, ONKO TÄMÄ EDES HYÖDYLLINEN TARKISTA!
         myAnimator = GetComponentInChildren<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         InvokeRepeating("Idle", 0f, 0.01f);
@@ -163,12 +163,12 @@ public class EnemyAI : MonoBehaviour
         {
             canHit = true;
             myAnimator.SetBool("MonsterHit", true);
-            fightCollisionEnemy.GetComponent<CircleCollider2D>().enabled = true;
+            GetComponentInChildren<CircleCollider2D>().enabled = true;
 
             yield return new WaitForSeconds(1f);
             canHit = false;
             myAnimator.SetBool("MonsterHit", false);
-            fightCollisionEnemy.GetComponent<CircleCollider2D>().enabled = false;
+            GetComponentInChildren<CircleCollider2D>().enabled = false;
             StartCoroutine(Flee(movement));
         }
 
@@ -191,28 +191,48 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    public IEnumerator GetHitted()
+    //public IEnumerator GetHitted()
+    public void GetHitted()
     {
-
-        if(getHittedCount <= 4 && getHitted == true && isActive == false)
+        
+        //KOKEILU 1
+        if (getHitted == true)
         {
+            //isActive = false;
             myAnimator.SetBool("GetHitted", true);
-            //alertOn = false;
-            //isFleeing = false;
-            //myRigidbody.velocity = Vector3.zero;
             print("odotus alkaa");
-            yield return new WaitForSeconds(1f);
-            print("odotus ohi");
-
-            myAnimator.SetBool("GetHitted", false);
 
         }
 
+        if(getHitted == false)
+        {
+            //isActive = true;
+            myAnimator.SetBool("GetHitted", false);
+            print("odotus ohi");
+        }
+        
+
+        /*
+        //KOKEILU 2
+        myAnimator.SetBool("GetHitted", true);
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(2f);
+        GetComponent<CapsuleCollider2D>().enabled = true;
+        isActive = true;
+        myAnimator.SetBool("GetHitted", false);
+        */
+
+        //alertOn = false;
+        //isFleeing = false;
+        //myRigidbody.velocity = Vector3.zero;
+
+        /*
         else if(getHitted == false)
         {
             myAnimator.SetBool("GetHitted", false);
             isActive = true;
         }
+        */
 
         else if(5 <= getHittedCount)
         {
@@ -226,7 +246,7 @@ public class EnemyAI : MonoBehaviour
         }
         
 
-        
+
     }
 
     public IEnumerator KnockDown()

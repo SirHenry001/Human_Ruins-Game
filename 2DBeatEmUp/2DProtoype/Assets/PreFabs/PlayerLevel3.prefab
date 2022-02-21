@@ -900,7 +900,7 @@ Transform:
   m_GameObject: {fileID: 2763278931743067129}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.85, y: -4.19, z: 0}
-  m_LocalScale: {x: 0.90172, y: 0.90172, z: 0.90172}
+  m_LocalScale: {x: 0.8238691, y: 0.8238691, z: 0.8238691}
   m_Children: []
   m_Father: {fileID: 2763278931859379798}
   m_RootOrder: 0
@@ -1014,7 +1014,7 @@ Transform:
   m_GameObject: {fileID: 2763278931752554591}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: -4.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.91, y: 0.91, z: 0.91}
   m_Children: []
   m_Father: {fileID: 2763278932068664505}
   m_RootOrder: 0
@@ -1529,17 +1529,19 @@ MonoBehaviour:
   cooldown: 0.5
   maxTime: 0.8
   lastTime: 0
-  speed: 4
-  jumpSpeed: 600
+  speed: 6
+  jumpSpeed: 8000
   x: 0
   y: 0
   canJump: 0
-  feet: {fileID: 0}
-  radius: 0.1
+  feet: {fileID: 4556210959421243047}
+  radius: 0.57
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   storedY: 0
+  jumpPlatform: {fileID: 1348430214729104158, guid: e18e3e12c9e41e34cb6da22b206cc4ff, type: 3}
+  jumpPlatformSpawn: {fileID: 5422707168374574843}
   minY: -4.3
   maxY: 1.3
   minX: -25
@@ -2563,7 +2565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5065268684812607244}
   m_LocalRotation: {x: -0, y: -0, z: -0.012528711, w: 0.99992156}
-  m_LocalPosition: {x: -0.95, y: -23.25, z: -50.38272}
+  m_LocalPosition: {x: -0.6, y: -23.1, z: -50.38272}
   m_LocalScale: {x: -5.882353, y: 5.882353, z: 5.882353}
   m_Children: []
   m_Father: {fileID: 2763278931220189016}

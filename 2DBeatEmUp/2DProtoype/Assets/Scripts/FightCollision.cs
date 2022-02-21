@@ -8,25 +8,39 @@ public class FightCollision : MonoBehaviour
 
     public EnemyAI enemyScript;
     public PlayerMovement playerMovement;
+    public FirstBossScript firstBossScript;
 
     //public bool punchCollision;
 
     void Start()
     {
-        enemyScript = GameObject.Find("Monster").GetComponent<EnemyAI>();
-        playerMovement = GameObject.Find("Character").GetComponent<PlayerMovement>();
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        firstBossScript = GameObject.Find("Level1Boss").GetComponent<FirstBossScript>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            enemyScript.getHittedCount += 1;
-            StartCoroutine(enemyScript.GetHitted());
+
+            enemyScript = collision.gameObject.GetComponent<EnemyAI>();
+            playerMovement.enemyScript = collision.gameObject.GetComponent<EnemyAI>();
+
+            enemyScript.getHittedCount += 1;    
+            enemyScript.GetHitted();       
             enemyScript.getHitted = true;
             enemyScript.isActive = false;
             enemyScript.EnemyHealth();
 
+            //enemyScript.isActive = true;
+            //StartCoroutine(enemyScript.GetHitted());
+
+        }
+
+        if (collision.gameObject.tag == "Boss")
+        {
+            //StartCoroutine(firstBossScript.BossOneHealth(10));
+            firstBossScript.BossOneHealth(10);
         }
 
         /*

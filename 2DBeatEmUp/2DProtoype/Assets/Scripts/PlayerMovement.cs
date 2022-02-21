@@ -57,8 +57,9 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         // CALL ANIMATOR COMPONENT FROM UNITY TO CODE
         myAnimator = GetComponentInChildren<Animator>();
-        // CALL FIGHT COLLISION SCRIPT
         enemyScript = GameObject.Find("Monster").GetComponent<EnemyAI>();
+        // CALL ENEMY AI SCRIPT
+
     }
 
     // Update is called once per frame
@@ -72,9 +73,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // PLAYER JUMP
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) //TYÖSTÄ TÄMÄ KUNTOON, KESKEN
         {
-
+            /*
             myRigidbody.GetComponent<Rigidbody2D>().gravityScale = 30f;
             myRigidbody.AddForce(Vector2.up * jumpSpeed);
             GameObject platform = Instantiate(jumpPlatform, jumpPlatformSpawn.transform.position, jumpPlatformSpawn.transform.rotation);
@@ -91,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
             //canJump = true;
             //StartCoroutine(Jump());
+            */
            
         }
 
@@ -156,7 +158,6 @@ public class PlayerMovement : MonoBehaviour
 
                 if(combo == 2)
                 {
-                    //StartCoroutine(enemyScript.GetHitted());
                     canPunch2 = true;
                     myAnimator.SetBool("Punch2", true);
                 }
@@ -195,6 +196,7 @@ public class PlayerMovement : MonoBehaviour
             canKick = false;
             canKick2 = false;
             enemyScript.getHitted = false;
+            //enemyScript.isActive = true;
             combo = 0;
             enemyScript.getHittedCount = 0;
             

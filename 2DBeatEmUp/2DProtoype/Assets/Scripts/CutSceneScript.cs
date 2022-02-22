@@ -21,6 +21,7 @@ public class CutSceneScript : MonoBehaviour
     void Start()
     {
         StartCoroutine(CutsceneOne());
+;
     }
 
     // Update is called once per frame
@@ -46,4 +47,5 @@ public class CutSceneScript : MonoBehaviour
 
 
     }
+
 }

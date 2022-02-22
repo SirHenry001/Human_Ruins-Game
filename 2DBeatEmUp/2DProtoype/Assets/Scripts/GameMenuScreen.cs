@@ -13,6 +13,7 @@ public class GameMenuScreen : MonoBehaviour
     public GameObject quitButton;
 
     // VARIABLES FOR SCORESCREEN 1 UI AND NAVIGATION
+    public Image fadeOutImage;
     public Image fadeInImage;
     public Image scoreScreenBG;
     public Image firstLevelPlayerImage;
@@ -66,6 +67,21 @@ public class GameMenuScreen : MonoBehaviour
         SceneManager.LoadScene("TitleScreen");
     }
 
+    public void CutSceneTwo()
+    {
+        SceneManager.LoadScene("Cutscene2");
+    }
+
+    public void CutSceneThree()
+    {
+        SceneManager.LoadScene("Cutscene3");
+    }
+
+    public void CutSceneFour()
+    {
+        SceneManager.LoadScene("Cutscene4");
+    }
+
 
     public void Pause()
     {
@@ -98,7 +114,7 @@ public class GameMenuScreen : MonoBehaviour
         print("loppu");
         levelOne1ClearText.SetActive(true);
         yield return new WaitForSeconds(3f);
-        fadeInImage.gameObject.SetActive(true);
+        fadeOutImage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         scoreScreenBG.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.5f);

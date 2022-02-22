@@ -316,7 +316,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1445258651
   m_SortingLayer: 2
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 1611692621516342985, guid: 120c71fed17d01f42996c02170c70f68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -420,7 +420,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6923381721351046476}
   - component: {fileID: 3721150447813020247}
-  m_Layer: 9
+  - component: {fileID: 542425810}
+  - component: {fileID: 542425811}
+  m_Layer: 0
   m_Name: C1Child_Bottomfoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,6 +494,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &542425810
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516284176170270208}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.3149998
+--- !u!114 &542425811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516284176170270208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f953afcb2c82da4380d76cf101e326b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyScript: {fileID: 0}
+  playerMovement: {fileID: 0}
+  firstBossScript: {fileID: 0}
 --- !u!1 &1653077094193477216
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +703,7 @@ GameObject:
   - component: {fileID: 5948219657601937039}
   - component: {fileID: 8810273690321246964}
   - component: {fileID: 3832698023616530742}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: C1Child_SideFist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,12 +785,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000009536743, y: 0}
+  m_Offset: {x: -0.55565375, y: 0.21860299}
   serializedVersion: 2
-  m_Radius: 1.375
+  m_Radius: 2.7294602
 --- !u!114 &3832698023616530742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1196,7 +1229,7 @@ GameObject:
   - component: {fileID: 3796940124797925687}
   - component: {fileID: 8810273690321246960}
   - component: {fileID: 8399231152074568978}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: C1Child_SideFist2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1571,7 +1604,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4152101641422762113}
   m_LocalRotation: {x: -0, y: 0, z: 0.05350388, w: 0.99856764}
-  m_LocalPosition: {x: -15.229998, y: -26.400002, z: -5.998816}
+  m_LocalPosition: {x: -15.229998, y: -26.4, z: -5.998816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8810273691212826957}
@@ -1653,7 +1686,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4247329341986581197}
   m_LocalRotation: {x: -0, y: 0, z: -0.7768062, w: 0.62973976}
-  m_LocalPosition: {x: -20.710001, y: -15.690001, z: -5.998816}
+  m_LocalPosition: {x: -20.710001, y: -15.69, z: -5.998816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8810273691212826957}
@@ -2146,7 +2179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5863399466242310473}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.67, y: -2.9600005, z: -5.998816}
+  m_LocalPosition: {x: -32.67, y: -2.960001, z: -5.998816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8810273691212826957}
@@ -2191,7 +2224,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1445258651
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2035492993302597360, guid: 120c71fed17d01f42996c02170c70f68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3120,7 +3153,7 @@ GameObject:
   - component: {fileID: 8810273691212826954}
   - component: {fileID: 267375565}
   m_Layer: 9
-  m_Name: Character1
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3351,10 +3384,10 @@ MonoBehaviour:
   storedY: 0
   jumpPlatform: {fileID: 0}
   jumpPlatformSpawn: {fileID: 0}
-  minY: -1.5
-  maxY: 2.6
+  minY: -2.9
+  maxY: 2.8
   minX: -25
-  maxX: 55
+  maxX: 75
   facingRight: 1
   canPunch: 0
   canPunch2: 0

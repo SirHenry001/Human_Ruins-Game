@@ -9,13 +9,16 @@ public class FightCollision : MonoBehaviour
     public EnemyAI enemyScript;
     public PlayerMovement playerMovement;
     public FirstBossScript firstBossScript;
-
-    //public bool punchCollision;
+    public SecondBossScript secondBossScript;
+    public ThirdBossScript thirdBossScript;
+    public FinalBossScript finalBossScript;
 
     void Start()
     {
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        firstBossScript = GameObject.Find("Level1Boss").GetComponent<FirstBossScript>();
+        //firstBossScript = GameObject.Find("Level1Boss").GetComponent<FirstBossScript>();
+        //thirdBossScript = GameObject.Find("Level33Boss").GetComponent<FirstBossScript>();
+        //secondBossScript = GameObject.Find("Level2Boss").GetComponent<SecondBossScript>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,16 +35,33 @@ public class FightCollision : MonoBehaviour
             enemyScript.isActive = false;
             enemyScript.EnemyHealth();
 
-            //enemyScript.isActive = true;
-            //StartCoroutine(enemyScript.GetHitted());
-
         }
 
         if (collision.gameObject.tag == "Boss")
         {
-            //StartCoroutine(firstBossScript.BossOneHealth(10));
+            firstBossScript = collision.gameObject.GetComponent<FirstBossScript>();
             firstBossScript.BossOneHealth(10);
         }
+
+        if (collision.gameObject.tag == "Boss2")
+        {
+            secondBossScript = collision.gameObject.GetComponent<SecondBossScript>();
+            secondBossScript.BossTwoHealth(10);
+        }
+
+        if (collision.gameObject.tag == "Boss3")
+        {
+            thirdBossScript = collision.gameObject.GetComponent<ThirdBossScript>();
+            thirdBossScript.BossThreeHealth(10);
+        }
+
+        if (collision.gameObject.tag == "Boss4")
+        {
+            finalBossScript = collision.gameObject.GetComponent<FinalBossScript>();
+            finalBossScript.BossFinalHealth(10);
+        }
+
+
 
         /*
         if(playerMovement.gameObject.tag == "ComboTrigger")

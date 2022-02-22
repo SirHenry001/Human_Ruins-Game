@@ -14,7 +14,7 @@ public class MenuScreen : MonoBehaviour
     public void StartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("CutsceneOne");
+        SceneManager.LoadScene("Cutscene1");
     }
 
     public void Controls()

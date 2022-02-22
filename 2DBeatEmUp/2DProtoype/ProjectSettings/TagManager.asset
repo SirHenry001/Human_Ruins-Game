@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Hit
   - Boss
+  - Boss2
+  - Boss3
+  - Boss4
   layers:
   - Default
   - TransparentFX

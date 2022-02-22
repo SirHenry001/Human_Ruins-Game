@@ -986,6 +986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyScript: {fileID: 0}
   playerMovement: {fileID: 0}
+  firstBossScript: {fileID: 0}
+  secondBossScript: {fileID: 0}
 --- !u!1 &2763278931752554591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyScript: {fileID: 0}
   playerMovement: {fileID: 0}
+  firstBossScript: {fileID: 0}
+  secondBossScript: {fileID: 0}
 --- !u!1 &2763278931834838339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,8 +1292,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2763278931859379793}
-  m_LocalRotation: {x: -0, y: -0, z: -0.6697428, w: 0.7425931}
-  m_LocalPosition: {x: 5.419995, y: -4.6, z: 0}
+  m_LocalRotation: {x: -0, y: 0, z: -0.66974276, w: 0.7425932}
+  m_LocalPosition: {x: 5.4200015, y: -4.599999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2763278931743067134}
@@ -1545,7 +1549,7 @@ MonoBehaviour:
   minY: -4.3
   maxY: 1.3
   minX: -25
-  maxX: 55
+  maxX: 75
   facingRight: 1
   canPunch: 0
   canPunch2: 0
@@ -1579,8 +1583,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2763278932068664504}
-  m_LocalRotation: {x: -0, y: -0, z: -0.85553306, w: 0.5177482}
-  m_LocalPosition: {x: -9.389989, y: -3.07, z: 0}
+  m_LocalRotation: {x: -0, y: 0, z: -0.8555331, w: 0.5177481}
+  m_LocalPosition: {x: -9.389996, y: -3.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2763278931752554588}
@@ -2880,6 +2884,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyScript: {fileID: 0}
   playerMovement: {fileID: 0}
+  firstBossScript: {fileID: 0}
+  secondBossScript: {fileID: 0}
 --- !u!50 &478245089
 Rigidbody2D:
   serializedVersion: 4
@@ -3015,6 +3021,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyScript: {fileID: 0}
   playerMovement: {fileID: 0}
+  firstBossScript: {fileID: 0}
+  secondBossScript: {fileID: 0}
 --- !u!1 &6982910275109046619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,3 +3301,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyScript: {fileID: 0}
   playerMovement: {fileID: 0}
+  firstBossScript: {fileID: 0}
+  secondBossScript: {fileID: 0}

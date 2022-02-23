@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator myAnimator;
 
     // VARIABLE FOR OTHER SCRIPTS
+    public VillainAi villainAi;
     public EnemyAI enemyScript;
 
     // Start is called before the first frame update

@@ -7,6 +7,7 @@ public class FightCollision : MonoBehaviour
 {
 
     public EnemyAI enemyScript;
+    public VillainAi villainAi;
     public PlayerMovement playerMovement;
     public FirstBossScript firstBossScript;
     public SecondBossScript secondBossScript;
@@ -25,16 +26,27 @@ public class FightCollision : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-
+            //CONNECT TO ENEMY AI SCRIPT
             enemyScript = collision.gameObject.GetComponent<EnemyAI>();
             playerMovement.enemyScript = collision.gameObject.GetComponent<EnemyAI>();
 
             enemyScript.getHittedCount += 1;    
             enemyScript.GetHitted();
-            //StartCoroutine(enemyScript.GetHitted());
             enemyScript.getHitted = true;
             enemyScript.EnemyHealth();
 
+
+
+        }
+
+        if (collision.gameObject.tag == "Villain")
+        {
+            //CONNECT TO VILLAIN AI SCRIPT
+            villainAi = collision.gameObject.GetComponent<VillainAi>();
+            playerMovement.villainAi = collision.gameObject.GetComponent<VillainAi>();
+
+            villainAi.getHittedCount += 1;
+            villainAi.VillainHealth(10);
         }
 
         if (collision.gameObject.tag == "Boss")

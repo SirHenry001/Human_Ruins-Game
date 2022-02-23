@@ -61,6 +61,27 @@ public class GameMenuScreen : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
+    public void RetryLevel2()
+    {
+        Time.timeScale = 1f;
+        pauseText.SetActive(false);
+        resumeButton.SetActive(false);
+        retryButton.SetActive(false);
+        quitButton.SetActive(false);
+        SceneManager.LoadScene("Level2");
+    }
+
+    public void RetryLevel3()
+    {
+        Time.timeScale = 1f;
+        pauseText.SetActive(false);
+        resumeButton.SetActive(false);
+        retryButton.SetActive(false);
+        quitButton.SetActive(false);
+        SceneManager.LoadScene("Level3");
+    }
+
+
     public void Mainmenu()
     {
         Time.timeScale = 1;

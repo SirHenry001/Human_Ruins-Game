@@ -11,6 +11,7 @@ public class FightCollisionEnemy : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
             playerMovement.PlayerHealth();
         }
     }
@@ -18,7 +19,7 @@ public class FightCollisionEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        //playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame

@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
     public float attackDistance = 15f;
     public float hitDistance = 6f;
-    public float standDistance = 3f;
+    //public float standDistance = 3f;
     public float minY = -0.3f, maxY = 3f;
     public float minX = -0.3f, maxX = 3f;
 
@@ -28,18 +28,19 @@ public class EnemyAI : MonoBehaviour
     public bool facingLeft = true;
     public bool attackingLeft = true;
     public bool canHit = false;
-    public bool canWalk = false;
+    //public bool canWalk = false;
     public bool getHitted = false;
     public bool isActive = true;
+
     public LayerMask layerMask;
 
-    //public FightCollisionEnemy fightCollisionEnemy;
+    public FightCollisionEnemy fightCollisionEnemy;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //fightCollisionEnemy = GetComponentInChildren<FightCollisionEnemy>(); // KORVAA TÄMÄ ANIMAATTORISSA PÄÄLL/POIS JA KOODI POIS KAIKISTA KOHDISTA, ONKO TÄMÄ EDES HYÖDYLLINEN TARKISTA!
+        fightCollisionEnemy = GetComponentInChildren<FightCollisionEnemy>(); // KORVAA TÄMÄ ANIMAATTORISSA PÄÄLL/POIS JA KOODI POIS KAIKISTA KOHDISTA, ONKO TÄMÄ EDES HYÖDYLLINEN TARKISTA!
         myAnimator = GetComponentInChildren<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         InvokeRepeating("Idle", 0f, 0.01f);
@@ -95,7 +96,7 @@ public class EnemyAI : MonoBehaviour
 
     void Idle()
     {
-        
+
         myAnimator.SetBool("MonsterWalk", false);
         EnemyBoundaries();
 
@@ -134,7 +135,7 @@ public class EnemyAI : MonoBehaviour
         {
             // RIGIDBODY BASED ENEMY MOVEMENT
             myRigidbody.MovePosition((Vector3)transform.position + (direction * speed * Time.deltaTime));
-            canWalk = true;
+            //canWalk = true;
             myAnimator.SetBool("MonsterWalk", true);
 
             if (Vector3.Distance(transform.position, target.position) <= hitDistance)
@@ -169,6 +170,7 @@ public class EnemyAI : MonoBehaviour
             canHit = false;
             myAnimator.SetBool("MonsterHit", false);
             GetComponentInChildren<CircleCollider2D>().enabled = false;
+
             StartCoroutine(Flee(movement));
         }
 
@@ -194,60 +196,43 @@ public class EnemyAI : MonoBehaviour
     //public IEnumerator GetHitted()
     public void GetHitted()
     {
+        /*
+        isActive = false;
+        myAnimator.SetBool("GetHitted", true);
+        yield return new WaitForSeconds(2f);
+        isActive = true;
+        */
+
         
         //KOKEILU 1
         if (getHitted == true)
         {
-            //isActive = false;
             myAnimator.SetBool("GetHitted", true);
-            print("odotus alkaa");
-
+            isActive = false;
         }
 
-        if(getHitted == false)
+        if (getHitted == false)
         {
-            //isActive = true;
+            isActive = true;
+            print("toimii läpi");
             myAnimator.SetBool("GetHitted", false);
-            print("odotus ohi");
+
         }
         
 
-        /*
-        //KOKEILU 2
-        myAnimator.SetBool("GetHitted", true);
-        GetComponent<CapsuleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(2f);
-        GetComponent<CapsuleCollider2D>().enabled = true;
-        isActive = true;
-        myAnimator.SetBool("GetHitted", false);
-        */
-
-        //alertOn = false;
-        //isFleeing = false;
-        //myRigidbody.velocity = Vector3.zero;
-
-        /*
-        else if(getHitted == false)
-        {
-            myAnimator.SetBool("GetHitted", false);
-            isActive = true;
-        }
-        */
-
-        else if(5 <= getHittedCount)
+        if (5 <= getHittedCount)
         {
             getHittedCount = 0;
             StartCoroutine(KnockDown());
         }
 
-        else if (enemyHealth <= 0)
+        if (enemyHealth <= 0)
         {
             StartCoroutine(Dead());
         }
         
-
-
     }
+        
 
     public IEnumerator KnockDown()
     {
@@ -281,4 +266,5 @@ public class EnemyAI : MonoBehaviour
         transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, minY, maxY));
     }
 
+    
 }

@@ -30,9 +30,9 @@ public class FightCollision : MonoBehaviour
             playerMovement.enemyScript = collision.gameObject.GetComponent<EnemyAI>();
 
             enemyScript.getHittedCount += 1;    
-            enemyScript.GetHitted();       
+            enemyScript.GetHitted();
+            //StartCoroutine(enemyScript.GetHitted());
             enemyScript.getHitted = true;
-            enemyScript.isActive = false;
             enemyScript.EnemyHealth();
 
         }

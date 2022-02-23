@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         // GET PLAYER TO PUNCH WITH ANIMATION 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
+            print("nappi pohjassa");
             StartCoroutine(Combo());
         }
 
@@ -195,10 +196,16 @@ public class PlayerMovement : MonoBehaviour
             canPunch3 = false;
             canKick = false;
             canKick2 = false;
-            enemyScript.getHitted = false;
-            //enemyScript.isActive = true;
+            
+
+            if (!enemyScript == null)
+            {
+                enemyScript.getHitted = false;
+                enemyScript.getHittedCount = 0;
+            }
+
             combo = 0;
-            enemyScript.getHittedCount = 0;
+            
             
             yield return new WaitForSeconds(cooldown - (Time.time - lastTime));
             

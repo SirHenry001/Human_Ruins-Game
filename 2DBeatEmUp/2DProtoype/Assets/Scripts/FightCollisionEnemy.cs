@@ -13,7 +13,7 @@ public class FightCollisionEnemy : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
-            playerMovement.PlayerHealth();
+            playerMovement.PlayerHealth(2);
         }
     }
 

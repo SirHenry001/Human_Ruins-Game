@@ -7,7 +7,7 @@ public class VillainAi : MonoBehaviour
 
     public Transform player;
 
-    public int enemyHealth = 100;
+    public int enemyHealth = 10;
     public int getHittedCount = 5;
 
     public float aggroRange;
@@ -17,11 +17,14 @@ public class VillainAi : MonoBehaviour
     public float stanceSpeed;
     public float timer;
     public float attackTimer;
+    public float hittedTimer;
+    public float knockTimer;
+
+    public bool isActive = true; // EN SAA VIEL TAKAISIN PÄÄLLE KUN POISTAN SEN KÄYTÖSTÄ HIT JA KNOCK KOHDASSA. FUNTSI
+    //tee vielä min/ max y ja x rajaukset liikkeelle
 
     public Rigidbody2D villainRigidbody;
     public Animator myAnimator;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -34,109 +37,134 @@ public class VillainAi : MonoBehaviour
     void Update()
     {
 
-        if (getHittedCount > 6)
-        {
-            Knocked();
-        }
+    }
 
-
-        // DISATANCE TO PLAYER
+    private void FixedUpdate()
+    {
         float distToPlayer = Vector2.Distance(transform.position, player.position);
-        print("distToPlayer" + distToPlayer);
 
-        if(distToPlayer > aggroRange)
+        if (distToPlayer > aggroRange && isActive)
         {
-            myAnimator.SetBool("Approach", false);
-            transform.Translate(Vector3.right * stanceSpeed * Time.deltaTime);
-            timer += Time.deltaTime;
-
-            if (timer > 2)
-            {
-                stanceSpeed = -stanceSpeed;
-                timer = 0;
-            }
+            Idle();
         }
-
-        if(distToPlayer < aggroRange)
+        
+        if (distToPlayer < aggroRange && isActive)
         {
             //START CHASING PLAYER
             ChasePlayer();
         }
 
-        else
+        if (distToPlayer < faceToFaceRange && isActive)
         {
-            //STOP CHASING PLAYER
-            StopChasingPlayer();
-        }
-
-        if(distToPlayer < faceToFaceRange)
-        {
+            //ATTACK TO PLAYER
             Attack();
         }
 
-        if (distToPlayer > faceToFaceRange)
+        if (distToPlayer > faceToFaceRange && isActive)
         {
+            //ENEMY STOPS ATTACKING WHEN GET FURTHER FROM FRONT OF PLAYER
             myAnimator.SetBool("Attack", false);
         }
 
+    }
+
+    public void Activation()
+    {
+        isActive = true;
+    }
+
+    public void Idle()
+    {
+        timer += Time.deltaTime;
+        myAnimator.SetBool("Approach", false);
+        villainRigidbody.velocity = new Vector2(stanceSpeed, 0);
+
+        if (timer > 2)
+        {
+            stanceSpeed = -stanceSpeed;
+            timer = 0;
+        }
     }
 
     void ChasePlayer()
     {
-        myAnimator.SetBool("Approach", true);
 
-        // ENEMY IS ON THE LEFT SIDE, GO RIGHT
-        if(transform.position.x < player.position.x)
+         myAnimator.SetBool("Approach", true);
+
+            // ENEMY IS ON THE LEFT SIDE, GO RIGHT
+        if (transform.position.x < player.position.x)
         {
-            villainRigidbody.velocity = new Vector2(moveSpeed, 0);
+            villainRigidbody.velocity = new Vector2(moveSpeed, villainRigidbody.velocity.y);
             transform.localScale = new Vector2(-1, 1);
+
+            CompareY();
+
         }
 
-        // ENEMY IS ON THE RIGHT SIDE, GO LEFT
-        else
-        {
-            villainRigidbody.velocity = new Vector2(-moveSpeed, 0);
-            transform.localScale = new Vector2(1, 1);
+            // ENEMY IS ON THE RIGHT SIDE, GO LEFT
+            else
+            {
+                villainRigidbody.velocity = new Vector2(-moveSpeed, villainRigidbody.velocity.y);
+                transform.localScale = new Vector2(1, 1);
+
+            CompareY();
         }
 
     }
 
-    void StopChasingPlayer()
+    void CompareY()
     {
 
-        villainRigidbody.velocity = Vector2.zero;
-    }
+        // tietty pointti y missä ei liiku memo
 
+        if (transform.position.y < player.position.y)
+        {
+            villainRigidbody.velocity = new Vector2(villainRigidbody.velocity.x, moveSpeed);
+        }
+
+        else if (transform.position.y >= player.position.y)
+        {
+            villainRigidbody.velocity = new Vector2(villainRigidbody.velocity.x, -moveSpeed);
+        }
+    }
     void Attack()
     {
         myAnimator.SetBool("Attack", true);
         villainRigidbody.velocity = Vector2.zero;
-        attackTimer += Time.deltaTime;
+        //attackTimer += Time.deltaTime;
+    }
 
-        if(attackTimer > 2)
+    public void Gethit()
+    {
+        
+        myAnimator.SetTrigger("GetHitted");
+
+        /*
+        if(getHittedCount <= 5)
         {
-            myAnimator.SetBool("Attack", false);
-            attackTimer = 0;
+            Knocked();
         }
-
+        */
     }
 
     public void Knocked()
     {
-        villainRigidbody.velocity = Vector2.zero;
-        myAnimator.SetBool("Knocked", true);
-        getHittedCount = 0;
-        //knocked falseksi ja collider 2d disabele/enblae ni se on siinä
+        /*
+        myAnimator.SetTrigger("Knocked");
+        GetComponent<BoxCollider2D>().enabled = false;
+        */
+
+
     }
 
     public void VillainHealth(int damage)
     {
         enemyHealth -= damage;
-        print("LÄPI");
         if(enemyHealth <= 0)
         {
-
-            //animaatio tähän ja vihun tuhoutuminen
+            myAnimator.SetTrigger("Dead");
+            GetComponent<BoxCollider2D>().enabled = false;
+            Destroy(gameObject, 1.5f);
         }
     }
 }

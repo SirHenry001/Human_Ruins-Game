@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     // VARIABLE FOR HEALTH
     public int playerHealth = 100;
+    public int playerSanity = 100;
 
     // VARIABLE FOR HITCOMBOS
     public int maxCombo = 5;
@@ -17,11 +18,12 @@ public class PlayerMovement : MonoBehaviour
 
     // VARIABLES FOR MOVEMENT
     public float speed = 5f;
-    public float jumpSpeed = 600f;
     public float x;
     public float y;
 
+    /*
     // VARIABLE FOR JUMP DETECTION
+    public float jumpSpeed = 600f;
     public bool canJump;
     public Transform feet;
     public float radius = 0.1f;
@@ -29,7 +31,9 @@ public class PlayerMovement : MonoBehaviour
     public float storedY = 0;
     public GameObject jumpPlatform;
     public GameObject jumpPlatformSpawn;
+    */
 
+    // PLAYER BOUNDARIES
     public float minY = -0.3f, maxY = 3f;
     public float minX = -25f, maxX = 55f;
 
@@ -41,15 +45,13 @@ public class PlayerMovement : MonoBehaviour
     public bool canKick = false;
     public bool canKick2 = false;
 
-    // VARIABLE FOR PHYSICS
+    // VARIABLES FOR COMPONENTS
     public Rigidbody2D myRigidbody;
-
-    // VARIABLE FOR ANIMATOR
     public Animator myAnimator;
 
-    // VARIABLE FOR OTHER SCRIPTS
+    // VARIABLES FOR OTHER SCRIPTS
     public VillainAi villainAi;
-    public EnemyAI enemyScript;
+    public MonsterAi enemyScript;
 
     // Start is called before the first frame update
     void Start()
@@ -58,8 +60,10 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         // CALL ANIMATOR COMPONENT FROM UNITY TO CODE
         myAnimator = GetComponentInChildren<Animator>();
-        enemyScript = GameObject.Find("Monster").GetComponent<EnemyAI>();
         // CALL ENEMY AI SCRIPT
+        enemyScript = GameObject.Find("Monster").GetComponent<MonsterAi>();
+        villainAi = GameObject.Find("EvilTeddy").GetComponent<VillainAi>();
+        
 
     }
 
@@ -70,32 +74,7 @@ public class PlayerMovement : MonoBehaviour
         // GET PLAYER TO PUNCH WITH ANIMATION 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            print("nappi pohjassa");
             StartCoroutine(Combo());
-        }
-
-        // PLAYER JUMP
-        if (Input.GetKeyDown(KeyCode.Space)) //TYÖSTÄ TÄMÄ KUNTOON, KESKEN
-        {
-            /*
-            myRigidbody.GetComponent<Rigidbody2D>().gravityScale = 30f;
-            myRigidbody.AddForce(Vector2.up * jumpSpeed);
-            GameObject platform = Instantiate(jumpPlatform, jumpPlatformSpawn.transform.position, jumpPlatformSpawn.transform.rotation);
-            Destroy(platform, 1f);
-
-            // PLAYER FEET COLLISION DETECTION
-            canJump = Physics2D.OverlapCircle(feet.position, radius, layerMask);
-
-            if (canJump == true)
-            {
-                storedY = transform.position.y;
-            }
-
-
-            //canJump = true;
-            //StartCoroutine(Jump());
-            */
-           
         }
 
     }
@@ -138,23 +117,18 @@ public class PlayerMovement : MonoBehaviour
     {
         //SET Y & X AXIS BOUNDARIES FOR MOVEMENT OF THE PLAYER
         transform.position = new Vector2(Mathf.Clamp(transform.position.x,minX,maxX), Mathf.Clamp(transform.position.y, minY, maxY));
-
     }
-
 
     // PLAYER HIT ACTIONS IF BUTTON IS PRESSED AND ENEMY IS HITTED
     public IEnumerator Combo()
     {
-        
         myAnimator.SetBool("Punch", true);
         canPunch = true;
         lastTime = Time.time;
         combo++;
-        //Debug.Log("Hit" + combo);
 
         while (true)
         {
-
             while ((Time.time - lastTime) <  maxTime && combo < maxCombo)
             {
 
@@ -197,39 +171,33 @@ public class PlayerMovement : MonoBehaviour
             canPunch3 = false;
             canKick = false;
             canKick2 = false;
-            
+            villainAi.getHittedCount = 0; // nollaa vain jos scenessä on teityn niminen vihu. korjaa myöhemmin toimivammaksi "EvilTeddy"
+            enemyScript.getHittedCount = 0; // sama homma ku ylempänä "monster"
+            villainAi.getHittedCount = 0;
+            enemyScript.getHittedCount = 0;
 
             if (!enemyScript == null)
             {
-                enemyScript.getHitted = false;
+                villainAi.getHittedCount = 0;
                 enemyScript.getHittedCount = 0;
+
             }
 
             combo = 0;
             
-            
             yield return new WaitForSeconds(cooldown - (Time.time - lastTime));
             
-
         }
     }
 
-    public IEnumerator Jump()
+    public void PlayerHealth(int damage)
     {
-
-
-        yield return new WaitForSeconds(1f);
-        canJump = false;
-    }
-
-    public void PlayerHealth()
-    {
-        playerHealth -= 1;
+        playerHealth -= damage;
 
         if (playerHealth <= 0)
         {
             //animaatio tähän mieluummin jatkossa
-            Destroy(gameObject);
+            //GetComponent<PlayerMovement>().enabled = false;
         }
     }
 }

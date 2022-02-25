@@ -417,8 +417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Muistelen ku lapsena oli semmosta ja t\xE4mm\xF6st\xE4 ni homma hoituu
-    nyt.."
+  m_text: Childhood was hard., never felt safe..
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6d4ec165d806361418f30b07e2ca13bf, type: 2}
   m_sharedMaterial: {fileID: 1673832361968750507, guid: 6d4ec165d806361418f30b07e2ca13bf, type: 2}
@@ -553,7 +552,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Homma alakkaa.. muistoja k\xE4sitell\xE4\xE4n ja kohta tapellaan..."
+  m_text: maybe I feel a bit safer if I face my demons from my childhood..
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6d4ec165d806361418f30b07e2ca13bf, type: 2}
   m_sharedMaterial: {fileID: 1673832361968750507, guid: 6d4ec165d806361418f30b07e2ca13bf, type: 2}

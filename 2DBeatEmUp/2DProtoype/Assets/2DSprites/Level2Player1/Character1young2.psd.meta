@@ -1,0 +1,930 @@
+fileFormatVersion: 2
+guid: 980c30b2fa8de5f489972826ad11ae0c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1908878058562655558
+    second: Head
+  - first:
+      213: 8664860125531812632
+    second: Neck
+  - first:
+      213: 3480885305900462624
+    second: Torso
+  - first:
+      213: 5893041894670858291
+    second: FrontHead
+  - first:
+      213: 5709539475709960749
+    second: FrontTorso
+  - first:
+      213: 3730666837337981893
+    second: UpperArmForward
+  - first:
+      213: 4344769581249895902
+    second: LowerArm
+  - first:
+      213: -1176829894246868818
+    second: LowerArmForward
+  - first:
+      213: 3309957597241546869
+    second: FrontThigh2
+  - first:
+      213: -6251173161126725116
+    second: Character1young2_9
+  - first:
+      213: -4032904730012396694
+    second: BackHead
+  - first:
+      213: 1003910956448420565
+    second: Fist
+  - first:
+      213: -420039629738391439
+    second: SideFist
+  - first:
+      213: 5462754359316431916
+    second: ShoeBottom
+  - first:
+      213: -6113045903033619065
+    second: FrontShinForward
+  - first:
+      213: -2441591195302031584
+    second: FrontShin
+  - first:
+      213: -8057191736067391038
+    second: Shin
+  - first:
+      213: 7849789691733660650
+    second: Character1young2_17
+  - first:
+      213: -255472755833943259
+    second: BackTorso
+  - first:
+      213: 8156802084225502654
+    second: Thigh
+  - first:
+      213: -274881171736701965
+    second: Thigh2
+  - first:
+      213: -5000281080202857226
+    second: BackShin
+  - first:
+      213: 6850769457332747567
+    second: FrontShinBackward
+  - first:
+      213: -6439336169538391854
+    second: FrontThigh2
+  - first:
+      213: 6677651804733770418
+    second: Shoe
+  - first:
+      213: -7518408595002820381
+    second: ShoeTop
+  - first:
+      213: -4595777171086338758
+    second: FrontFist
+  - first:
+      213: 7631517380250920225
+    second: BackThigh
+  - first:
+      213: -6948858299881104192
+    second: BackThigh2
+  - first:
+      213: 5306074761367359257
+    second: BakcShoe
+  - first:
+      213: -4177118610273996435
+    second: BackShinFrontward
+  - first:
+      213: -535131236112468643
+    second: FrontThighForward
+  - first:
+      213: 5750616005324128182
+    second: Sidefist2
+  - first:
+      213: 4034873040393204040
+    second: FrontShoe
+  - first:
+      213: -8120755548816260817
+    second: Fist2
+  - first:
+      213: 7089686410717200060
+    second: UpperArm
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Head
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2982
+        width: 694
+        height: 855
+      alignment: 9
+      pivot: {x: 0.5847606, y: 0.23181967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abae5d7f48d4285e0800000000000000
+      internalID: -1908878058562655558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neck
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 3390
+        width: 356
+        height: 445
+      alignment: 9
+      pivot: {x: 0.64982206, y: 0.2821365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81335c23064cf3870800000000000000
+      internalID: 8664860125531812632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torso
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 2745
+        width: 674
+        height: 1095
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022f2124eb69e4030800000000000000
+      internalID: 3480885305900462624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontHead
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 3012
+        width: 647
+        height: 823
+      alignment: 9
+      pivot: {x: 0.672464, y: 0.22883482}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 338f95a616a48c150800000000000000
+      internalID: 5893041894670858291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontTorso
+      rect:
+        serializedVersion: 2
+        x: 2492
+        y: 2737
+        width: 788
+        height: 1103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2223c817eb5c3f40800000000000000
+      internalID: 5709539475709960749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpperArmForward
+      rect:
+        serializedVersion: 2
+        x: 3285
+        y: 3467
+        width: 497
+        height: 373
+      alignment: 9
+      pivot: {x: 0.6671651, y: 0.5175238}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c34cdef8bdf5c330800000000000000
+      internalID: 3730666837337981893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowerArm
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 2044
+        width: 330
+        height: 508
+      alignment: 9
+      pivot: {x: 0.46317792, y: 0.8484587}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd92512ae8bb4c30800000000000000
+      internalID: 4344769581249895902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowerArmForward
+      rect:
+        serializedVersion: 2
+        x: 3310
+        y: 3070
+        width: 464
+        height: 395
+      alignment: 9
+      pivot: {x: 0.8401157, y: 0.5437105}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8da50427f0bafe0800000000000000
+      internalID: -1176829894246868818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontThigh
+      rect:
+        serializedVersion: 2
+        x: 3327
+        y: 2120
+        width: 501
+        height: 937
+      alignment: 9
+      pivot: {x: 0.52673364, y: 0.7696365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5781035d5e45fed20800000000000000
+      internalID: 3309957597241546869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackHead
+      rect:
+        serializedVersion: 2
+        x: 1778
+        y: 2187
+        width: 644
+        height: 825
+      alignment: 9
+      pivot: {x: 0.58081585, y: 0.19102836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a635e9ae38e3808c0800000000000000
+      internalID: -4032904730012396694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 2517
+        width: 376
+        height: 456
+      alignment: 9
+      pivot: {x: 0.5347659, y: 0.78115845}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d21b3922bb9eed00800000000000000
+      internalID: 1003910956448420565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SideFist
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 2069
+        width: 319
+        height: 504
+      alignment: 9
+      pivot: {x: 0.41752774, y: 0.8106199}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1784bd5ae28bb2af0800000000000000
+      internalID: -420039629738391439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShoeBottom
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 2028
+        width: 400
+        height: 710
+      alignment: 9
+      pivot: {x: 0.18616882, y: 0.7488381}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24c54a952a9fcb40800000000000000
+      internalID: 5462754359316431916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontShinForward
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 1720
+        width: 462
+        height: 1009
+      alignment: 9
+      pivot: {x: 0.44341168, y: 0.88218147}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d2606b3291a2ba0800000000000000
+      internalID: -6113045903033619065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontShin
+      rect:
+        serializedVersion: 2
+        x: 2903
+        y: 1745
+        width: 381
+        height: 977
+      alignment: 9
+      pivot: {x: 0.48284608, y: 0.9013892}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f0d457eb9bd1ed0800000000000000
+      internalID: -2441591195302031584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shin
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1075
+        width: 432
+        height: 891
+      alignment: 9
+      pivot: {x: 0.5151298, y: 0.8500268}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c18d7c0eca1f2090800000000000000
+      internalID: -8057191736067391038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTorso
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 993
+        width: 859
+        height: 1129
+      alignment: 9
+      pivot: {x: 0.68943805, y: 0.5658898}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52b4ab2d1e0647cf0800000000000000
+      internalID: -255472755833943259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thigh
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 873
+        width: 524
+        height: 1172
+      alignment: 9
+      pivot: {x: 0.52485186, y: 0.8137792}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd4d6d6748c23170800000000000000
+      internalID: 8156802084225502654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thigh2
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 870
+        width: 525
+        height: 1141
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8093146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3d03bd70d6f2cf0800000000000000
+      internalID: -274881171736701965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackShin
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 796
+        width: 409
+        height: 920
+      alignment: 9
+      pivot: {x: 0.40527698, y: 0.8840494}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f4f665a9de6b9ab0800000000000000
+      internalID: -5000281080202857226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontShinBackward
+      rect:
+        serializedVersion: 2
+        x: 2907
+        y: 982
+        width: 420
+        height: 740
+      alignment: 9
+      pivot: {x: 0.43639097, y: 0.77529144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2df9664682d21f50800000000000000
+      internalID: 6850769457332747567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontThigh2
+      rect:
+        serializedVersion: 2
+        x: 3331
+        y: 1173
+        width: 501
+        height: 939
+      alignment: 9
+      pivot: {x: 0.52609235, y: 0.8340789}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d0f651fed1e2a6a0800000000000000
+      internalID: -6439336169538391854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shoe
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 431
+        width: 740
+        height: 432
+      alignment: 9
+      pivot: {x: 0.7450333, y: 0.7367723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba07eacfe8cbac50800000000000000
+      internalID: 6677651804733770418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShoeTop
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 78
+        width: 348
+        height: 652
+      alignment: 9
+      pivot: {x: 0.3263171, y: 0.7781052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e8fc92973f39a790800000000000000
+      internalID: -7518408595002820381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontFist
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 526
+        width: 477
+        height: 411
+      alignment: 9
+      pivot: {x: 0.772918, y: 0.4886874}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a359c8a23058830c0800000000000000
+      internalID: -4595777171086338758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackThigh
+      rect:
+        serializedVersion: 2
+        x: 2855
+        y: 0
+        width: 497
+        height: 970
+      alignment: 9
+      pivot: {x: 0.4868498, y: 0.8514676}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1256313bf9898e960800000000000000
+      internalID: 7631517380250920225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackThigh2
+      rect:
+        serializedVersion: 2
+        x: 3353
+        y: 5
+        width: 482
+        height: 967
+      alignment: 9
+      pivot: {x: 0.47293678, y: 0.8719083}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ccdf016132b09f90800000000000000
+      internalID: -6948858299881104192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BakcShoe
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 16
+        width: 557
+        height: 416
+      alignment: 9
+      pivot: {x: 0.6836368, y: 0.7347027}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f87f6f1e6f2a940800000000000000
+      internalID: 5306074761367359257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackShinFrontward
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 16
+        width: 795
+        height: 406
+      alignment: 9
+      pivot: {x: 0.13826214, y: 0.5000002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d61f1f951c4e706c0800000000000000
+      internalID: -4177118610273996435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontThighForward
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 10
+        width: 925
+        height: 514
+      alignment: 9
+      pivot: {x: 0.72618455, y: 0.51809067}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55fc4bd9f4d298f0800000000000000
+      internalID: -535131236112468643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sidefist2
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 2029
+        width: 342
+        height: 485
+      alignment: 9
+      pivot: {x: 0.42355633, y: 0.8234289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf350de9ca4ecf40800000000000000
+      internalID: 5750616005324128182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontShoe
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 430
+        width: 585
+        height: 427
+      alignment: 9
+      pivot: {x: 0.67484725, y: 0.78309834}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841ff6e07afbef730800000000000000
+      internalID: 4034873040393204040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist2
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 2586
+        width: 345
+        height: 389
+      alignment: 9
+      pivot: {x: 0.56898135, y: 0.82458466}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21460d9ad74d4f80800000000000000
+      internalID: -8120755548816260817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpperArm
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 2554
+        width: 355
+        height: 835
+      alignment: 9
+      pivot: {x: 0.48164126, y: 0.8514856}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe76bf4a30a36260800000000000000
+      internalID: 7089686410717200060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 1
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

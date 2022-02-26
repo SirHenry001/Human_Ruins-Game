@@ -4,34 +4,38 @@ using UnityEngine;
 
 public class MonsterAi : MonoBehaviour
 {
-
+    // ENEMY TARGET TO ALL FUNCTIONS
     public Transform player;
 
+    // ENEMY HEALTH
     public int enemyHealth = 10;
+
+    // ENEMY COUNTER WHEN GOT HIT
     public int getHittedCount = 5;
 
+    // VARIABLES FOR DISTANCES
     public float aggroRange;
     public float faceToFaceRange;
 
+    //VARIABLES FOR SPEED
     public float moveSpeed;
     public float fleeSpeed;
+
+    // VARIABLES FOR TIMERS
     public float timer;
-    public float knockTimer;
 
-    public bool isActive = true; // EN SAA VIEL TAKAISIN PÄÄLLE KUN POISTAN SEN KÄYTÖSTÄ HIT JA KNOCK KOHDASSA. FUNTSI
-    //tee vielä min/ max y ja x rajaukset liikkeelle
+    // BOOLEANS
     public bool alertOn;
-    public bool isFleeing;
     public bool facingLeft;
-    public bool attackingLeft;
 
+    //COMPONENTS
     public Rigidbody2D monsterRigidbody;
     public Animator myAnimator;
-
 
     // Start is called before the first frame update
     void Start()
     {
+        // GET COMPONENTS WHICH ARE NEEDED
         monsterRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
     }
@@ -44,91 +48,45 @@ public class MonsterAi : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // DISTANCE TO PLAYER
         float distToPlayer = Vector2.Distance(transform.position, player.position);
 
-        /*
-        if (distToPlayer > aggroRange && isActive)
+        // IDLE STATE
+        if (distToPlayer > aggroRange)
         {
-            Idle();
+            //Idle();
         }
-        */
 
-        if (distToPlayer < aggroRange && isActive)
+        //START CHASING PLAYER
+        if (distToPlayer < aggroRange)
         {
-            //START CHASING PLAYER
             ChasePlayer();
         }
 
-        if (distToPlayer < faceToFaceRange && isActive)
+        //ATTACK TO PLAYER
+        if (distToPlayer < faceToFaceRange)
         {
-            //ATTACK TO PLAYER
             Attack();
         }
 
-        if (isActive == false)
+        //FLEE FROM PLAYER
+        if (distToPlayer < faceToFaceRange)
         {
-            //ATTACK TO PLAYER
-            StartCoroutine(Flee());
-        }
-
-        if (distToPlayer > faceToFaceRange && isActive)
-        {
-            //ENEMY STOPS ATTACKING WHEN GET FURTHER FROM FRONT OF PLAYER
-            myAnimator.SetBool("Attack", false);
-        }
-
-        float x = player.position.x - transform.position.x;
-
-        // IF PLAYER IS MOVING RIGHT CHARACTER ALSO FLIPS FACING RIGHT IN UNITY
-        if (x < 0.01f && facingLeft == false)
-        {
-            Flip();
-            facingLeft = !facingLeft;
-        }
-        // IF PLAYER IS MOVING LEFT CHARACTER ALSO FLIPS FACING LEFT IN UNITY
-        if (x > -0.01f && facingLeft == true)
-        {
-            Flip();
-            facingLeft = !facingLeft;
-        }
-
-        if (isFleeing == true)
-        {
-            if (attackingLeft == true)
-            {
-                monsterRigidbody.MovePosition((Vector2)transform.position - (Vector2.right * -fleeSpeed * Time.deltaTime));
-            }
-
-            else if (attackingLeft == false)
-            {
-                monsterRigidbody.MovePosition((Vector2)transform.position - (Vector2.right * fleeSpeed * Time.deltaTime));
-            }
+            Flee();
         }
 
     }
 
     public void ChasePlayer()
     {
-        myAnimator.SetBool("MonsterWalk", true);
 
         // ENEMY IS ON THE LEFT SIDE, GO RIGHT
         if (transform.position.x < player.position.x)
         {
             monsterRigidbody.velocity = new Vector2(moveSpeed, monsterRigidbody.velocity.y);
             transform.localScale = new Vector2(-1, 1);
-
-            if (facingLeft)
-            {
-                attackingLeft = true;
-            }
-
-            else if (!facingLeft)
-            {
-                attackingLeft = false;
-            }
-
+            facingLeft = false;
             CompareY();
-
         }
 
         // ENEMY IS ON THE RIGHT SIDE, GO LEFT
@@ -136,10 +94,9 @@ public class MonsterAi : MonoBehaviour
         {
             monsterRigidbody.velocity = new Vector2(-moveSpeed, monsterRigidbody.velocity.y);
             transform.localScale = new Vector2(1, 1);
-
+            facingLeft = true;
             CompareY();
         }
-
     }
 
     void CompareY()
@@ -155,34 +112,23 @@ public class MonsterAi : MonoBehaviour
         }
     }
 
-    public void Attack()
+    public void StopChasing()
     {
-        alertOn = false;
-        monsterRigidbody.velocity = Vector2.zero;
-        myAnimator.SetBool("MonsterWalk", false);
-        myAnimator.SetTrigger("Attack");
 
     }
 
-    public IEnumerator Flee()
+    public void Attack()
     {
-        isFleeing = true;
-        alertOn = false;
-        myAnimator.SetTrigger("Flee");
-        myAnimator.SetBool("MonsterHit", false);
-        myAnimator.SetBool("MonsterWalk", false);
+        
+    }
 
-        yield return new WaitForSeconds(2f);
+    public void Flee()
+    {
 
-        myAnimator.SetBool("MonsterFlee", false);
-        alertOn = false;
-        isFleeing = false;
-        isActive = true;
     }
 
     public void GetHitted()
     {
-        myAnimator.SetTrigger("GetHitted");
 
     }
 

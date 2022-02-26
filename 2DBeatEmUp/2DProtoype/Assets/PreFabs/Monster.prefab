@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 1565080259234850762}
   - component: {fileID: 7945729965986721463}
   - component: {fileID: 7945729965986721461}
-  - component: {fileID: 7945729965986721462}
-  - component: {fileID: 6358806113820215159}
+  - component: {fileID: 3376447407356783954}
   m_Layer: 10
   m_Name: Monster
   m_TagString: Enemy
@@ -72,38 +71,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.15846789, y: -0.3004365}
   m_Size: {x: 3.7068431, y: 4.8341365}
   m_Direction: 0
---- !u!114 &7945729965986721462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565080259234850763}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19bbcc8baa73708479a07a242910e75a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 5
-  speed: 4
-  fleeSpeed: 3
-  aggroRange: 15
-  faceToFaceRange: 6
-  minY: -3
-  maxY: 0.7
-  minX: -0.3
-  maxX: 3
-  movement: {x: 0, y: 0}
-  alertOn: 0
-  isFleeing: 0
-  facingLeft: 1
-  attackingLeft: 1
-  myRigidbody: {fileID: 0}
-  myAnimator: {fileID: 0}
-  target: {fileID: 0}
-  fightCollisionEnemy: {fileID: 0}
-  getHittedCount: 0
---- !u!114 &6358806113820215159
+--- !u!114 &3376447407356783954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,12 +91,8 @@ MonoBehaviour:
   moveSpeed: 4
   fleeSpeed: 4
   timer: 0
-  knockTimer: 0
-  isActive: 1
   alertOn: 0
-  isFleeing: 0
   facingLeft: 1
-  attackingLeft: 1
   monsterRigidbody: {fileID: 0}
   myAnimator: {fileID: 0}
 --- !u!1 &1565080259270194812

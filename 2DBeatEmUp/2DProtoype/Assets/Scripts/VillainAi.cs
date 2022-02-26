@@ -54,7 +54,7 @@ public class VillainAi : MonoBehaviour
             ChasePlayer();
         }
 
-        if (distToPlayer < faceToFaceRange && isActive)
+        if (distToPlayer < faceToFaceRange)
         {
             //ATTACK TO PLAYER
             Attack();
@@ -70,6 +70,7 @@ public class VillainAi : MonoBehaviour
 
     public void Activation()
     {
+        print("aktivoidu");
         isActive = true;
     }
 
@@ -129,9 +130,17 @@ public class VillainAi : MonoBehaviour
     }
     void Attack()
     {
+
         myAnimator.SetBool("Attack", true);
         villainRigidbody.velocity = Vector2.zero;
-        //attackTimer += Time.deltaTime;
+        attackTimer += Time.deltaTime;
+
+        if(attackTimer > 1 && attackTimer < 2)
+        {
+            myAnimator.SetBool("Attack", false);
+            attackTimer = 0;
+        }
+
     }
 
     public void Gethit()
@@ -140,7 +149,7 @@ public class VillainAi : MonoBehaviour
         myAnimator.SetTrigger("GetHitted");
 
         /*
-        if(getHittedCount <= 5)
+        if(5 < getHittedCount)
         {
             Knocked();
         }

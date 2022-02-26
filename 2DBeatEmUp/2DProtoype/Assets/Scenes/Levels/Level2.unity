@@ -2292,6 +2292,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1618855250985405136, guid: b910a4b7495476c478b79a42981b13f2, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618855250985405136, guid: b910a4b7495476c478b79a42981b13f2, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1445258651
+      objectReference: {fileID: 0}
     - target: {fileID: 2532630610450531228, guid: b910a4b7495476c478b79a42981b13f2, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -3269,12 +3277,8 @@ MonoBehaviour:
   moveSpeed: 4
   fleeSpeed: 4
   timer: 0
-  knockTimer: 0
-  isActive: 1
   alertOn: 0
-  isFleeing: 0
   facingLeft: 1
-  attackingLeft: 1
   monsterRigidbody: {fileID: 0}
   myAnimator: {fileID: 0}
 --- !u!1 &962002543

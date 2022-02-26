@@ -1200,7 +1200,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2053634074}
         m_TargetAssemblyTypeName: GameMenuScreen, Assembly-CSharp
-        m_MethodName: RetryLevel1
+        m_MethodName: RetryLevel4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

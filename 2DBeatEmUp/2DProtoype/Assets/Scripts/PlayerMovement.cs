@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     // VARIABLE FOR HEALTH
     public int playerHealth = 100;
-    public int playerSanity = 100;
+    public int playerSanity = 1000;
+
+    //VARIABLE FOR TIMERS
+    public float stunnedTimer;
 
     // VARIABLE FOR HITCOMBOS
     public int maxCombo = 5;
@@ -21,24 +25,13 @@ public class PlayerMovement : MonoBehaviour
     public float x;
     public float y;
 
-    /*
-    // VARIABLE FOR JUMP DETECTION
-    public float jumpSpeed = 600f;
-    public bool canJump;
-    public Transform feet;
-    public float radius = 0.1f;
-    public LayerMask layerMask;
-    public float storedY = 0;
-    public GameObject jumpPlatform;
-    public GameObject jumpPlatformSpawn;
-    */
-
     // PLAYER BOUNDARIES
     public float minY = -0.3f, maxY = 3f;
     public float minX = -25f, maxX = 55f;
 
     // BOOLEAN ON/OFF FUNCTIONS
     public bool facingRight = true;
+    public bool getStunned = false;
     public bool canPunch = false;
     public bool canPunch2 = false;
     public bool canPunch3 = false;
@@ -48,14 +41,21 @@ public class PlayerMovement : MonoBehaviour
     // VARIABLES FOR COMPONENTS
     public Rigidbody2D myRigidbody;
     public Animator myAnimator;
+    public Image healthImage;
+    public Image sanityImage;
 
     // VARIABLES FOR OTHER SCRIPTS
     public VillainAi villainAi;
     public MonsterAi enemyScript;
+    public GameManager gameManager;
+    public GameMenuScreen gameMenuScreen;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        
+
         // CALL PHYSICS COMPONENT FROM UNITY TO CODE
         myRigidbody = GetComponent<Rigidbody2D>();
         // CALL ANIMATOR COMPONENT FROM UNITY TO CODE
@@ -63,8 +63,9 @@ public class PlayerMovement : MonoBehaviour
         // CALL ENEMY AI SCRIPT
         enemyScript = GameObject.Find("Monster").GetComponent<MonsterAi>();
         villainAi = GameObject.Find("EvilTeddy").GetComponent<VillainAi>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
         
-
     }
 
     // Update is called once per frame
@@ -81,16 +82,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        PlayerSanity(5);
+
         // GOES FUNCTION AND SET BOUNDARIES FOR Y AXIS FOR MOVEMENT OF THE PLAYER
         PlayerBoundaries();
 
         // PLAYER MOVEMENT BASED ON RIGIDBODY PHYSICS IN UNITY
-        x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Vertical");
-        myRigidbody.velocity = new Vector2(x, y).normalized * speed;
+
+        if (getStunned == false)
+        {
+            x = Input.GetAxis("Horizontal");
+            y = Input.GetAxis("Vertical");
+            myRigidbody.velocity = new Vector2(x, y).normalized * speed;
+
+            myAnimator.SetFloat("Horizontal", x);
+            myAnimator.SetFloat("Vertical", y);
+        }
+
+        if(getStunned == true)
+        {
+            myRigidbody.velocity = Vector2.zero;
+
+            myAnimator.SetFloat("Horizontal", 0);
+            myAnimator.SetFloat("Vertical", 0);
+        }
 
         // IF PLAYER IS MOVING RIGHT CHARACTER ALSO FLIPS FACING RIGHT IN UNITY
-        if(x > 0.01f && facingRight == false)
+        if (x > 0.01f && facingRight == false)
         {
             Flip();
             facingRight = !facingRight;
@@ -102,8 +121,9 @@ public class PlayerMovement : MonoBehaviour
             facingRight = !facingRight;
         }
 
-        myAnimator.SetFloat("Horizontal", x);
-        myAnimator.SetFloat("Vertical", y);
+
+
+        
     }
 
     void Flip()
@@ -190,14 +210,55 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void GetHit()
+    {
+        
+        getStunned = true;
+        myAnimator.SetTrigger("GetHit");
+        StartCoroutine(Activation());
+        
+    }
+
+    public IEnumerator Activation()
+    {
+        yield return new WaitForSeconds(0.75f);
+        getStunned = false;
+    }
+
     public void PlayerHealth(int damage)
     {
         playerHealth -= damage;
+        healthImage.fillAmount = playerHealth * 0.01f;
 
         if (playerHealth <= 0)
         {
-            //animaatio tähän mieluummin jatkossa
-            //GetComponent<PlayerMovement>().enabled = false;
+            Time.timeScale = 0.2f;
+            myAnimator.SetTrigger("Dead");
+            gameMenuScreen.GetComponent<GameMenuScreen>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<PlayerMovement>().enabled = false;
+            StartCoroutine(gameManager.PLayerDeath());
+
         }
+    }
+    
+    public void PlayerSanity(int mental)
+    {
+
+        playerSanity -= mental;
+        sanityImage.fillAmount = playerSanity * 0.0001f;
+
+        if(playerSanity <= 0)
+        {
+            playerSanity = 0;
+        }
+
+        if (playerSanity >= 10000)
+        {
+            playerSanity = 10000;
+        }
+
+        //tähän että sanity kuluu koko ajan
+        //osumat viholliseen nostattaa sitä ja kuolemat vähän enemmän
     }
 }

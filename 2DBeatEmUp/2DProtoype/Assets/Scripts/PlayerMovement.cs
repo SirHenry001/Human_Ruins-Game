@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
 
-        PlayerSanity(5);
+        SanityLoss(4);
 
         // GOES FUNCTION AND SET BOUNDARIES FOR Y AXIS FOR MOVEMENT OF THE PLAYER
         PlayerBoundaries();
@@ -242,10 +242,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
-    public void PlayerSanity(int mental)
+    public void SanityLoss(int loss)
     {
 
-        playerSanity -= mental;
+        playerSanity -= loss;
         sanityImage.fillAmount = playerSanity * 0.0001f;
 
         if(playerSanity <= 0)
@@ -260,5 +260,11 @@ public class PlayerMovement : MonoBehaviour
 
         //tähän että sanity kuluu koko ajan
         //osumat viholliseen nostattaa sitä ja kuolemat vähän enemmän
+    }
+
+    public void SanityGain(int gain)
+    {
+        playerSanity += gain;
+        sanityImage.fillAmount = playerSanity * 0.0001f;
     }
 }

@@ -35,7 +35,7 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
 
     // ACCESS FOR OTHER SCRIPTS
-    public FightCollisionEnemy fightCollisionEnemy;
+    //public FightCollisionEnemy fightCollisionEnemy;
 
     // TYÖN ALLA
     //public bool canHit = false;

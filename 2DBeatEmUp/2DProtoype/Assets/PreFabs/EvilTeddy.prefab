@@ -478,7 +478,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
-  villainAi: {fileID: 0}
+  monsterAi: {fileID: 0}
+  dealDamage: 0
+  scareSanity: 0
 --- !u!1 &2557365747316507670
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +820,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3377819260424664550}
   - component: {fileID: 4253741878033469910}
-  - component: {fileID: 7619586443794463229}
   - component: {fileID: 6285537712130325316}
   m_Layer: 0
   m_Name: Paw
@@ -892,20 +893,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7619586443794463229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6322503065731621278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8ec6d9e9b4df864b93d2fa586416731, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovement: {fileID: 0}
-  villainAi: {fileID: 0}
 --- !u!58 &6285537712130325316
 CircleCollider2D:
   m_ObjectHideFlags: 0

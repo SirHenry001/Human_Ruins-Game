@@ -12,6 +12,10 @@ TagManager:
   - Boss4
   - Villain
   - CameraOne
+  - BigEnemy
+  - CameraTwo
+  - CameraThree
+  - FollowCam
   layers:
   - Default
   - TransparentFX

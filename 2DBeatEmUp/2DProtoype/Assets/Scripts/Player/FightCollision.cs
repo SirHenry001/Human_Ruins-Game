@@ -8,6 +8,7 @@ public class FightCollision : MonoBehaviour
 
     public MonsterAi enemyScript;
     public VillainAi villainAi;
+    public BigEnemyAi bigMonsterAi;
     public PlayerMovement playerMovement;
     public FirstBossScript firstBossScript;
     public SecondBossScript secondBossScript;
@@ -74,6 +75,23 @@ public class FightCollision : MonoBehaviour
 
             //ACCESS TO VILLAIN HEALTH LOSS FUNCTION
             villainAi.VillainHealth(dealDamageVillain);
+        }
+
+        // BIGENEMY AI RELATED FUNCTION
+        if (collision.gameObject.tag == "BigEnemy")
+        {
+            //CONNECT TO BIGENEMY AI SCRIPT
+            bigMonsterAi = collision.gameObject.GetComponent<BigEnemyAi>();
+            playerMovement.bigMonsterAi = collision.gameObject.GetComponent<BigEnemyAi>();
+
+            //IF HITTED TO MONSTER ENEMY, SANITY GAIN 100 POINTS
+            playerMovement.SanityGain(gainSanityBig);
+
+            //ACCESS TO VILLAIN GETHIT FUNCTIONS
+            bigMonsterAi.GetHit();
+
+            //ACCESS TO VILLAIN HEALTH LOSS FUNCTION
+            bigMonsterAi.BigMonsterHealth(1);
         }
 
         // BOSS LEVEL 1 RELATED FUNCTIONS

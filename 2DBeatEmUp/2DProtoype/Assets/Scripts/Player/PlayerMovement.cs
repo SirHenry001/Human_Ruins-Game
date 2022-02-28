@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     // VARIABLES FOR OTHER SCRIPTS
     public VillainAi villainAi;
     public MonsterAi enemyScript;
+    public BigEnemyAi bigMonsterAi;
     public GameManager gameManager;
     public GameMenuScreen gameMenuScreen;
 
@@ -63,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         // CALL ENEMY AI SCRIPT
         enemyScript = GameObject.Find("Monster").GetComponent<MonsterAi>();
         villainAi = GameObject.Find("EvilTeddy").GetComponent<VillainAi>();
+        bigMonsterAi = GameObject.Find("BigEnemy").GetComponent<BigEnemyAi>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
         

@@ -129,7 +129,7 @@ public class MonsterAi : MonoBehaviour
         myAnimator.SetBool("MonsterHit", false);
         monsterRigidbody.velocity = Vector2.zero;
 
-        if(attackTimer > 1) // WHEN ATTACKTIMER REACHES TWO SECONDS, ENEMY GOES TO ATTTACK MODE
+        if(attackTimer > 1) // WHEN ATTACKTIMER REACHES ONE SECOND, ENEMY GOES TO ATTTACK MODE
         {
             Attack();
         }

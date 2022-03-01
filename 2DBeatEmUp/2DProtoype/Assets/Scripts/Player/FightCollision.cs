@@ -14,6 +14,7 @@ public class FightCollision : MonoBehaviour
     public SecondBossScript secondBossScript;
     public ThirdBossScript thirdBossScript;
     public FinalBossScript finalBossScript;
+    public PostProcessScript postProcess;
 
     // HOW MUCK DAMAGE DEALT AND SANITY GAIN TO/FROIM ENEMIES
     public int dealDamageMonster;
@@ -33,6 +34,7 @@ public class FightCollision : MonoBehaviour
     void Start()
     {
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        postProcess = GameObject.Find("PostProcess").GetComponent<PostProcessScript>();
         //firstBossScript = GameObject.Find("Level1Boss").GetComponent<FirstBossScript>();
         //thirdBossScript = GameObject.Find("Level33Boss").GetComponent<FirstBossScript>();
         //secondBossScript = GameObject.Find("Level2Boss").GetComponent<SecondBossScript>();
@@ -55,6 +57,14 @@ public class FightCollision : MonoBehaviour
             enemyScript.GetHitted();
             //enemyScript.getHitted = true;
             enemyScript.MonsterHealth(dealDamageMonster);
+
+            // CONNECT TO POSTPROCESS SCRIPT
+
+            if (playerMovement.playerSanity > 7000)
+            {
+                postProcess.vignette.intensity.value -= 1 * 0.01f;
+            }
+            
 
         }
 

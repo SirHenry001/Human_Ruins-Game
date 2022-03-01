@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public PlayerMovement playerMovement;
     public GameMenuScreen gameMenuScreen;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
         
     }
 
+    // PLAYER DEAT ACTIVATION
     public IEnumerator PLayerDeath()
     {
         print("alku");

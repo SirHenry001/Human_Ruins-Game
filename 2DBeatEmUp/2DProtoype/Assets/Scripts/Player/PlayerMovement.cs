@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public int playerHealth = 100;
     public int playerSanity = 1000;
 
+
+
     //VARIABLE FOR TIMERS
     public float stunnedTimer;
 
@@ -19,6 +21,15 @@ public class PlayerMovement : MonoBehaviour
     public float cooldown = 0.5f;
     public float maxTime = 0.8f;
     public float lastTime;
+
+    // VARIABLES FOR EFFECTS & SPAWNPOINTS
+    public GameObject hitEffect1;
+    public GameObject hitEffect2;
+    public GameObject hitEffect3;
+
+    public GameObject hit1Spawn;
+    public GameObject hit2Spawn;
+    public GameObject hit3Spawn;
 
     // VARIABLES FOR MOVEMENT
     public float speed = 5f;
@@ -67,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         bigMonsterAi = GameObject.Find("BigEnemy").GetComponent<BigEnemyAi>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
+
         
     }
 
@@ -97,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
             x = Input.GetAxis("Horizontal");
             y = Input.GetAxis("Vertical");
             myRigidbody.velocity = new Vector2(x, y).normalized * speed;
+
+            
 
             myAnimator.SetFloat("Horizontal", x);
             myAnimator.SetFloat("Vertical", y);
@@ -144,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
     // PLAYER HIT ACTIONS IF BUTTON IS PRESSED AND ENEMY IS HITTED
     public IEnumerator Combo()
     {
+        //myAnimator.SetTrigger("Hit1");
         myAnimator.SetBool("Punch", true);
         canPunch = true;
         lastTime = Time.time;
@@ -157,19 +172,26 @@ public class PlayerMovement : MonoBehaviour
                 if(combo == 2)
                 {
                     canPunch2 = true;
+                    //myAnimator.SetTrigger("Hit2");
+                    //myAnimator.SetBool("Punch", false);
                     myAnimator.SetBool("Punch2", true);
+                    myAnimator.SetBool("Punch", false);
                 }
 
                 if(combo == 3)
                 {
                     canPunch3 = true;
                     myAnimator.SetBool("Punch3", true);
+                
+                    myAnimator.SetBool("Punch", false);
                 }
 
                 if(combo == 4)
                 {
                     canKick = true;
                     myAnimator.SetBool("Kick", true);
+                    
+                    myAnimator.SetBool("Punch", false);
 
                 }
 
@@ -178,11 +200,14 @@ public class PlayerMovement : MonoBehaviour
 
                     canKick2 = true;
                     myAnimator.SetBool("Kick2", true);
+                    
+                    myAnimator.SetBool("Punch", false);
                 }
 
                 yield return null;
             }
 
+            //myAnimator.SetTrigger("Reset");
             myAnimator.SetBool("Punch", false);
             myAnimator.SetBool("Punch2", false);
             myAnimator.SetBool("Punch3", false);
@@ -195,15 +220,15 @@ public class PlayerMovement : MonoBehaviour
             canKick2 = false;
             villainAi.getHittedCount = 0; // nollaa vain jos scenessä on teityn niminen vihu. korjaa myöhemmin toimivammaksi "EvilTeddy"
             enemyScript.getHittedCount = 0; // sama homma ku ylempänä "monster"
-            villainAi.getHittedCount = 0;
-            enemyScript.getHittedCount = 0;
 
+            /*
             if (!enemyScript == null)
             {
                 villainAi.getHittedCount = 0;
                 enemyScript.getHittedCount = 0;
 
             }
+            */
 
             combo = 0;
             

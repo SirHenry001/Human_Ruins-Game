@@ -20,17 +20,20 @@ public class VillainAi : MonoBehaviour
     public float hittedTimer;
     public float knockTimer;
 
-    public bool isActive = true; // EN SAA VIEL TAKAISIN PÄÄLLE KUN POISTAN SEN KÄYTÖSTÄ HIT JA KNOCK KOHDASSA. FUNTSI
-    //tee vielä min/ max y ja x rajaukset liikkeelle
+    public bool isActive = true;
 
     public Rigidbody2D villainRigidbody;
     public Animator myAnimator;
 
+    public EnemySpawnerScript enemySpawner;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player").transform;
         villainRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
+        enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
     }
 
     // Update is called once per frame
@@ -84,6 +87,19 @@ public class VillainAi : MonoBehaviour
         {
             stanceSpeed = -stanceSpeed;
             timer = 0;
+        }
+
+        // ENEMY IS ON THE LEFT SIDE, TURN RIGHT
+        if (transform.position.x < player.position.x)
+        {
+            transform.localScale = new Vector2(-1, 1);
+
+        }
+
+        // ENEMY IS ON THE RIGHT SIDE, TURN LEFT
+        else
+        {
+            transform.localScale = new Vector2(1, 1);
         }
     }
 
@@ -174,6 +190,8 @@ public class VillainAi : MonoBehaviour
             myAnimator.SetTrigger("Dead");
             GetComponent<BoxCollider2D>().enabled = false;
             Destroy(gameObject, 1.5f);
+            enemySpawner.EnemyCounter();
+            enemySpawner.WaweKillCounter();
         }
     }
 }

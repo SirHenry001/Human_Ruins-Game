@@ -35,6 +35,8 @@ public class MonsterAi : MonoBehaviour
     public Rigidbody2D monsterRigidbody;
     public Animator myAnimator;
 
+    public EnemySpawnerScript enemySpawner;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,8 @@ public class MonsterAi : MonoBehaviour
         // GET COMPONENTS WHICH ARE NEEDED
         monsterRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
+        player = GameObject.Find("Player").transform;
+        enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
     }
 
     // Update is called once per frame
@@ -196,6 +200,8 @@ public class MonsterAi : MonoBehaviour
             myAnimator.SetTrigger("Dead");
             GetComponent<CapsuleCollider2D>().enabled = false;
             Destroy(gameObject, 2f);
+            enemySpawner.EnemyCounter();
+            enemySpawner.WaweKillCounter();
         }
     }
 

@@ -36,11 +36,15 @@ public class BigEnemyAi : MonoBehaviour
     public bool facingLeft;
     public bool isAttacking;
 
+    public EnemySpawnerScript enemySpawner;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player").transform;
         bigRigidbody = GetComponentInChildren<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
+        enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
     }
 
     // Update is called once per frame
@@ -174,6 +178,8 @@ public class BigEnemyAi : MonoBehaviour
             myAnimator.SetTrigger("Dead");
             GetComponent<CapsuleCollider2D>().enabled = false;
             Destroy(gameObject, 2f);
+            enemySpawner.EnemyCounter();
+            enemySpawner.WaweKillCounter();
         }
     }
 

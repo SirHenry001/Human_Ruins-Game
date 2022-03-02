@@ -11,12 +11,12 @@ public class CameraController : MonoBehaviour
     public float cameraSpeedY;
 
     //VARIABLES FOR BG CAMERA
-    public BackgroundCameraScript bgScript;
+    //public BackgroundCameraScript bgScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        bgScript = GameObject.Find("CameraBG").GetComponent<BackgroundCameraScript>();
+        //bgScript = GameObject.Find("CameraBG").GetComponent<BackgroundCameraScript>();
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
         // TELL CAMERA TO MOVE
         transform.position = movement;
 
-        bgScript.speed = GetComponent<Rigidbody2D>().velocity.x / 3f;
+        //bgScript.speed = GetComponent<Rigidbody2D>().velocity.x / 3f;
     }
 
 }

@@ -261,6 +261,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Time.timeScale = 0.2f;
             myAnimator.SetTrigger("Dead");
+            myRigidbody.velocity = Vector2.zero;
             gameMenuScreen.GetComponent<GameMenuScreen>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<PlayerMovement>().enabled = false;

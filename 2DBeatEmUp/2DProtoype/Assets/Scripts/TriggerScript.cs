@@ -19,12 +19,15 @@ public class TriggerScript : MonoBehaviour
     public GameObject bossCollider2;
     public GameObject followCamTrigger2;
 
+
+
     // ACCESS TO CAMERA SCRIPT
     public CameraController cameraController;
 
-    // ACCESS TO PARALLAX CAMERA SCRIPTS
-    public ParallaxCamera parallaxCamera;
-    //public ParallaxCamera parallaxCamera2;
+    // ACCESS TO ENEMYSPAWNER SCRIPT
+    public EnemySpawnerScript enemySpawner;
+    public FirstBossScript firstBoss;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,8 +36,7 @@ public class TriggerScript : MonoBehaviour
         if (collision.gameObject.tag == "CameraOne")
         {
             cameraController.target = cam1Target;
-            parallaxCamera.enabled = false;
-            //parallaxCamera2.enabled = false;
+
         }
 
         // PLAYER ACTIVATES WAWE CAMERA TARGET
@@ -43,24 +45,29 @@ public class TriggerScript : MonoBehaviour
             cameraController.target = cam2Target;
             waweCollider1.SetActive(true);
             waweCollider2.SetActive(true);
-            parallaxCamera.enabled = false;
-            //parallaxCamera2.enabled = false;
+            enemySpawner.enabled = true;
+
         }
 
         // PLAYER ACTIVATES BOSSCAMERA TARGET
         if (collision.gameObject.tag == "CameraThree")
         {
             cameraController.target = cam3Target;
-            parallaxCamera.enabled = false;
-            //parallaxCamera2.enabled = false;
+            bossCollider1.SetActive(true);
+            bossCollider2.SetActive(true);
+            firstBoss.bossHealthImage.gameObject.SetActive(true);
+            firstBoss.bossNameText.SetActive(true);
+
+
         }
 
         // PLAYER ACTIVATES CAMERATARGER WHICH FOLLOWS PLAYER
         if (collision.gameObject.tag == "FollowCam")
         {
             cameraController.target = player;
-            //parallaxCamera.enabled = true;
-            //parallaxCamera2.enabled = true;
+            enemySpawner.waweCounterText.SetActive(false);
+            enemySpawner.completeText.SetActive(false);
+
         }
     }
 
@@ -71,8 +78,8 @@ public class TriggerScript : MonoBehaviour
 
         // TELL SCRIPT VARIABLES WHERE TO FIND THE SPECIFIC SCRIPT
         cameraController = GameObject.Find("CameraTarget").GetComponent<CameraController>();
-        parallaxCamera = GameObject.Find("ForeGround").GetComponent<ParallaxCamera>();
-        //parallaxCamera2 = GameObject.Find("BackGround").GetComponent<ParallaxCamera>();
+        enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
+        firstBoss = GameObject.Find("Level1Boss").GetComponent<FirstBossScript>();
     }
 
     // Update is called once per frame

@@ -1,0 +1,906 @@
+fileFormatVersion: 2
+guid: 120c71fed17d01f42996c02170c70f68
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4448568410888349185
+    second: C1Child_Head
+  - first:
+      213: 1611692621516342985
+    second: C1Child_Neck
+  - first:
+      213: -8427374960678323937
+    second: C1Child_FHead
+  - first:
+      213: -3086283628993546434
+    second: C1Child_UpperarmPointing
+  - first:
+      213: -5840087249572973785
+    second: C1Child_LowerarmPointing
+  - first:
+      213: -796091505207390050
+    second: C1Child_Backshin
+  - first:
+      213: -3436279074647735348
+    second: C1Child_STorso
+  - first:
+      213: 4403885663883405798
+    second: C1Child_FShinToFront
+  - first:
+      213: 1438601449073407251
+    second: C1Child_FThighToFront
+  - first:
+      213: -932377523454864829
+    second: C1Child_FthighBackward
+  - first:
+      213: 983827360749024038
+    second: C1Child_FTorso
+  - first:
+      213: 59769129129388081
+    second: C1Child_FFoot
+  - first:
+      213: -8259046886450275081
+    second: C1Child_FShinBackward
+  - first:
+      213: -2035492993302597360
+    second: C1Child_BShinForwards
+  - first:
+      213: 6147252477647290553
+    second: C1Child_FThigh
+  - first:
+      213: -3493249782516238709
+    second: Character1childDoll_15
+  - first:
+      213: -238523248337791391
+    second: C1Child_Fist2
+  - first:
+      213: 8950054085101404865
+    second: C1Child_Fshin
+  - first:
+      213: -6313897722299258838
+    second: C1Child_BHead
+  - first:
+      213: -6936159421237369207
+    second: C1Child_LowerArm
+  - first:
+      213: -7255477149958306633
+    second: C1Child_Thigh
+  - first:
+      213: 7152227233172373737
+    second: C1Child_BTorso
+  - first:
+      213: 645101654660790522
+    second: Character1childDoll_Belt
+  - first:
+      213: -1248861975471215445
+    second: C1Child_Shin
+  - first:
+      213: 123828716473529352
+    second: C1Child_TopFoot
+  - first:
+      213: 1172421203023107701
+    second: C1Child_Bottomfoot
+  - first:
+      213: -942448157653175250
+    second: C1Child_Bthigh
+  - first:
+      213: 5373797344828879755
+    second: C1Child_BThigh2
+  - first:
+      213: 8057610439220945395
+    second: C1Child_Foot
+  - first:
+      213: -6711680470621646414
+    second: C1Child_Bfoot
+  - first:
+      213: 6405599009040912320
+    second: C1Child_UpperArm
+  - first:
+      213: -216139900804918345
+    second: C1Child_SideFist2
+  - first:
+      213: -8120015673435911340
+    second: C1Child_FrontFist
+  - first:
+      213: 2204093158782630335
+    second: C1Child_Fist
+  - first:
+      213: 6353679914789205122
+    second: C1Child_SideFist
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: C1Child_Head
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2814
+        width: 975
+        height: 1026
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff9d9fd89928342c0800000000000000
+      internalID: -4448568410888349185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_Neck
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 3308
+        width: 255
+        height: 510
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6899076e1ed5610800000000000000
+      internalID: 1611692621516342985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_FHead
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 2809
+        width: 889
+        height: 1031
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f193fb79f13fb0b80800000000000000
+      internalID: -8427374960678323937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_UpperarmPointing
+      rect:
+        serializedVersion: 2
+        x: 2408
+        y: 3368
+        width: 340
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e377cb924615b25d0800000000000000
+      internalID: -3086283628993546434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_LowerarmPointing
+      rect:
+        serializedVersion: 2
+        x: 2755
+        y: 3524
+        width: 280
+        height: 313
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7233aefa697d3fea0800000000000000
+      internalID: -5840087249572973785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_Backshin
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 3093
+        width: 251
+        height: 740
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e90586f6ef6b3f4f0800000000000000
+      internalID: -796091505207390050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_STorso
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 2281
+        width: 543
+        height: 1014
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc383864362ef40d0800000000000000
+      internalID: -3436279074647735348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_FShinToFront
+      rect:
+        serializedVersion: 2
+        x: 2410
+        y: 2730
+        width: 257
+        height: 398
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e9a433bdaebd1d30800000000000000
+      internalID: 4403885663883405798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_FThighToFront
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 2877
+        width: 398
+        height: 542
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 315f1695560f6f310800000000000000
+      internalID: 1438601449073407251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_FthighBackward
+      rect:
+        serializedVersion: 2
+        x: 3135
+        y: 2903
+        width: 408
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3421ae515978f03f0800000000000000
+      internalID: -932377523454864829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_FTorso
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 1784
+        width: 716
+        height: 1025
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62371c5a5c147ad00800000000000000
+      internalID: 983827360749024038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_FFoot
+      rect:
+        serializedVersion: 2
+        x: 2339
+        y: 2498
+        width: 369
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138aa4ec4b754d000800000000000000
+      internalID: 59769129129388081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_FShinBackward
+      rect:
+        serializedVersion: 2
+        x: 2738
+        y: 2495
+        width: 257
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fcd5d57d98f16d80800000000000000
+      internalID: -8259046886450275081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_BShinForwards
+      rect:
+        serializedVersion: 2
+        x: 2997
+        y: 2585
+        width: 208
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011f66738e970c3e0800000000000000
+      internalID: -2035492993302597360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_FThigh
+      rect:
+        serializedVersion: 2
+        x: 3267
+        y: 1878
+        width: 411
+        height: 1012
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b08ec21f8d6f4550800000000000000
+      internalID: 6147252477647290553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_Fist2
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 2573
+        width: 241
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16657209e5890bcf0800000000000000
+      internalID: -238523248337791391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_Fshin
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 1473
+        width: 243
+        height: 767
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2c00f55caf43c70800000000000000
+      internalID: 8950054085101404865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_BHead
+      rect:
+        serializedVersion: 2
+        x: 2298
+        y: 1461
+        width: 925
+        height: 1032
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28643a59778068a0800000000000000
+      internalID: -6313897722299258838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_LowerArm
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1647
+        width: 180
+        height: 433
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 986eaa771cfcdbf90800000000000000
+      internalID: -6936159421237369207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_Thigh
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1002
+        width: 501
+        height: 1063
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b485c829fd5f4b90800000000000000
+      internalID: -7255477149958306633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_BTorso
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 732
+        width: 726
+        height: 1049
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e04d1246c0d14360800000000000000
+      internalID: 7152227233172373737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_Shin
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 833
+        width: 248
+        height: 805
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bacab8a66a62baee0800000000000000
+      internalID: -1248861975471215445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_TopFoot
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 1017
+        width: 214
+        height: 458
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 804b562cf8de7b100800000000000000
+      internalID: 123828716473529352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_Bottomfoot
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 1038
+        width: 201
+        height: 463
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57614555fd6454010800000000000000
+      internalID: 1172421203023107701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_Bthigh
+      rect:
+        serializedVersion: 2
+        x: 2309
+        y: 414
+        width: 398
+        height: 1036
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e247cd7d460cbe2f0800000000000000
+      internalID: -942448157653175250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_BThigh2
+      rect:
+        serializedVersion: 2
+        x: 2733
+        y: 417
+        width: 390
+        height: 1031
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b837679a630939a40800000000000000
+      internalID: 5373797344828879755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_Foot
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 777
+        width: 450
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f16e30e00262df60800000000000000
+      internalID: 8057610439220945395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_Bfoot
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 816
+        width: 299
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b19ba60c225bd2a0800000000000000
+      internalID: -6711680470621646414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_UpperArm
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 2090
+        width: 313
+        height: 725
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf4a734c5245e850800000000000000
+      internalID: 6405599009040912320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_SideFist2
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 2575
+        width: 187
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b31cb6c7ed100df0800000000000000
+      internalID: -216139900804918345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_FrontFist
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 1949
+        width: 297
+        height: 261
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45b8f3644c8ef4f80800000000000000
+      internalID: -8120015673435911340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_Fist
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 2276
+        width: 239
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb97b15dc03869e10800000000000000
+      internalID: 2204093158782630335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C1Child_SideFist
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 2283
+        width: 206
+        height: 275
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2847b81283ecc2850800000000000000
+      internalID: 6353679914789205122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 1
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

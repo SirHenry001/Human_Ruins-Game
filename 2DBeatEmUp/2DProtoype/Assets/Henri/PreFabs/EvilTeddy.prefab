@@ -399,6 +399,7 @@ MonoBehaviour:
   isActive: 1
   villainRigidbody: {fileID: 0}
   myAnimator: {fileID: 0}
+  enemySpawner: {fileID: 0}
 --- !u!50 &5102745385580977718
 Rigidbody2D:
   serializedVersion: 4

@@ -177,6 +177,7 @@ public class BigEnemyAi : MonoBehaviour
         {
             myAnimator.SetTrigger("Dead");
             GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<BigEnemyAi>().enabled = false;
             Destroy(gameObject, 2f);
             enemySpawner.EnemyCounter();
             enemySpawner.WaweKillCounter();

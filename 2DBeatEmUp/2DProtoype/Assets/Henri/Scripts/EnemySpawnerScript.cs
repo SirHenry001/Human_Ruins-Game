@@ -18,6 +18,8 @@ public class EnemySpawnerScript : MonoBehaviour
     public GameObject waweAreaCollider;
     public GameObject followCamTrigger;
 
+    public GameObject smokeEffect;
+
     // TIMER VARIABLE
     public float spawnTimer = 5f;
 
@@ -25,13 +27,17 @@ public class EnemySpawnerScript : MonoBehaviour
     public GameObject[] enemies;
 
     // LIST OF SPAWNPOINT WHERE ENEMIES ARE SPAWNED
-    public Transform[] spawnPoints;
+    public GameObject[] spawnPoints;
 
     // Start is called before the first frame update
     void Start()
     {
         waweCounterText.SetActive(true);
         waweNumberText.SetActive(true);
+
+        enemiesKilled = 0;
+        waweNumberText.GetComponent<TextMeshProUGUI>().text = enemiesKilled.ToString() + " of 5";
+
     }
 
     // Update is called once per frame
@@ -71,17 +77,24 @@ public class EnemySpawnerScript : MonoBehaviour
         if(enemiesKilled >= 5)
         {
             Destroy(waweAreaCollider);
+            Destroy(spawnPoints[0]);
+            Destroy(spawnPoints[1]);
+            Destroy(spawnPoints[2]);
+            Destroy(spawnPoints[3]);
             waweNumberText.SetActive(false);
             completeText.SetActive(true);
             followCamTrigger.SetActive(true);
-
             
+
+
+
             enemiesInScene = GameObject.FindGameObjectsWithTag("Villain"); //muuttujalle arvo, etsii viholliset tagin avulla
 
             for (int i = 0; i < enemiesInScene.Length; i++)
             {
                 Destroy(enemiesInScene[i]);
-
+                //Instantiate(smokeEffect, transform.position, transform.rotation);
+                
             }
 
         }

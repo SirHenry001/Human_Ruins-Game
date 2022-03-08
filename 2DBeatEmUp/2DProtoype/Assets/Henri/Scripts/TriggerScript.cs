@@ -19,6 +19,12 @@ public class TriggerScript : MonoBehaviour
     public GameObject bossCollider2;
     public GameObject followCamTrigger2;
 
+    public GameObject sanityValueText;
+    public GameObject sanityValueText2;
+    public GameObject sanityValueText3;
+    public GameObject sanityValueText4;
+    public GameObject sanityValueText5;
+
 
 
     // ACCESS TO CAMERA SCRIPT
@@ -27,6 +33,8 @@ public class TriggerScript : MonoBehaviour
     // ACCESS TO ENEMYSPAWNER SCRIPT
     public EnemySpawnerScript enemySpawner;
     public FirstBossScript firstBoss;
+    public PlayerMovement playerMovement;
+    public GameManager gameManager;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,8 +63,8 @@ public class TriggerScript : MonoBehaviour
             cameraController.target = cam3Target;
             bossCollider1.SetActive(true);
             bossCollider2.SetActive(true);
-            firstBoss.bossHealthImage.gameObject.SetActive(true);
-            firstBoss.bossNameText.SetActive(true);
+            gameManager.bossHealthImage.gameObject.SetActive(true);
+            gameManager.bossNameText.SetActive(true);
 
 
         }
@@ -67,7 +75,40 @@ public class TriggerScript : MonoBehaviour
             cameraController.target = player;
             enemySpawner.waweCounterText.SetActive(false);
             enemySpawner.completeText.SetActive(false);
+        }
 
+        // ACTIVATES THE SECOND FOLLOW CAM
+        if (collision.gameObject.tag == "FollowCam2")
+        {
+            cameraController.target = player;
+            enemySpawner.waweCounterText.SetActive(false);
+            enemySpawner.completeText.SetActive(false);
+            playerMovement.sanityLoss = false;
+
+            if(playerMovement.playerSanity >= 9000)
+            {
+                sanityValueText.SetActive(true);
+            }
+
+            if (playerMovement.playerSanity < 9000 && playerMovement.playerSanity >= 8000)
+            {
+                sanityValueText2.SetActive(true);
+            }
+
+            if (playerMovement.playerSanity < 8000 && playerMovement.playerSanity >= 6000)
+            {
+                sanityValueText3.SetActive(true);
+            }
+
+            if (playerMovement.playerSanity < 6000 && playerMovement.playerSanity >= 4000)
+            {
+                sanityValueText4.SetActive(true);
+            }
+
+            if (playerMovement.playerSanity < 4000)
+            {
+                sanityValueText5.SetActive(true);
+            }
         }
     }
 
@@ -79,7 +120,8 @@ public class TriggerScript : MonoBehaviour
         // TELL SCRIPT VARIABLES WHERE TO FIND THE SPECIFIC SCRIPT
         cameraController = GameObject.Find("CameraTarget").GetComponent<CameraController>();
         enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
-        firstBoss = GameObject.Find("Level1Boss").GetComponent<FirstBossScript>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame

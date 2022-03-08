@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
     public PlayerMovement playerMovement;
     public GameMenuScreen gameMenuScreen;
 
+    // VARIABLES FOR BOSS UI
+    public GameObject bossNameText;
+    public Image bossHealthImage;
+
 
     // Start is called before the first frame update
     void Start()

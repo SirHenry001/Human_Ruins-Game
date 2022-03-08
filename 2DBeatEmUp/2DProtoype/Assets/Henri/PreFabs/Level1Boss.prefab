@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8550605500797886069}
   m_Layer: 10
   m_Name: Torso
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 131270435593357969}
   m_Layer: 10
   m_Name: LowerArm
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 131270436398618869}
   m_Layer: 10
   m_Name: Neck
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -426,7 +426,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1445258651
   m_SortingLayer: 2
-  m_SortingOrder: -2
+  m_SortingOrder: -5
   m_Sprite: {fileID: 3054130864635587814, guid: 4ebefbb07e0fd3745a0cf9d0220695ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 131270436678775482}
   m_Layer: 10
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 131270436853965063}
   m_Layer: 10
   m_Name: Shin
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 131270436871387035}
   m_Layer: 10
   m_Name: UpperArm
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 131270436884664796}
   m_Layer: 10
   m_Name: UpperArm2
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -757,7 +757,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1445258651
   m_SortingLayer: 2
-  m_SortingOrder: -4
+  m_SortingOrder: -7
   m_Sprite: {fileID: 6690911584714625493, guid: 4ebefbb07e0fd3745a0cf9d0220695ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -781,7 +781,7 @@ GameObject:
   - component: {fileID: 131270436908130337}
   m_Layer: 10
   m_Name: LowerArm
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -840,7 +840,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1445258651
   m_SortingLayer: 2
-  m_SortingOrder: -3
+  m_SortingOrder: -6
   m_Sprite: {fileID: 1215597780078232756, guid: 4ebefbb07e0fd3745a0cf9d0220695ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -864,7 +864,7 @@ GameObject:
   - component: {fileID: 131270436985137095}
   m_Layer: 10
   m_Name: Thigh2
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -947,7 +947,7 @@ GameObject:
   - component: {fileID: 131270437145805784}
   m_Layer: 10
   m_Name: Foot
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 131270437224958995}
   m_Layer: 10
   m_Name: Shin
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1112,7 +1112,7 @@ GameObject:
   - component: {fileID: 131270437602462304}
   m_Layer: 10
   m_Name: Foot
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1194,7 +1194,7 @@ GameObject:
   - component: {fileID: 131270437676204147}
   m_Layer: 10
   m_Name: Thigh
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1277,7 +1277,7 @@ GameObject:
   - component: {fileID: 866453787733970309}
   m_Layer: 10
   m_Name: Torso
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1395,7 +1395,9 @@ MonoBehaviour:
   bossHealth: 100
   playerMovement: {fileID: 0}
   gameMenuScreen: {fileID: 0}
-  bossOneAnimator: {fileID: 0}
+  bossOneAnimator: {fileID: 8550605500797886069}
+  bossNameText: {fileID: 0}
+  bossHealthImage: {fileID: 0}
 --- !u!61 &5906017467771807369
 BoxCollider2D:
   m_ObjectHideFlags: 0

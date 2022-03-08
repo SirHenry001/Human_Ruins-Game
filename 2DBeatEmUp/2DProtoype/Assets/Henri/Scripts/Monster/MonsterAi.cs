@@ -199,6 +199,7 @@ public class MonsterAi : MonoBehaviour
         {
             myAnimator.SetTrigger("Dead");
             GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<MonsterAi>().enabled = false;
             Destroy(gameObject, 2f);
             enemySpawner.EnemyCounter();
             enemySpawner.WaweKillCounter();

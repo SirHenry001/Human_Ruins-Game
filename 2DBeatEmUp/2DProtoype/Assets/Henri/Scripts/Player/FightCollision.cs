@@ -60,11 +60,6 @@ public class FightCollision : MonoBehaviour
 
             // CONNECT TO POSTPROCESS SCRIPT
 
-            if (playerMovement.playerSanity > 7000)
-            {
-                postProcess.vignette.intensity.value -= 1 * 0.01f;
-            }
-            
 
         }
 

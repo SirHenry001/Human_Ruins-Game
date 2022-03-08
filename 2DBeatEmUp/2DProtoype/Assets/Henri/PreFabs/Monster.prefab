@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  enemyHealth: 100
+  enemyHealth: 20
   hitCount: 0
   getHittedCount: 5
   aggroRange: 10
@@ -100,6 +100,7 @@ MonoBehaviour:
   isFleeing: 0
   monsterRigidbody: {fileID: 0}
   myAnimator: {fileID: 0}
+  enemySpawner: {fileID: 0}
 --- !u!1 &1565080259270194812
 GameObject:
   m_ObjectHideFlags: 0

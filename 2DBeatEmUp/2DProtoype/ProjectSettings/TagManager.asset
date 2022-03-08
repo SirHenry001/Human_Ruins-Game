@@ -16,6 +16,9 @@ TagManager:
   - CameraTwo
   - CameraThree
   - FollowCam
+  - FollowCam2
+  - PickUp
+  - PickUpMax
   layers:
   - Default
   - TransparentFX

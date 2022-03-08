@@ -189,6 +189,7 @@ public class VillainAi : MonoBehaviour
         {
             myAnimator.SetTrigger("Dead");
             GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<VillainAi>().enabled = false;
             Destroy(gameObject, 1.5f);
             enemySpawner.EnemyCounter();
             enemySpawner.WaweKillCounter();

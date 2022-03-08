@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canPunch3 = false;
     public bool canKick = false;
     public bool canKick2 = false;
+    public bool sanityLoss = true;
 
     // VARIABLES FOR COMPONENTS
     public Rigidbody2D myRigidbody;
@@ -65,9 +66,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        
-
         // CALL PHYSICS COMPONENT FROM UNITY TO CODE
         myRigidbody = GetComponent<Rigidbody2D>();
         // CALL ANIMATOR COMPONENT FROM UNITY TO CODE
@@ -78,8 +76,6 @@ public class PlayerMovement : MonoBehaviour
         bigMonsterAi = GameObject.Find("BigEnemy").GetComponent<BigEnemyAi>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
-
-        
     }
 
     // Update is called once per frame
@@ -97,7 +93,21 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
 
-        SanityLoss(4);
+        if(sanityLoss == true)
+        {
+            SanityLoss(4);
+        }
+
+        if (playerHealth >= 100)
+        {
+            playerHealth = 100;
+        }
+
+        if (playerSanity >= 10000)
+        {
+            playerSanity = 10000;
+        }
+
 
         // GOES FUNCTION AND SET BOUNDARIES FOR Y AXIS FOR MOVEMENT OF THE PLAYER
         PlayerBoundaries();
@@ -137,9 +147,6 @@ public class PlayerMovement : MonoBehaviour
             facingRight = !facingRight;
         }
 
-
-
-        
     }
 
     void Flip()
@@ -266,7 +273,6 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<PlayerMovement>().enabled = false;
             StartCoroutine(gameManager.PLayerDeath());
-
         }
     }
     
@@ -279,11 +285,6 @@ public class PlayerMovement : MonoBehaviour
         if(playerSanity <= 0)
         {
             playerSanity = 0;
-        }
-
-        if (playerSanity >= 10000)
-        {
-            playerSanity = 10000;
         }
 
         //tähän että sanity kuluu koko ajan

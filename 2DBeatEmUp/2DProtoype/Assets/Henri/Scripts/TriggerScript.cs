@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class TriggerScript : MonoBehaviour
 {
+
+    // IN GAME VARIABELS FOR ENEMY SPAWN
+
+    public GameObject[] spawnPoints;
+
+    public GameObject[] enemies;
+
+
     //THIS SCRIPT IS ATTACHED TO PLAYER
 
     // CAMERA TARGETS WHICH IS CHANGED BASED ON WHICH TRIGGER PLAYER ACTIVATES
@@ -65,8 +73,6 @@ public class TriggerScript : MonoBehaviour
             bossCollider2.SetActive(true);
             gameManager.bossHealthImage.gameObject.SetActive(true);
             gameManager.bossNameText.SetActive(true);
-
-
         }
 
         // PLAYER ACTIVATES CAMERATARGER WHICH FOLLOWS PLAYER
@@ -85,7 +91,7 @@ public class TriggerScript : MonoBehaviour
             enemySpawner.completeText.SetActive(false);
             playerMovement.sanityLoss = false;
 
-            if(playerMovement.playerSanity >= 9000)
+            if (playerMovement.playerSanity >= 9000)
             {
                 sanityValueText.SetActive(true);
             }
@@ -110,10 +116,30 @@ public class TriggerScript : MonoBehaviour
                 sanityValueText5.SetActive(true);
             }
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
+        if (collision.gameObject.tag == "EnemySpawn")
+        {
+            Instantiate(enemies[0], spawnPoints[0].transform.position, spawnPoints[0].transform.rotation);
+            Instantiate(enemies[1], spawnPoints[1].transform.position, spawnPoints[1].transform.rotation);
+            Instantiate(enemies[0], spawnPoints[2].transform.position, spawnPoints[2].transform.rotation);
+            Destroy(spawnPoints[0]);
+            Destroy(spawnPoints[1]);
+            Destroy(spawnPoints[2]);
+        }
+
+        if (collision.gameObject.tag == "EnemySpawn2")
+        {
+            Instantiate(enemies[0], spawnPoints[0].transform.position, spawnPoints[0].transform.rotation);
+            Instantiate(enemies[1], spawnPoints[1].transform.position, spawnPoints[1].transform.rotation);
+            Instantiate(enemies[0], spawnPoints[2].transform.position, spawnPoints[2].transform.rotation);
+            Destroy(spawnPoints[3]);
+            Destroy(spawnPoints[4]);
+            Destroy(spawnPoints[5]);
+        }
+
+    }
+        // Start is called before the first frame update
+        void Start()
     {
         
 
@@ -129,4 +155,6 @@ public class TriggerScript : MonoBehaviour
     {
         
     }
+
+
 }

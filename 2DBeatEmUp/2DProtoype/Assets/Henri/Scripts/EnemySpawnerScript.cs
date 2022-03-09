@@ -5,28 +5,24 @@ using TMPro;
 
 public class EnemySpawnerScript : MonoBehaviour
 {
+    // WAWE SECTION  VARIABLES
     // VARIABLES FOR QUANTITY OF ENEMIES IN GAME
     public int enemiesInGame;
     public int maxEnemiesInGame;
     public int enemiesKilled;
-
+    //TRIGGERS AND UI
     public GameObject waweCounterText;
     public GameObject waweNumberText;
     public GameObject completeText;
-    public GameObject[] enemiesInScene; // jono objekteja eli viholliset
-
+    public GameObject[] enemiesInScene;
     public GameObject waweAreaCollider;
     public GameObject followCamTrigger;
-
     public GameObject smokeEffect;
-
-    // TIMER VARIABLE
+    // TIMER VARIABLE WAWE
     public float spawnTimer = 5f;
-
-    // LIST OF ENEMIES WHICH ARE SPAWNED
+    // LIST OF ENEMIES WHICH ARE SPAWNED WAWE 
     public GameObject[] enemies;
-
-    // LIST OF SPAWNPOINT WHERE ENEMIES ARE SPAWNED
+    // LIST OF SPAWNPOINT WHERE ENEMIES ARE SPAWNED WAWE
     public GameObject[] spawnPoints;
 
     // Start is called before the first frame update
@@ -59,8 +55,7 @@ public class EnemySpawnerScript : MonoBehaviour
 
     void EnemySpawn()
     {
-        Instantiate(enemies[Random.Range(0,1)], spawnPoints[Random.Range(0, 3)].transform.position, spawnPoints[Random.Range(0, 3)].transform.rotation);
-        //Instantiate(enemies[1], spawnPoints[Random.Range(0, 3)].transform.position, spawnPoints[Random.Range(0, 3)].transform.rotation);
+        Instantiate(enemies[Random.Range(0,2)], spawnPoints[Random.Range(0, 3)].transform.position, spawnPoints[Random.Range(0, 3)].transform.rotation);
         enemiesInGame++;
     }
 

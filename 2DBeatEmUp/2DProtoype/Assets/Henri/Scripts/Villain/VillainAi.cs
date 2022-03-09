@@ -63,6 +63,12 @@ public class VillainAi : MonoBehaviour
             Attack();
         }
 
+        if (5 <= getHittedCount)
+        {
+            StartCoroutine(Knocked());
+            getHittedCount = 0;
+        }
+
         if (distToPlayer > faceToFaceRange && isActive)
         {
             //ENEMY STOPS ATTACKING WHEN GET FURTHER FROM FRONT OF PLAYER
@@ -146,12 +152,17 @@ public class VillainAi : MonoBehaviour
     }
     void Attack()
     {
-
-        myAnimator.SetBool("Attack", true);
-        villainRigidbody.velocity = Vector2.zero;
         attackTimer += Time.deltaTime;
+        villainRigidbody.velocity = Vector2.zero;
+        myAnimator.SetBool("Stance", true);
 
-        if(attackTimer > 1 && attackTimer < 2)
+        if (attackTimer > 1 && attackTimer < 2)
+        {
+            myAnimator.SetBool("Attack", true);
+            myAnimator.SetBool("Stance", false);
+        }
+
+        if(attackTimer > 2 && attackTimer < 3)
         {
             myAnimator.SetBool("Attack", false);
             attackTimer = 0;
@@ -164,20 +175,18 @@ public class VillainAi : MonoBehaviour
         
         myAnimator.SetTrigger("GetHitted");
 
-        /*
-        if(5 < getHittedCount)
-        {
-            Knocked();
-        }
-        */
     }
 
-    public void Knocked()
+    public IEnumerator Knocked()
     {
-        /*
+
         myAnimator.SetTrigger("Knocked");
         GetComponent<BoxCollider2D>().enabled = false;
-        */
+        GetComponent<VillainAi>().enabled = false;
+        yield return new WaitForSeconds(2f);
+        GetComponent<BoxCollider2D>().enabled = true;
+        GetComponent<VillainAi>().enabled = true;
+
 
 
     }
@@ -191,8 +200,12 @@ public class VillainAi : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<VillainAi>().enabled = false;
             Destroy(gameObject, 1.5f);
-            enemySpawner.EnemyCounter();
-            enemySpawner.WaweKillCounter();
+
+            if (enemySpawner.enabled == true)
+            {
+                enemySpawner.EnemyCounter();
+                enemySpawner.WaweKillCounter();
+            }
         }
     }
 }

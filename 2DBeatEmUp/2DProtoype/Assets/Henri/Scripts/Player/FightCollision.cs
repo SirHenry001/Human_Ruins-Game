@@ -52,10 +52,8 @@ public class FightCollision : MonoBehaviour
 
             //IF HITTED TO MONSTER ENEMY, SANITY GAIN 100 POINTS
             playerMovement.SanityGain(gainSanityMonster);
-
             enemyScript.getHittedCount += 1;    
             enemyScript.GetHitted();
-            //enemyScript.getHitted = true;
             enemyScript.MonsterHealth(dealDamageMonster);
 
             // CONNECT TO POSTPROCESS SCRIPT
@@ -74,7 +72,6 @@ public class FightCollision : MonoBehaviour
             playerMovement.SanityGain(gainSanityVillain);
 
             //ACCESS TO VILLAIN GETHIT FUNCTIONS
-            //villainAi.hittedTimer += Time.deltaTime;
             villainAi.getHittedCount += 1;
             villainAi.Gethit();
 
@@ -104,6 +101,13 @@ public class FightCollision : MonoBehaviour
         {
             firstBossScript = collision.gameObject.GetComponent<FirstBossScript>();
             firstBossScript.BossOneHealth(dealDamageBoss1);
+
+            //ACCESS TO BOSS 1 COUNTERS
+            firstBossScript.getHittedCount += 1;
+
+            // ACCES TO BOSS1 GETHIT FUNCTION
+            firstBossScript.GetHit();
+
         }
 
         // BOSS LEVEL 2 RELATED FUNCTIONS

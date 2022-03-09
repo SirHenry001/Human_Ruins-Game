@@ -13,8 +13,6 @@ public class FirstBossScript : MonoBehaviour
     public GameMenuScreen gameMenuScreen;
     public GameManager gameManager;
 
-
-
     // ENEMY TARGET TO ALL FUNCTIONS
     public Transform player;
 
@@ -26,7 +24,7 @@ public class FirstBossScript : MonoBehaviour
     public float fleeRange;
     public float longAttackRange;
     public float shortAttackRange;
-    public Vector3 movement;
+    public Vector2 movement;
 
     //VARIABLES FOR SPEED
     public float moveSpeed;
@@ -55,8 +53,6 @@ public class FirstBossScript : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         bossOneAnimator = GetComponentInChildren<Animator>();
 
-        movement = transform.position;
-
     }
 
     // Update is called once per frame
@@ -66,6 +62,7 @@ public class FirstBossScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
         float distToPlayer = Vector2.Distance(transform.position, player.position);
 
         //IDLE
@@ -83,25 +80,31 @@ public class FirstBossScript : MonoBehaviour
         //LONGATTACK
         if (distToPlayer < longAttackRange && distToPlayer > shortAttackRange && isAttacking == false)
         {
+            
             Stop();
         }
 
         //SHORTATTACK
-        if (distToPlayer < shortAttackRange)
+        if (distToPlayer < shortAttackRange && getHittedCount < 5)
         {
-            ShortAttack();
+            ShortAttack();         
+        }
+
+        if (getHittedCount >= 5)
+        {
+            DangerAttack();
         }
     }
 
     public void Idle()
     {
         bigRigidbody.velocity = Vector2.zero;
+        bossOneAnimator.SetBool("Walk", false);
     }
 
     public void Approach()
     {
         bossOneAnimator.SetBool("Walk", true);
-        bossOneAnimator.SetBool("Attack", false);
 
         // ENEMY IS ON THE LEFT SIDE, GO RIGHT
         if (transform.position.x < player.position.x)
@@ -133,32 +136,30 @@ public class FirstBossScript : MonoBehaviour
         }
     }
 
+
+
     public void Stop()
     {
         attackTimer += Time.deltaTime;
         shortAttackTimer = 0;
-
-        //movement.y = Mathf.Lerp(movement.y, player.position.y, 10f * Time.deltaTime);
-        //transform.position = movement;
-
-        bossOneAnimator.SetBool("Walk", false);
+  
+        bossOneAnimator.SetBool("Walk", true);
         bossOneAnimator.SetBool("Attack", false);
-        bigRigidbody.velocity = Vector2.zero;
+        
 
         if (attackTimer > 0.5)
         {
-
+            
             StartCoroutine(LongAttack());
         }
     }
 
     public IEnumerator LongAttack()
     {
+        bigRigidbody.velocity = Vector2.zero;
         attackTimer = 0;
         isAttacking = true;
-        bigRigidbody.velocity = Vector2.zero;
-        
-        
+        bossOneAnimator.SetBool("Walk", false);
         bossOneAnimator.SetBool("Attack", true);
         yield return new WaitForSeconds(2f);
         bossOneAnimator.SetBool("Attack", false);
@@ -168,10 +169,10 @@ public class FirstBossScript : MonoBehaviour
 
     public void ShortAttack()
     {
-        bigRigidbody.velocity = Vector2.zero;
+
         shortAttackTimer += Time.deltaTime;
 
-        if (shortAttackTimer > 1)
+        if (shortAttackTimer > 2)
         {
             shortAttackTimer = 0;
             bossOneAnimator.SetTrigger("AttackShort");
@@ -179,11 +180,22 @@ public class FirstBossScript : MonoBehaviour
 
     }
 
+    public void DangerAttack()
+    {
+        bigRigidbody.velocity = Vector2.zero;
+        bossOneAnimator.SetTrigger("AttackShort");
+    }
+
     public void GetHit()
     {
-        shortAttackTimer = 0;
-        bigRigidbody.velocity = Vector2.zero;
-        bossOneAnimator.SetTrigger("TakeHit");
+        if(bossHealth > 0)
+        {
+            shortAttackTimer = 0;
+            bigRigidbody.velocity = Vector2.zero;
+            bossOneAnimator.SetTrigger("TakeHit");
+        }
+
+
     }
 
     public void BossOneHealth(int damage)
@@ -193,9 +205,9 @@ public class FirstBossScript : MonoBehaviour
 
         if (bossHealth <= 0)
         {
+            bossOneAnimator.SetTrigger("Dead");
             Destroy(gameManager.bossNameText);
             Time.timeScale = 0.2f;
-            bossOneAnimator.SetTrigger("Dead");
             playerMovement.GetComponent<PlayerMovement>().enabled = false;
             GetComponent<FirstBossScript>().enabled = false;
             StartCoroutine(gameMenuScreen.ScoreScreen());

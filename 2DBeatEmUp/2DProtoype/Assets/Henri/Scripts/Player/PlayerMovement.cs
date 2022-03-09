@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     public VillainAi villainAi;
     public MonsterAi enemyScript;
     public BigEnemyAi bigMonsterAi;
+    public FirstBossScript firstBossScript;
     public GameManager gameManager;
     public GameMenuScreen gameMenuScreen;
 
@@ -74,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         enemyScript = GameObject.Find("Monster").GetComponent<MonsterAi>();
         villainAi = GameObject.Find("EvilTeddy").GetComponent<VillainAi>();
         bigMonsterAi = GameObject.Find("BigEnemy").GetComponent<BigEnemyAi>();
+        firstBossScript = GameObject.Find("Level1Boss").GetComponent<FirstBossScript>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
     }
@@ -95,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(sanityLoss == true)
         {
-            SanityLoss(4);
+            SanityLoss(6);
         }
 
         if (playerHealth >= 100)
@@ -225,17 +227,10 @@ public class PlayerMovement : MonoBehaviour
             canPunch3 = false;
             canKick = false;
             canKick2 = false;
-            villainAi.getHittedCount = 0; // nollaa vain jos scenessä on teityn niminen vihu. korjaa myöhemmin toimivammaksi "EvilTeddy"
-            enemyScript.getHittedCount = 0; // sama homma ku ylempänä "monster"
+            villainAi.getHittedCount = 0; 
+            enemyScript.getHittedCount = 0; 
+            firstBossScript.getHittedCount = 0;
 
-            /*
-            if (!enemyScript == null)
-            {
-                villainAi.getHittedCount = 0;
-                enemyScript.getHittedCount = 0;
-
-            }
-            */
 
             combo = 0;
             

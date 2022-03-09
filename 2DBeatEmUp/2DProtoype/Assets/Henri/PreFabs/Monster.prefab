@@ -86,7 +86,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyHealth: 20
   hitCount: 0
-  getHittedCount: 5
+  getHittedCount: 0
   aggroRange: 10
   faceToFaceRange: 3
   moveSpeed: 3
@@ -96,6 +96,7 @@ MonoBehaviour:
   minY: -4
   maxY: 0.3
   attackTimer: 0
+  cooldownTimer: 0
   facingLeft: 1
   isFleeing: 0
   monsterRigidbody: {fileID: 0}
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   monsterAi: {fileID: 3376447407356783954}
-  dealDamage: 5
+  dealDamage: 2
   scareSanity: 50
 --- !u!1 &1565080259350675572
 GameObject:

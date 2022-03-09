@@ -26,12 +26,14 @@ public class GameMenuScreen : MonoBehaviour
     public GameObject continueButton;
     public GameObject backButton;
 
+    public PlayerMovement playerMovement;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -144,6 +146,7 @@ public class GameMenuScreen : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Time.timeScale = 1;
         print("loppu");
+        playerMovement.playerSanity = 100;
         levelOne1ClearText.SetActive(true);
         yield return new WaitForSeconds(3f);
         fadeOutImage.gameObject.SetActive(true);

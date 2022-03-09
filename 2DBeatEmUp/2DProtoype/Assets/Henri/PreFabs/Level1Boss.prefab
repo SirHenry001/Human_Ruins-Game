@@ -201,6 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 131270435964080240}
   - component: {fileID: 131270435964080247}
+  - component: {fileID: 4251688853308422112}
   m_Layer: 10
   m_Name: Fist1
   m_TagString: Untagged
@@ -273,6 +274,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &4251688853308422112
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131270435964080241}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.7105896, y: -0.36428675}
+  serializedVersion: 2
+  m_Radius: 4.7302966
 --- !u!1 &131270436398618871
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 131270437145805785}
   - component: {fileID: 131270437145805784}
+  - component: {fileID: 7893079891668499118}
   m_Layer: 10
   m_Name: Foot
   m_TagString: Boss
@@ -1017,6 +1035,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &7893079891668499118
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131270437145805786}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.2248658, y: -1.6399711}
+  serializedVersion: 2
+  m_Radius: 4.745
 --- !u!1 &131270437224959005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,9 +1429,22 @@ MonoBehaviour:
   bossHealth: 100
   playerMovement: {fileID: 0}
   gameMenuScreen: {fileID: 0}
+  gameManager: {fileID: 0}
+  player: {fileID: 0}
+  getHittedCount: 0
+  aggroRange: 0
+  fleeRange: 0
+  longAttackRange: 0
+  shortAttackRange: 0
+  movement: {x: 0, y: 0}
+  moveSpeed: 0
+  ySnapSpeed: 0
+  attackTimer: 0
+  shortAttackTimer: 0
+  bigRigidbody: {fileID: 0}
   bossOneAnimator: {fileID: 8550605500797886069}
-  bossNameText: {fileID: 0}
-  bossHealthImage: {fileID: 0}
+  facingLeft: 0
+  isAttacking: 0
 --- !u!61 &5906017467771807369
 BoxCollider2D:
   m_ObjectHideFlags: 0

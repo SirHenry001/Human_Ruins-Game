@@ -19,6 +19,8 @@ TagManager:
   - FollowCam2
   - PickUp
   - PickUpMax
+  - EnemySpawn
+  - EnemySpawn2
   layers:
   - Default
   - TransparentFX

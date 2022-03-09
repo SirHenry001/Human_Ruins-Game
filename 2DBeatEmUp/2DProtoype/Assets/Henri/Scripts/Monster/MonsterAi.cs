@@ -12,7 +12,7 @@ public class MonsterAi : MonoBehaviour
 
     // ENEMY COUNTER WHEN GOT HIT
     public int hitCount = 0;
-    public int getHittedCount = 5;
+    public int getHittedCount = 0;
 
     // VARIABLES FOR DISTANCES
     public float aggroRange;
@@ -26,6 +26,7 @@ public class MonsterAi : MonoBehaviour
 
     // VARIABLES FOR TIMERS
     public float attackTimer;
+    public float cooldownTimer;
 
     // BOOLEANS
     public bool facingLeft;
@@ -86,6 +87,12 @@ public class MonsterAi : MonoBehaviour
             StartCoroutine(Flee());
         }
 
+        if (getHittedCount >= 5)
+        {
+            StartCoroutine(Knocked());
+            getHittedCount = 0;
+        }
+
     }
 
     public void ChasePlayer()
@@ -133,7 +140,7 @@ public class MonsterAi : MonoBehaviour
         myAnimator.SetBool("MonsterHit", false);
         monsterRigidbody.velocity = Vector2.zero;
 
-        if(attackTimer > 1) // WHEN ATTACKTIMER REACHES ONE SECOND, ENEMY GOES TO ATTTACK MODE
+        if(attackTimer > 0.4f) // WHEN ATTACKTIMER REACHES ONE SECOND, ENEMY GOES TO ATTTACK MODE
         {
             Attack();
         }
@@ -184,10 +191,18 @@ public class MonsterAi : MonoBehaviour
         hitCount = 0;
         isFleeing = false;
         myAnimator.SetTrigger("GetHitted");
+
     }
 
-    public void Knocked()
+    public IEnumerator Knocked()
     {
+        myAnimator.SetTrigger("Knocked");
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<MonsterAi>().enabled = false;
+        yield return new WaitForSeconds(2f);
+        GetComponent<CapsuleCollider2D>().enabled = true;
+        GetComponent<MonsterAi>().enabled = true;
+
 
     }
 
@@ -201,8 +216,14 @@ public class MonsterAi : MonoBehaviour
             GetComponent<CapsuleCollider2D>().enabled = false;
             GetComponent<MonsterAi>().enabled = false;
             Destroy(gameObject, 2f);
-            enemySpawner.EnemyCounter();
-            enemySpawner.WaweKillCounter();
+
+
+            if(enemySpawner.enabled == true)
+            {
+                enemySpawner.EnemyCounter();
+                enemySpawner.WaweKillCounter();
+            }
+
         }
     }
 

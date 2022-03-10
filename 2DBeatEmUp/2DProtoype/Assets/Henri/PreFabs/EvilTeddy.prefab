@@ -396,6 +396,10 @@ MonoBehaviour:
   attackTimer: 0
   hittedTimer: 0
   knockTimer: 0
+  minX: -85
+  maxX: 120
+  minY: -4
+  maxY: 0.4
   isActive: 1
   villainRigidbody: {fileID: 0}
   myAnimator: {fileID: 0}

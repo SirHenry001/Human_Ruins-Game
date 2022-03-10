@@ -94,7 +94,7 @@ MonoBehaviour:
   minX: -85
   maxX: 120
   minY: -4
-  maxY: 0.3
+  maxY: 0.4
   attackTimer: 0
   cooldownTimer: 0
   facingLeft: 1

@@ -14,7 +14,10 @@ public class CutSceneScript : MonoBehaviour
     //VARIABLES FOR STORYTEXTS AND IMAGES
     public GameObject cutsceneOneText;
     public GameObject cutsceneTwoText;
+    public GameObject cutsceneThreeText;
+    public GameObject cutsceneFourText;
     public Image cutsceneImage;
+    public Image fadeOutImageImage;
 
 
     // Start is called before the first frame update
@@ -36,13 +39,20 @@ public class CutSceneScript : MonoBehaviour
 
     public IEnumerator CutsceneOne()
     {
-        cutsceneOneText.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        cutsceneTwoText.SetActive(true);
-        skipText.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         cutsceneImage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
+        cutsceneOneText.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        cutsceneTwoText.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        cutsceneThreeText.SetActive(true);
+        skipText.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        cutsceneFourText.SetActive(true);
+        yield return new WaitForSeconds(6f);
+        fadeOutImageImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Level1");
 
 

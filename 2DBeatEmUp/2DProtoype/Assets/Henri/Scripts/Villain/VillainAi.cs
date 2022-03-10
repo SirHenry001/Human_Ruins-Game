@@ -20,6 +20,9 @@ public class VillainAi : MonoBehaviour
     public float hittedTimer;
     public float knockTimer;
 
+    public float minX, maxX;
+    public float minY, maxY;
+
     public bool isActive = true;
 
     public Rigidbody2D villainRigidbody;
@@ -44,6 +47,9 @@ public class VillainAi : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        EnemyBoundaries();
+
         float distToPlayer = Vector2.Distance(transform.position, player.position);
 
         if (distToPlayer > aggroRange && isActive)
@@ -189,6 +195,12 @@ public class VillainAi : MonoBehaviour
 
 
 
+    }
+
+    void EnemyBoundaries()
+    {
+        //SET Y & X AXIS BOUNDARIES FOR MOVEMENT OF THE PLAYER
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, minX, maxX), Mathf.Clamp(transform.position.y, minY, maxY));
     }
 
     public void VillainHealth(int damage)

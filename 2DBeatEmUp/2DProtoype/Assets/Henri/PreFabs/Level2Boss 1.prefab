@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8648356146759049483}
   - component: {fileID: 1032451993532450593}
   - component: {fileID: 4960685160973380074}
-  m_Layer: 0
+  - component: {fileID: 413016030}
+  m_Layer: 10
   m_Name: Level2Boss 1
-  m_TagString: Untagged
+  m_TagString: Boss2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +75,48 @@ MonoBehaviour:
   bossHealth: 100
   playerMovement: {fileID: 0}
   gameMenuScreen: {fileID: 0}
+  gameManager: {fileID: 0}
   bossTwoAnimator: {fileID: 0}
+  player: {fileID: 0}
+  enemyHealth: 10
+  getHittedCount: 5
+  aggroRange: 12
+  faceToFaceRange: 4
+  moveSpeed: 2
+  stanceSpeed: 1
+  timer: 0
+  attackTimer: 0
+  hittedTimer: 0
+  knockTimer: 0
+  minX: -85
+  maxX: 120
+  minY: -4
+  maxY: 0.4
+  isActive: 1
+  villainRigidbody: {fileID: 0}
+  myAnimator: {fileID: 0}
+  enemySpawner: {fileID: 0}
+--- !u!50 &413016030
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861146915210002945}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &5405841730127798328
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841730127798329}
   - component: {fileID: 5405841730127798330}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hoof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841730487752015}
   - component: {fileID: 5405841730487752008}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fist2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841730535741443}
   - component: {fileID: 5405841730535741500}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +351,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1445258651
   m_SortingLayer: 2
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 7976428378499169762, guid: 28079593568e2f44e84a8ac5893c8a41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -331,7 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841730659261762}
   - component: {fileID: 5405841730659261763}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5405841730659261761}
   m_LocalRotation: {x: -0, y: -0, z: 0.25476274, w: -0.96700364}
-  m_LocalPosition: {x: 4.3, y: -8.4, z: 0}
+  m_LocalPosition: {x: 4.3, y: -13.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5405841731278094958}
@@ -414,7 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841730735391604}
   - component: {fileID: 5405841730735391605}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841731060467786}
   - component: {fileID: 5405841731060467787}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperArm (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5405841731060467785}
   m_LocalRotation: {x: -0, y: -0, z: 0.40157166, w: -0.9158276}
-  m_LocalPosition: {x: -5.499996, y: 6.200001, z: 0}
+  m_LocalPosition: {x: -5.499996, y: 1.5000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5405841731706894742}
@@ -580,7 +622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841731278094958}
   - component: {fileID: 5405841731278094959}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841731693037470}
   - component: {fileID: 5405841731693037471}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,7 +766,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1445258651
   m_SortingLayer: 2
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -8789453461706770821, guid: 28079593568e2f44e84a8ac5893c8a41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -746,7 +788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841731706894742}
   - component: {fileID: 5405841731706894743}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +871,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841731708193285}
   - component: {fileID: 5405841731708193284}
-  m_Layer: 0
+  - component: {fileID: 723108219}
+  m_Layer: 10
   m_Name: Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -844,8 +887,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5405841731708193291}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
+  m_LocalPosition: {x: 0.25, y: 0.69, z: 0}
+  m_LocalScale: {x: 0.218736, y: 0.218736, z: 0.218736}
   m_Children:
   - {fileID: 3427588643205077353}
   - {fileID: 5405841731933471557}
@@ -907,6 +950,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &723108219
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5405841731708193291}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b20f4a48a59fc5a44b45fabcb6d89ef6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5405841731779252174
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,7 +979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841731779252175}
   - component: {fileID: 5405841731779252168}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hoof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -999,7 +1061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841731851017966}
   - component: {fileID: 5405841731851017967}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1014,7 +1076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5405841731851017965}
   m_LocalRotation: {x: -0, y: -0, z: -0.4704869, w: -0.882407}
-  m_LocalPosition: {x: 4.299999, y: 5.6000004, z: 0}
+  m_LocalPosition: {x: 4.299999, y: 0.9000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5405841731693037470}
@@ -1060,7 +1122,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1445258651
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1260601987919357291, guid: 28079593568e2f44e84a8ac5893c8a41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1082,7 +1144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841731933471557}
   - component: {fileID: 5405841731933471558}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,7 +1159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5405841731933471556}
   m_LocalRotation: {x: -0, y: -0, z: 0.039447606, w: -0.9992217}
-  m_LocalPosition: {x: -3, y: 7, z: 0}
+  m_LocalPosition: {x: -3, y: 2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5405841731708193285}
@@ -1164,7 +1226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405841732158290529}
   - component: {fileID: 5405841732158290530}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Thigh (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1179,7 +1241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5405841732158290528}
   m_LocalRotation: {x: -0, y: -0, z: -0.32108524, w: 0.94705033}
-  m_LocalPosition: {x: -0.6, y: -6.4, z: 0}
+  m_LocalPosition: {x: -0.6, y: -11.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5405841730735391604}
@@ -1247,7 +1309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3427588643205077353}
   - component: {fileID: 731924174253470036}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1262,7 +1324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6106076108515879354}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -4.7000003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5405841731708193285}

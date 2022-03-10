@@ -31,6 +31,7 @@ public class FightCollision : MonoBehaviour
     public int dealDamageBoss3;
     public int dealDamageBoss4;
 
+
     void Start()
     {
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
@@ -102,6 +103,8 @@ public class FightCollision : MonoBehaviour
             firstBossScript = collision.gameObject.GetComponent<FirstBossScript>();
             firstBossScript.BossOneHealth(dealDamageBoss1);
 
+            
+
             //ACCESS TO BOSS 1 COUNTERS
             firstBossScript.getHittedCount += 1;
 
@@ -115,6 +118,7 @@ public class FightCollision : MonoBehaviour
         {
             secondBossScript = collision.gameObject.GetComponent<SecondBossScript>();
             secondBossScript.BossTwoHealth(dealDamageBoss2);
+
         }
 
         // BOSS LEVEL 3 RELATED FUNCTIONS

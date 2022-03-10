@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
     public GameObject bossNameText;
     public Image bossHealthImage;
 
+    //---VARIABLES FOR AUDIO
+    public AudioSource myAudio;
+    public AudioClip[] clip;
+    public AudioClip[] music;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +32,7 @@ public class GameManager : MonoBehaviour
         // DEFINING SCRIPT VARIABLES TO FIND OTHER SCRIPTS
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
+        myAudio = GetComponent<AudioSource>();
 
     }
 

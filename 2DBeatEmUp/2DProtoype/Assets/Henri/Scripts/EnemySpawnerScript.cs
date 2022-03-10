@@ -15,6 +15,8 @@ public class EnemySpawnerScript : MonoBehaviour
     public GameObject waweNumberText;
     public GameObject completeText;
     public GameObject[] enemiesInScene;
+    public GameObject[] enemiesInScene2;
+    public GameObject[] enemiesInScene3;
     public GameObject waweAreaCollider;
     public GameObject followCamTrigger;
     public GameObject smokeEffect;
@@ -84,6 +86,22 @@ public class EnemySpawnerScript : MonoBehaviour
 
 
             enemiesInScene = GameObject.FindGameObjectsWithTag("Villain"); //muuttujalle arvo, etsii viholliset tagin avulla
+            enemiesInScene2 = GameObject.FindGameObjectsWithTag("Enemy"); //muuttujalle arvo, etsii viholliset tagin avulla
+            enemiesInScene3 = GameObject.FindGameObjectsWithTag("BigEnemy"); //muuttujalle arvo, etsii viholliset tagin avulla
+
+            for (int i = 0; i < enemiesInScene2.Length; i++)
+            {
+                Destroy(enemiesInScene2[i]);
+                //Instantiate(smokeEffect, transform.position, transform.rotation);
+
+            }
+
+            for (int i = 0; i < enemiesInScene3.Length; i++)
+            {
+                Destroy(enemiesInScene3[i]);
+                //Instantiate(smokeEffect, transform.position, transform.rotation);
+
+            }
 
             for (int i = 0; i < enemiesInScene.Length; i++)
             {

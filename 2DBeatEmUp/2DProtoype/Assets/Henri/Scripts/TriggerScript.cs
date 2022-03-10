@@ -129,9 +129,9 @@ public class TriggerScript : MonoBehaviour
 
         if (collision.gameObject.tag == "EnemySpawn2")
         {
-            Instantiate(enemies[0], spawnPoints[0].transform.position, spawnPoints[0].transform.rotation);
-            Instantiate(enemies[1], spawnPoints[1].transform.position, spawnPoints[1].transform.rotation);
-            Instantiate(enemies[0], spawnPoints[2].transform.position, spawnPoints[2].transform.rotation);
+            Instantiate(enemies[0], spawnPoints[3].transform.position, spawnPoints[3].transform.rotation);
+            Instantiate(enemies[1], spawnPoints[4].transform.position, spawnPoints[4].transform.rotation);
+            Instantiate(enemies[0], spawnPoints[5].transform.position, spawnPoints[5].transform.rotation);
             Destroy(spawnPoints[3]);
             Destroy(spawnPoints[4]);
             Destroy(spawnPoints[5]);

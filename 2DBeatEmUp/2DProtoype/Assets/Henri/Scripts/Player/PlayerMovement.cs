@@ -282,8 +282,6 @@ public class PlayerMovement : MonoBehaviour
             playerSanity = 0;
         }
 
-        //tähän että sanity kuluu koko ajan
-        //osumat viholliseen nostattaa sitä ja kuolemat vähän enemmän
     }
 
     public void SanityGain(int gain)

@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  enemyHealth: 10
+  enemyHealth: 30
   getHittedCount: 5
   aggroRange: 10
   faceToFaceRange: 4
@@ -515,6 +515,10 @@ MonoBehaviour:
   attackTimer: 0
   hittedTimer: 0
   knockTimer: 0
+  minX: -85
+  maxX: 120
+  minY: -4
+  maxY: 0.4
   isActive: 1
   villainRigidbody: {fileID: 0}
   myAnimator: {fileID: 0}
@@ -546,7 +550,7 @@ Transform:
   m_GameObject: {fileID: 8323696117152622156}
   m_LocalRotation: {x: -0, y: -0, z: 0.23116802, w: 0.97291386}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.13, y: 0.13, z: 0.13}
+  m_LocalScale: {x: 0.164658, y: 0.164658, z: 0.164658}
   m_Children:
   - {fileID: 2783198405875368033}
   - {fileID: 8323696117770040292}

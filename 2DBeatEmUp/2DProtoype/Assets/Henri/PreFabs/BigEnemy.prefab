@@ -675,8 +675,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.060287476, y: 0.74066186}
-  m_Size: {x: 2.9286804, y: 5.96071}
+  m_Offset: {x: 1.383398, y: -0.75135803}
+  m_Size: {x: 3.2664986, y: 6.354829}
   m_Direction: 0
 --- !u!114 &5238317616992100193
 MonoBehaviour:
@@ -693,7 +693,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyHealth: 10
   getHittedCount: 0
-  aggroRange: 20
+  aggroRange: 15
   fleeRange: 0
   longAttackRange: 12
   shortAttackRange: 5
@@ -703,6 +703,10 @@ MonoBehaviour:
   shortAttackTimer: 0
   bigRigidbody: {fileID: 0}
   myAnimator: {fileID: 0}
+  minX: -85
+  maxX: 120
+  minY: -4
+  maxY: 0.4
   facingLeft: 0
   isAttacking: 0
   enemySpawner: {fileID: 0}
@@ -1001,7 +1005,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061514295653711199}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.78, y: 2.96, z: 0}
+  m_LocalPosition: {x: 0, y: 1.52, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 8891414111698238758}

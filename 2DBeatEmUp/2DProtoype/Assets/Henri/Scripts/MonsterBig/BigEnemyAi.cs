@@ -32,6 +32,9 @@ public class BigEnemyAi : MonoBehaviour
     public Rigidbody2D bigRigidbody;
     public Animator myAnimator;
 
+    public float minX, maxX;
+    public float minY, maxY;
+
     //BOOLEANS
     public bool facingLeft;
     public bool isAttacking;
@@ -54,6 +57,9 @@ public class BigEnemyAi : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
+        EnemyBoundaries();
+
         float distToPlayer = Vector2.Distance(transform.position, player.position);
 
         //IDLE
@@ -167,6 +173,12 @@ public class BigEnemyAi : MonoBehaviour
         shortAttackTimer = 0;
         bigRigidbody.velocity = Vector2.zero;
         myAnimator.SetTrigger("TakeHit");
+    }
+
+    void EnemyBoundaries()
+    {
+        //SET Y & X AXIS BOUNDARIES FOR MOVEMENT OF THE PLAYER
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, minX, maxX), Mathf.Clamp(transform.position.y, minY, maxY));
     }
 
     public void BigMonsterHealth(int damage)

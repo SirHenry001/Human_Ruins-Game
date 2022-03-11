@@ -15,6 +15,7 @@ public class PickUpScript : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 playerMovement.playerHealth += 20;
+                playerMovement.healthImage.fillAmount = playerMovement.playerHealth * 0.01f;
             }
         }
 
@@ -24,6 +25,7 @@ public class PickUpScript : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 playerMovement.playerHealth = 100;
+                playerMovement.healthImage.fillAmount = playerMovement.playerHealth * 0.01f;
             }
         }
     }

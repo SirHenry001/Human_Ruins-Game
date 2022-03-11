@@ -106,10 +106,10 @@ public class FightCollision : MonoBehaviour
             
 
             //ACCESS TO BOSS 1 COUNTERS
-            firstBossScript.getHittedCount += 1;
+            firstBossScript.getHitCount += 1;
 
             // ACCES TO BOSS1 GETHIT FUNCTION
-            firstBossScript.GetHit();
+            firstBossScript.Gethit();
 
         }
 
@@ -118,6 +118,10 @@ public class FightCollision : MonoBehaviour
         {
             secondBossScript = collision.gameObject.GetComponent<SecondBossScript>();
             secondBossScript.BossTwoHealth(dealDamageBoss2);
+
+            // ACCES TO BOSS2 GETHIT FUNCTION
+            secondBossScript.getHitCount += 1;
+            secondBossScript.Gethit();
 
         }
 

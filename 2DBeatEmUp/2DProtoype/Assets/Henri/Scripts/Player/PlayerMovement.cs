@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     // VARIABLE FOR HEALTH
     public int playerHealth = 100;
-    public int playerSanity = 1000;
+    public int playerSanity = 10000;
 
 
 
@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     public MonsterAi enemyScript;
     public BigEnemyAi bigMonsterAi;
     public FirstBossScript firstBossScript;
+    public SecondBossScript secondBossScript;
     public GameManager gameManager;
     public GameMenuScreen gameMenuScreen;
 
@@ -76,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
         villainAi = GameObject.Find("EvilTeddy").GetComponent<VillainAi>();
         bigMonsterAi = GameObject.Find("BigEnemy").GetComponent<BigEnemyAi>();
         firstBossScript = GameObject.Find("Level1Boss").GetComponent<FirstBossScript>();
+        secondBossScript = GameObject.Find("Level2Boss").GetComponent<SecondBossScript>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
     }
@@ -229,8 +231,6 @@ public class PlayerMovement : MonoBehaviour
             canKick2 = false;
             villainAi.getHittedCount = 0; 
             enemyScript.getHittedCount = 0; 
-            firstBossScript.getHittedCount = 0;
-
 
             combo = 0;
             

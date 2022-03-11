@@ -5,54 +5,56 @@ using UnityEngine.UI;
 
 public class FirstBossScript : MonoBehaviour
 {
-    // BOSS HEALTH
+
     public int bossHealth = 100;
 
-    // VARIABLES TO OTHER SCRIPTS
     public PlayerMovement playerMovement;
     public GameMenuScreen gameMenuScreen;
     public GameManager gameManager;
 
-    // ENEMY TARGET TO ALL FUNCTIONS
+    public Animator bossTwoAnimator;
+
+    // BOSS TARGET
     public Transform player;
 
-    // ENEMY COUNTER WHEN GOT HIT
-    public int getHittedCount = 0;
+    //public int getHittedCount = 0;
+    public int getHitCount = 0;
 
-    // VARIABLES FOR DISTANCES
     public float aggroRange;
-    public float fleeRange;
-    public float longAttackRange;
-    public float shortAttackRange;
-    public Vector2 movement;
+    public float faceToFaceRange;
 
-    //VARIABLES FOR SPEED
     public float moveSpeed;
-    public float ySnapSpeed;
-
-    // VARIABLES FOR TIMERS
+    public float spotSpeed;
+    public float stanceSpeed;
+    public float timer;
     public float attackTimer;
-    public float shortAttackTimer;
+    public float hittedTimer;
+    public float knockTimer;
 
-    //COMPONENTS
-    public Rigidbody2D bigRigidbody;
-    public Animator bossOneAnimator;
+    public float minX, maxX;
+    public float minY, maxY;
 
-    //BOOLEANS
-    public bool facingLeft;
-    public bool isAttacking;
+    public bool isActive = true;
+    public bool shortAttacking = true;
+
+    public Rigidbody2D villainRigidbody;
+    public Animator myAnimator;
+
+
+    public EnemySpawnerScript enemySpawner;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player").transform;
-        bigRigidbody = GetComponentInChildren<Rigidbody2D>();
+        villainRigidbody = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponentInChildren<Animator>();
+        enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
 
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        bossOneAnimator = GetComponentInChildren<Animator>();
-
+        bossTwoAnimator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -60,143 +62,149 @@ public class FirstBossScript : MonoBehaviour
     {
 
     }
+
     private void FixedUpdate()
     {
+        EnemyBoundaries();
 
         float distToPlayer = Vector2.Distance(transform.position, player.position);
 
-        //IDLE
-        if (distToPlayer > aggroRange)
+        if (distToPlayer > aggroRange && isActive)
         {
             Idle();
         }
 
-        //APPROACH
-        if (distToPlayer < aggroRange && isAttacking == false)
+        if (distToPlayer < aggroRange && isActive)
         {
-            Approach();
+            //START CHASING PLAYER
+            ChasePlayer();
         }
 
-        //LONGATTACK
-        if (distToPlayer < longAttackRange && distToPlayer > shortAttackRange && isAttacking == false)
+        if (distToPlayer < faceToFaceRange && shortAttacking == true)
         {
-            
-            Stop();
+            //ATTACK TO PLAYER
+            StartCoroutine(Attack());
         }
 
-        //SHORTATTACK
-        if (distToPlayer < shortAttackRange && getHittedCount < 5)
+        if (10 <= getHitCount)
         {
-            ShortAttack();         
+            StartCoroutine(ChargeAttack());
+            getHitCount = 0;
         }
 
-        if (getHittedCount >= 5)
+        if (distToPlayer > faceToFaceRange && isActive)
         {
-            DangerAttack();
+            //ENEMY STOPS ATTACKING WHEN GET FURTHER FROM FRONT OF PLAYER
+            myAnimator.SetBool("Attack", false);
         }
+
+    }
+
+    public void Activation()
+    {
+        isActive = true;
     }
 
     public void Idle()
     {
-        bigRigidbody.velocity = Vector2.zero;
-        bossOneAnimator.SetBool("Walk", false);
+        timer += Time.deltaTime;
+        myAnimator.SetBool("Approach", false);
+        villainRigidbody.velocity = new Vector2(stanceSpeed, 0);
+
+        if (timer > 2)
+        {
+            stanceSpeed = -stanceSpeed;
+            timer = 0;
+        }
+
+        // ENEMY IS ON THE LEFT SIDE, TURN RIGHT
+        if (transform.position.x < player.position.x)
+        {
+            transform.localScale = new Vector2(-1, 1);
+
+        }
+
+        // ENEMY IS ON THE RIGHT SIDE, TURN LEFT
+        else
+        {
+            transform.localScale = new Vector2(1, 1);
+        }
     }
 
-    public void Approach()
+    void ChasePlayer()
     {
-        bossOneAnimator.SetBool("Walk", true);
+        myAnimator.SetBool("Approach", true);
 
         // ENEMY IS ON THE LEFT SIDE, GO RIGHT
         if (transform.position.x < player.position.x)
         {
-            bigRigidbody.velocity = new Vector2(moveSpeed, bigRigidbody.velocity.y);
+            villainRigidbody.velocity = new Vector2(moveSpeed, villainRigidbody.velocity.y);
             transform.localScale = new Vector2(-1, 1);
-            facingLeft = false;
+
             CompareY();
+
         }
+
         // ENEMY IS ON THE RIGHT SIDE, GO LEFT
         else
         {
-            bigRigidbody.velocity = new Vector2(-moveSpeed, bigRigidbody.velocity.y);
+            villainRigidbody.velocity = new Vector2(-moveSpeed, villainRigidbody.velocity.y);
             transform.localScale = new Vector2(1, 1);
-            facingLeft = true;
+
             CompareY();
         }
+
     }
+
     void CompareY()
     {
+
+        // tietty pointti y missä ei liiku memo
+
         if (transform.position.y < player.position.y)
         {
-            bigRigidbody.velocity = new Vector2(bigRigidbody.velocity.x, moveSpeed);
+            villainRigidbody.velocity = new Vector2(villainRigidbody.velocity.x, moveSpeed);
         }
 
         else if (transform.position.y >= player.position.y)
         {
-            bigRigidbody.velocity = new Vector2(bigRigidbody.velocity.x, -moveSpeed);
+            villainRigidbody.velocity = new Vector2(villainRigidbody.velocity.x, -moveSpeed);
         }
     }
-
-
-
-    public void Stop()
+    public IEnumerator Attack()
     {
-        attackTimer += Time.deltaTime;
-        shortAttackTimer = 0;
-  
-        bossOneAnimator.SetBool("Walk", true);
-        bossOneAnimator.SetBool("Attack", false);
-        
+        myAnimator.SetBool("Attack", true);
+        moveSpeed = 0;
 
-        if (attackTimer > 0.5)
-        {
-            
-            StartCoroutine(LongAttack());
-        }
-    }
-
-    public IEnumerator LongAttack()
-    {
-        bigRigidbody.velocity = Vector2.zero;
-        attackTimer = 0;
-        isAttacking = true;
-        bossOneAnimator.SetBool("Walk", false);
-        bossOneAnimator.SetBool("Attack", true);
         yield return new WaitForSeconds(2f);
-        bossOneAnimator.SetBool("Attack", false);
-        yield return new WaitForSeconds(2f);
-        isAttacking = false;
+        moveSpeed = 2;
+
     }
 
-    public void ShortAttack()
+    public IEnumerator ChargeAttack()
     {
+        print("menee tänne");
 
-        shortAttackTimer += Time.deltaTime;
-
-        if (shortAttackTimer > 2)
-        {
-            shortAttackTimer = 0;
-            bossOneAnimator.SetTrigger("AttackShort");
-        }
-
+        myAnimator.SetTrigger("Charge");
+        villainRigidbody.velocity = Vector2.zero;
+        moveSpeed = 0;
+        GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(3f);
+        moveSpeed = 2;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 
-    public void DangerAttack()
+    public void Gethit()
     {
-        bigRigidbody.velocity = Vector2.zero;
-        bossOneAnimator.SetTrigger("AttackShort");
+        myAnimator.SetTrigger("GetHitted");
     }
 
-    public void GetHit()
+    void EnemyBoundaries()
     {
-        if(bossHealth > 0)
-        {
-            shortAttackTimer = 0;
-            bigRigidbody.velocity = Vector2.zero;
-            bossOneAnimator.SetTrigger("TakeHit");
-        }
-
-
+        //SET Y & X AXIS BOUNDARIES FOR MOVEMENT OF THE PLAYER
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, minX, maxX), Mathf.Clamp(transform.position.y, minY, maxY));
     }
+
 
     public void BossOneHealth(int damage)
     {
@@ -205,7 +213,8 @@ public class FirstBossScript : MonoBehaviour
 
         if (bossHealth <= 0)
         {
-            bossOneAnimator.SetTrigger("Dead");
+            GetComponent<BoxCollider2D>().enabled = false;
+            myAnimator.SetTrigger("Dead");
             Destroy(gameManager.bossNameText);
             Time.timeScale = 0.2f;
             playerMovement.GetComponent<PlayerMovement>().enabled = false;

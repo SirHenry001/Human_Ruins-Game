@@ -21,7 +21,8 @@ public class SecondBossScript : MonoBehaviour
     public Transform player;
 
     public int enemyHealth = 10;
-    public int getHittedCount = 5;
+    //public int getHittedCount = 0;
+    public int getHitCount = 0;
 
     public float aggroRange;
     public float faceToFaceRange;
@@ -38,6 +39,7 @@ public class SecondBossScript : MonoBehaviour
     public float minY, maxY;
 
     public bool isActive = true;
+    public bool shortAttacking = true;
 
     public Rigidbody2D villainRigidbody;
     public Animator myAnimator;
@@ -85,10 +87,16 @@ public class SecondBossScript : MonoBehaviour
             ChasePlayer();
         }
 
-        if (distToPlayer < faceToFaceRange)
+        if (distToPlayer < faceToFaceRange && shortAttacking == true)
         {
             //ATTACK TO PLAYER
             StartCoroutine(Attack());
+        }
+
+        if (10 <= getHitCount)
+        {
+            StartCoroutine(ChargeAttack());
+            getHitCount = 0;
         }
 
         if (distToPlayer > faceToFaceRange && isActive)
@@ -180,6 +188,22 @@ public class SecondBossScript : MonoBehaviour
 
     }
 
+    public IEnumerator ChargeAttack()
+    {
+        print("menee tänne");
+
+        myAnimator.SetTrigger("Charge");
+        villainRigidbody.velocity = Vector2.zero;
+        moveSpeed = 0;
+        GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(3f);
+        moveSpeed = 2;
+        GetComponent<BoxCollider2D>().enabled = true;
+
+
+
+    }
+
     public void Gethit()
     {
         myAnimator.SetTrigger("GetHitted");
@@ -200,6 +224,7 @@ public class SecondBossScript : MonoBehaviour
         {
             Time.timeScale = 0.2f;
             bossTwoAnimator.SetBool("Dead", true);
+            moveSpeed = 0;
             playerMovement.GetComponent<PlayerMovement>().enabled = false;
             GetComponent<SecondBossScript>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;

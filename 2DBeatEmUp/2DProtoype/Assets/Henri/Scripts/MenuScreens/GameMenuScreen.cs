@@ -143,6 +143,8 @@ public class GameMenuScreen : MonoBehaviour
     public IEnumerator ScoreScreen()
     {
         print("alku");
+        yield return new WaitForSeconds(0.1f);
+        Time.timeScale = 0.2f;
         yield return new WaitForSeconds(2f);
         Time.timeScale = 1;
         print("loppu");

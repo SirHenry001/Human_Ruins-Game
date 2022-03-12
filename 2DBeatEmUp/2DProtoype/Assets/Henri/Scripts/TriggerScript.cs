@@ -43,6 +43,8 @@ public class TriggerScript : MonoBehaviour
     public FirstBossScript firstBoss;
     public PlayerMovement playerMovement;
     public GameManager gameManager;
+    public ParallaxCamera parallaxCamera;
+    public ParallaxCamera parallaxCamera2;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,6 +54,8 @@ public class TriggerScript : MonoBehaviour
         if (collision.gameObject.tag == "CameraOne")
         {
             cameraController.target = cam1Target;
+            parallaxCamera.GetComponent<ParallaxCamera>().enabled = false;
+            parallaxCamera2.GetComponent<ParallaxCamera>().enabled = false;
 
         }
 
@@ -62,6 +66,8 @@ public class TriggerScript : MonoBehaviour
             waweCollider1.SetActive(true);
             waweCollider2.SetActive(true);
             enemySpawner.enabled = true;
+            parallaxCamera.GetComponent<ParallaxCamera>().enabled = false;
+            parallaxCamera2.GetComponent<ParallaxCamera>().enabled = false;
 
         }
 
@@ -73,14 +79,19 @@ public class TriggerScript : MonoBehaviour
             bossCollider2.SetActive(true);
             gameManager.bossHealthImage.gameObject.SetActive(true);
             gameManager.bossNameText.SetActive(true);
+            parallaxCamera.GetComponent<ParallaxCamera>().enabled = false;
+            parallaxCamera2.GetComponent<ParallaxCamera>().enabled = false;
         }
 
         // PLAYER ACTIVATES CAMERATARGER WHICH FOLLOWS PLAYER
         if (collision.gameObject.tag == "FollowCam")
         {
             cameraController.target = player;
+            parallaxCamera.GetComponent<ParallaxCamera>().enabled = true;
+            parallaxCamera2.GetComponent<ParallaxCamera>().enabled = true;
             enemySpawner.waweCounterText.SetActive(false);
             enemySpawner.completeText.SetActive(false);
+
         }
 
         // ACTIVATES THE SECOND FOLLOW CAM
@@ -90,6 +101,8 @@ public class TriggerScript : MonoBehaviour
             enemySpawner.waweCounterText.SetActive(false);
             enemySpawner.completeText.SetActive(false);
             playerMovement.sanityLoss = false;
+            parallaxCamera.GetComponent<ParallaxCamera>().enabled = true;
+            parallaxCamera2.GetComponent<ParallaxCamera>().enabled = true;
 
             if (playerMovement.playerSanity >= 9000)
             {
@@ -131,7 +144,7 @@ public class TriggerScript : MonoBehaviour
         {
             Instantiate(enemies[0], spawnPoints[3].transform.position, spawnPoints[3].transform.rotation);
             Instantiate(enemies[1], spawnPoints[4].transform.position, spawnPoints[4].transform.rotation);
-            Instantiate(enemies[0], spawnPoints[5].transform.position, spawnPoints[5].transform.rotation);
+            Instantiate(enemies[1], spawnPoints[5].transform.position, spawnPoints[5].transform.rotation);
             Destroy(spawnPoints[3]);
             Destroy(spawnPoints[4]);
             Destroy(spawnPoints[5]);
@@ -148,6 +161,8 @@ public class TriggerScript : MonoBehaviour
         enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        parallaxCamera = GameObject.Find("BGMiddle1").GetComponent<ParallaxCamera>();
+        parallaxCamera2 = GameObject.Find("BGMiddle2").GetComponent<ParallaxCamera>();
     }
 
     // Update is called once per frame

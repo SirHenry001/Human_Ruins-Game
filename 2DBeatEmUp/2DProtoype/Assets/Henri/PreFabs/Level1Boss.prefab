@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131270435577797913}
   m_LocalRotation: {x: -0, y: -0, z: 0.0062189735, w: -0.99998075}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.73, z: 0}
   m_LocalScale: {x: 0.24, y: 0.24, z: 0.24}
   m_Children:
   - {fileID: 8593262391120113175}
@@ -202,7 +202,8 @@ GameObject:
   - component: {fileID: 131270435964080240}
   - component: {fileID: 131270435964080247}
   - component: {fileID: 4251688853308422112}
-  m_Layer: 10
+  - component: {fileID: 232594318}
+  m_Layer: 0
   m_Name: Fist1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,6 +291,21 @@ CircleCollider2D:
   m_Offset: {x: -2.7105896, y: -0.36428675}
   serializedVersion: 2
   m_Radius: 4.7302966
+--- !u!114 &232594318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131270435964080241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a752468b58f34742b554cea11386905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  dealDamage: 10
+  scareSanity: 0
 --- !u!1 &131270436398618871
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 131270436664426725}
   - component: {fileID: 131270436664426724}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Fist2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,14 +826,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131270436908130339}
-  m_LocalRotation: {x: -0, y: -0, z: -0.099175826, w: -0.9950699}
+  m_LocalRotation: {x: -0, y: -0, z: -0.11658198, w: 0.9931811}
   m_LocalPosition: {x: 0.00006199721, y: -6.1004224, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 131270436664426725}
   m_Father: {fileID: 131270436884664797}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.383}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.39}
 --- !u!212 &131270436908130337
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -963,7 +979,8 @@ GameObject:
   - component: {fileID: 131270437145805785}
   - component: {fileID: 131270437145805784}
   - component: {fileID: 7893079891668499118}
-  m_Layer: 10
+  - component: {fileID: 1680868780}
+  m_Layer: 0
   m_Name: Foot
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -1045,12 +1062,27 @@ CircleCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -1.2248658, y: -1.6399711}
   serializedVersion: 2
   m_Radius: 4.745
+--- !u!114 &1680868780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131270437145805786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a752468b58f34742b554cea11386905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  dealDamage: 15
+  scareSanity: 0
 --- !u!1 &131270437224959005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,6 +1424,7 @@ GameObject:
   - component: {fileID: 7977186356243412570}
   - component: {fileID: 1957864697458488718}
   - component: {fileID: 5906017467771807369}
+  - component: {fileID: 1230781237}
   m_Layer: 10
   m_Name: Level1Boss
   m_TagString: Boss
@@ -1430,21 +1463,27 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   gameMenuScreen: {fileID: 0}
   gameManager: {fileID: 0}
+  bossTwoAnimator: {fileID: 0}
   player: {fileID: 0}
-  getHittedCount: 0
-  aggroRange: 0
-  fleeRange: 0
-  longAttackRange: 0
-  shortAttackRange: 0
-  movement: {x: 0, y: 0}
-  moveSpeed: 0
-  ySnapSpeed: 0
+  getHitCount: 0
+  aggroRange: 20
+  faceToFaceRange: 7
+  moveSpeed: 2
+  spotSpeed: 0
+  stanceSpeed: 1
+  timer: 0
   attackTimer: 0
-  shortAttackTimer: 0
-  bigRigidbody: {fileID: 0}
-  bossOneAnimator: {fileID: 8550605500797886069}
-  facingLeft: 0
-  isAttacking: 0
+  hittedTimer: 0
+  knockTimer: 0
+  minX: -85
+  maxX: 120
+  minY: -4
+  maxY: 0.3
+  isActive: 1
+  shortAttacking: 0
+  villainRigidbody: {fileID: 0}
+  myAnimator: {fileID: 0}
+  enemySpawner: {fileID: 0}
 --- !u!61 &5906017467771807369
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1455,10 +1494,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.124536514, y: -0.57077837}
+  m_Offset: {x: 0.49520302, y: 1.0815454}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1469,5 +1508,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.1585808, y: 9.07392}
+  m_Size: {x: 3.8999138, y: 9.2683115}
   m_EdgeRadius: 0
+--- !u!50 &1230781237
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348929252811751939}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

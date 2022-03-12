@@ -19,9 +19,13 @@ public class CutSceneTwoScript : MonoBehaviour
     public Image cutsceneImage;
     public Image fadeOutImageImage;
 
+    public AudioSource myAudio;
+    public AudioClip[] effects;
+
     // Start is called before the first frame update
     void Start()
     {
+        myAudio = GetComponent<AudioSource>();
         StartCoroutine(CutsceneTwo());
     }
 
@@ -33,6 +37,12 @@ public class CutSceneTwoScript : MonoBehaviour
         {
             SceneManager.LoadScene("Level2");
         }
+    }
+
+    public void PlayAudio(int trackNumber)
+    {
+        myAudio.clip = effects[trackNumber];
+        myAudio.Play();
     }
 
     public IEnumerator CutsceneTwo()
@@ -50,6 +60,7 @@ public class CutSceneTwoScript : MonoBehaviour
         cutsceneFourText.SetActive(true);
         yield return new WaitForSeconds(6f);
         fadeOutImageImage.gameObject.SetActive(true);
+        PlayAudio(0);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Level2");
 

@@ -536,6 +536,9 @@ MonoBehaviour:
   cutsceneFourText: {fileID: 105210429}
   cutsceneImage: {fileID: 1482542989}
   fadeOutImageImage: {fileID: 1015003815}
+  myAudio: {fileID: 0}
+  effects:
+  - {fileID: 8300000, guid: e1a737a7b12a39a4ca167ea4d6ac8281, type: 3}
 --- !u!114 &934544246
 MonoBehaviour:
   m_ObjectHideFlags: 0

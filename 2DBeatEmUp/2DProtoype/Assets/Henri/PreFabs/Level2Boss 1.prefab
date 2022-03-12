@@ -47,7 +47,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02204895, y: -0.70541024}
+  m_Offset: {x: 0.23535538, y: -1.1280508}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -58,7 +58,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3667297, y: 3.7775521}
+  m_Size: {x: 3.915825, y: 7.3114395}
   m_EdgeRadius: 0
 --- !u!114 &4960685160973380074
 MonoBehaviour:
@@ -79,10 +79,11 @@ MonoBehaviour:
   bossTwoAnimator: {fileID: 0}
   player: {fileID: 0}
   enemyHealth: 10
-  getHittedCount: 5
+  getHitCount: 0
   aggroRange: 12
   faceToFaceRange: 4
   moveSpeed: 2
+  spotSpeed: 0
   stanceSpeed: 1
   timer: 0
   attackTimer: 0
@@ -93,6 +94,7 @@ MonoBehaviour:
   minY: -4
   maxY: 0.4
   isActive: 1
+  shortAttacking: 1
   villainRigidbody: {fileID: 0}
   myAnimator: {fileID: 0}
   enemySpawner: {fileID: 0}

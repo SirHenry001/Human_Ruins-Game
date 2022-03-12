@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     public SecondBossScript secondBossScript;
     public GameManager gameManager;
     public GameMenuScreen gameMenuScreen;
+    public AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -80,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
         secondBossScript = GameObject.Find("Level2Boss").GetComponent<SecondBossScript>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -89,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         // GET PLAYER TO PUNCH WITH ANIMATION 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
+            
             StartCoroutine(Combo());
         }
 
@@ -174,6 +177,7 @@ public class PlayerMovement : MonoBehaviour
         canPunch = true;
         lastTime = Time.time;
         combo++;
+        audioManager.PlaySwoosh();
 
         while (true)
         {
@@ -187,6 +191,7 @@ public class PlayerMovement : MonoBehaviour
                     //myAnimator.SetBool("Punch", false);
                     myAnimator.SetBool("Punch2", true);
                     myAnimator.SetBool("Punch", false);
+                    
                 }
 
                 if(combo == 3)
@@ -250,7 +255,7 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator Activation()
     {
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.2f);
         getStunned = false;
     }
 

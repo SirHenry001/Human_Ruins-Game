@@ -5,22 +5,26 @@ using UnityEngine;
 public class ParallaxCamera : MonoBehaviour
 {
 
-    //public float scrollingSpeed = 1f;
-    //public float scrollingSpeedY = 1f;
+    public float scrollingSpeed = 1f;
+    public float scrollingSpeedY = 1f;
+    public float offset;
 
-    //public Transform target;
+    public Transform target;
 
     //public float playerMovement;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.position = new Vector2(target.position.x * scrollingSpeed, transform.position.y * scrollingSpeedY);
+
+        transform.position = new Vector2(target.position.x * scrollingSpeed - offset, transform.position.y * scrollingSpeedY);
+
+
     }
 }

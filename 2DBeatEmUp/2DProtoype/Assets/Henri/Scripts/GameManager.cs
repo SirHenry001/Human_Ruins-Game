@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
 
     //---VARIABLES FOR AUDIO
     public AudioSource myAudio;
-    public AudioClip[] clip;
     public AudioClip[] music;
 
 
@@ -34,12 +33,26 @@ public class GameManager : MonoBehaviour
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
         myAudio = GetComponent<AudioSource>();
 
+        // PLAY THIS MUSIC AT START
+        PlayMusic(0);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void PLayFX()
+    {
+
+    }
+
+    public void PlayMusic(int trackNumber)
+    {
+        myAudio.clip = music[trackNumber];
+        myAudio.Play();
     }
 
     // PLAYER DEAT ACTIVATION

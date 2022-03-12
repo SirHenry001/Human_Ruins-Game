@@ -58,7 +58,6 @@ public class SecondBossScript : MonoBehaviour
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        bossTwoAnimator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -69,8 +68,6 @@ public class SecondBossScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-
 
         EnemyBoundaries();
 
@@ -90,6 +87,7 @@ public class SecondBossScript : MonoBehaviour
         if (distToPlayer < faceToFaceRange && shortAttacking == true)
         {
             //ATTACK TO PLAYER
+            isActive = false;
             StartCoroutine(Attack());
         }
 
@@ -105,11 +103,6 @@ public class SecondBossScript : MonoBehaviour
             myAnimator.SetBool("Attack", false);
         }
 
-    }
-
-    public void Activation()
-    {
-        isActive = true;
     }
 
     public void Idle()
@@ -181,9 +174,12 @@ public class SecondBossScript : MonoBehaviour
     public IEnumerator Attack()
     {
         myAnimator.SetBool("Attack", true);
+        villainRigidbody.velocity = Vector2.zero;
         moveSpeed = 0;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
+
+        isActive = true;
         moveSpeed = 2;
 
     }
@@ -192,16 +188,18 @@ public class SecondBossScript : MonoBehaviour
     {
         print("menee tänne");
 
-        myAnimator.SetTrigger("Charge");
+        myAnimator.SetBool("Charge",true);
         villainRigidbody.velocity = Vector2.zero;
-        moveSpeed = 0;
         GetComponent<BoxCollider2D>().enabled = false;
+        isActive = false;
+        shortAttacking = false;
+
         yield return new WaitForSeconds(3f);
-        moveSpeed = 2;
+
+        isActive = true;
+        shortAttacking = true;
+        myAnimator.SetBool("Charge", false);
         GetComponent<BoxCollider2D>().enabled = true;
-
-
-
     }
 
     public void Gethit()
@@ -222,11 +220,8 @@ public class SecondBossScript : MonoBehaviour
 
         if (bossHealth <= 0)
         {
-            Time.timeScale = 0.2f;
-            bossTwoAnimator.SetBool("Dead", true);
-            moveSpeed = 0;
+            myAnimator.SetTrigger("Dead");
             playerMovement.GetComponent<PlayerMovement>().enabled = false;
-            GetComponent<SecondBossScript>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
             StartCoroutine(gameMenuScreen.ScoreScreen());
         }

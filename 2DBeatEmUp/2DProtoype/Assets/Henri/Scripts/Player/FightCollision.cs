@@ -15,6 +15,7 @@ public class FightCollision : MonoBehaviour
     public ThirdBossScript thirdBossScript;
     public FinalBossScript finalBossScript;
     public PostProcessScript postProcess;
+    public AudioManager audioManager;
 
     // HOW MUCK DAMAGE DEALT AND SANITY GAIN TO/FROIM ENEMIES
     public int dealDamageMonster;
@@ -36,6 +37,7 @@ public class FightCollision : MonoBehaviour
     {
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         postProcess = GameObject.Find("PostProcess").GetComponent<PostProcessScript>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         //firstBossScript = GameObject.Find("Level1Boss").GetComponent<FirstBossScript>();
         //thirdBossScript = GameObject.Find("Level33Boss").GetComponent<FirstBossScript>();
         //secondBossScript = GameObject.Find("Level2Boss").GetComponent<SecondBossScript>();
@@ -59,6 +61,8 @@ public class FightCollision : MonoBehaviour
 
             // CONNECT TO POSTPROCESS SCRIPT
 
+            //ACCES TO AUDIOMANAGER
+            audioManager.PlayPunch();
 
         }
 
@@ -78,6 +82,9 @@ public class FightCollision : MonoBehaviour
 
             //ACCESS TO VILLAIN HEALTH LOSS FUNCTION
             villainAi.VillainHealth(dealDamageVillain);
+
+            //ACCES TO AUDIOMANAGER
+            audioManager.PlayPunch();
         }
 
         // BIGENEMY AI RELATED FUNCTION
@@ -95,6 +102,9 @@ public class FightCollision : MonoBehaviour
 
             //ACCESS TO VILLAIN HEALTH LOSS FUNCTION
             bigMonsterAi.BigMonsterHealth(1);
+
+            //ACCES TO AUDIOMANAGER
+            audioManager.PlayPunch();
         }
 
         // BOSS LEVEL 1 RELATED FUNCTIONS

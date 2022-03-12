@@ -80,9 +80,10 @@ public class FirstBossScript : MonoBehaviour
             ChasePlayer();
         }
 
-        if (distToPlayer < faceToFaceRange && shortAttacking == true)
+        if (distToPlayer < faceToFaceRange)
         {
             //ATTACK TO PLAYER
+            isActive = false;
             StartCoroutine(Attack());
         }
 
@@ -98,11 +99,6 @@ public class FirstBossScript : MonoBehaviour
             myAnimator.SetBool("Attack", false);
         }
 
-    }
-
-    public void Activation()
-    {
-        isActive = true;
     }
 
     public void Idle()
@@ -133,6 +129,7 @@ public class FirstBossScript : MonoBehaviour
 
     void ChasePlayer()
     {
+
         myAnimator.SetBool("Approach", true);
 
         // ENEMY IS ON THE LEFT SIDE, GO RIGHT
@@ -174,23 +171,28 @@ public class FirstBossScript : MonoBehaviour
     public IEnumerator Attack()
     {
         myAnimator.SetBool("Attack", true);
+        villainRigidbody.velocity = Vector2.zero;
         moveSpeed = 0;
 
         yield return new WaitForSeconds(2f);
-        moveSpeed = 2;
 
+        isActive = true;
+        moveSpeed = 2;
     }
 
     public IEnumerator ChargeAttack()
     {
-        print("menee tänne");
-
-        myAnimator.SetTrigger("Charge");
+        myAnimator.SetBool("Charge",true);
         villainRigidbody.velocity = Vector2.zero;
-        moveSpeed = 0;
         GetComponent<BoxCollider2D>().enabled = false;
+        isActive = false;
+        shortAttacking = false;
+
         yield return new WaitForSeconds(3f);
-        moveSpeed = 2;
+
+        isActive = true;
+        shortAttacking = true;
+        myAnimator.SetBool("Charge", false);
         GetComponent<BoxCollider2D>().enabled = true;
     }
 
@@ -213,12 +215,11 @@ public class FirstBossScript : MonoBehaviour
 
         if (bossHealth <= 0)
         {
-            GetComponent<BoxCollider2D>().enabled = false;
             myAnimator.SetTrigger("Dead");
+            playerMovement.GetComponent<PlayerMovement>().enabled = false; 
+            GetComponent<BoxCollider2D>().enabled = false;
             Destroy(gameManager.bossNameText);
-            Time.timeScale = 0.2f;
-            playerMovement.GetComponent<PlayerMovement>().enabled = false;
-            GetComponent<FirstBossScript>().enabled = false;
+
             StartCoroutine(gameMenuScreen.ScoreScreen());
         }
     }

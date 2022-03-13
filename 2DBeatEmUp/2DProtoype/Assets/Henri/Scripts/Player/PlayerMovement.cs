@@ -10,7 +10,19 @@ public class PlayerMovement : MonoBehaviour
     public int playerHealth = 100;
     public int playerSanity = 10000;
 
+    //VARIABLES FOR AUDIO SPAWN
 
+    public GameObject hitEffect1;
+    public GameObject hitEffect2;
+    public GameObject hitEffect3;
+
+    public GameObject hitSpawn1;
+    public GameObject hitSpawn2;
+    public GameObject hitSpawn3;
+
+    public GameObject[] audioEffect;
+    public GameObject[] audioSwoosh;
+    public GameObject audioSpawn;
 
     //VARIABLE FOR TIMERS
     public float stunnedTimer;
@@ -21,15 +33,6 @@ public class PlayerMovement : MonoBehaviour
     public float cooldown = 0.5f;
     public float maxTime = 0.8f;
     public float lastTime;
-
-    // VARIABLES FOR EFFECTS & SPAWNPOINTS
-    public GameObject hitEffect1;
-    public GameObject hitEffect2;
-    public GameObject hitEffect3;
-
-    public GameObject hit1Spawn;
-    public GameObject hit2Spawn;
-    public GameObject hit3Spawn;
 
     // VARIABLES FOR MOVEMENT
     public float speed = 5f;
@@ -91,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         // GET PLAYER TO PUNCH WITH ANIMATION 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            
+            Instantiate(audioSwoosh[Random.Range(0, 3)], audioSpawn.transform.position, audioSpawn.transform.rotation);
             StartCoroutine(Combo());
         }
 
@@ -177,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
         canPunch = true;
         lastTime = Time.time;
         combo++;
-        audioManager.PlaySwoosh();
+        
 
         while (true)
         {

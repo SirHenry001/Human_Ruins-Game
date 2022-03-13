@@ -18,6 +18,11 @@ public class MonsterAi : MonoBehaviour
     public float aggroRange;
     public float faceToFaceRange;
 
+    // VARIABLE FOR AUDIO EFFECTS
+    public GameObject hitAudio;
+    public GameObject hitAudio2;
+    public GameObject audioSpawnEnemy;
+
     //VARIABLES FOR MOVEMENT
     public float moveSpeed;
     public float fleeSpeed;
@@ -37,6 +42,7 @@ public class MonsterAi : MonoBehaviour
     public Animator myAnimator;
 
     public EnemySpawnerScript enemySpawner;
+    public AudioManager audioManager;
 
 
     // Start is called before the first frame update
@@ -47,6 +53,7 @@ public class MonsterAi : MonoBehaviour
         myAnimator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -212,9 +219,11 @@ public class MonsterAi : MonoBehaviour
 
         if(enemyHealth <= 0)
         {
+            audioManager.PlayFX(1);
             myAnimator.SetTrigger("Dead");
+            moveSpeed = 0;
             GetComponent<CapsuleCollider2D>().enabled = false;
-            GetComponent<MonsterAi>().enabled = false;
+            //GetComponent<MonsterAi>().enabled = false;
             Destroy(gameObject, 2f);
 
 

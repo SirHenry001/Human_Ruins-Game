@@ -188,10 +188,12 @@ public class VillainAi : MonoBehaviour
 
         myAnimator.SetTrigger("Knocked");
         GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<VillainAi>().enabled = false;
+        moveSpeed = 0;
+        //GetComponent<VillainAi>().enabled = false;
         yield return new WaitForSeconds(2f);
         GetComponent<BoxCollider2D>().enabled = true;
-        GetComponent<VillainAi>().enabled = true;
+        moveSpeed = 3;
+        //GetComponent<VillainAi>().enabled = true;
 
 
 
@@ -210,7 +212,8 @@ public class VillainAi : MonoBehaviour
         {
             myAnimator.SetTrigger("Dead");
             GetComponent<BoxCollider2D>().enabled = false;
-            GetComponent<VillainAi>().enabled = false;
+            moveSpeed = 0;
+            //GetComponent<VillainAi>().enabled = false;
             Destroy(gameObject, 1.5f);
 
             if (enemySpawner.enabled == true)

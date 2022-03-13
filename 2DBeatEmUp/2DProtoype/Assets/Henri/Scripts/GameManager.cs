@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         myAudio = GetComponent<AudioSource>();
 
         // PLAY THIS MUSIC AT START
-        PlayMusic(0);
+        //PlayMusic(0);
 
     }
 

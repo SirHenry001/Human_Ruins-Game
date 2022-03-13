@@ -695,9 +695,9 @@ MonoBehaviour:
   getHittedCount: 0
   aggroRange: 15
   fleeRange: 0
-  longAttackRange: 12
+  longAttackRange: 8
   shortAttackRange: 5
-  moveSpeed: 1
+  moveSpeed: 2
   ySnapSpeed: 10
   attackTimer: 0
   shortAttackTimer: 0

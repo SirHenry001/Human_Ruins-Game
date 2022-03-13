@@ -17,6 +17,8 @@ public class FightCollision : MonoBehaviour
     public PostProcessScript postProcess;
     public AudioManager audioManager;
 
+
+
     // HOW MUCK DAMAGE DEALT AND SANITY GAIN TO/FROIM ENEMIES
     public int dealDamageMonster;
     public int gainSanityMonster;
@@ -61,8 +63,10 @@ public class FightCollision : MonoBehaviour
 
             // CONNECT TO POSTPROCESS SCRIPT
 
-            //ACCES TO AUDIOMANAGER
-            audioManager.PlayPunch();
+            //ACCES TO AUDIO SPAWN OBJECT TO PLAYER MOVEMENT
+            
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+            
 
         }
 
@@ -83,8 +87,9 @@ public class FightCollision : MonoBehaviour
             //ACCESS TO VILLAIN HEALTH LOSS FUNCTION
             villainAi.VillainHealth(dealDamageVillain);
 
-            //ACCES TO AUDIOMANAGER
-            audioManager.PlayPunch();
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+
         }
 
         // BIGENEMY AI RELATED FUNCTION
@@ -103,8 +108,8 @@ public class FightCollision : MonoBehaviour
             //ACCESS TO VILLAIN HEALTH LOSS FUNCTION
             bigMonsterAi.BigMonsterHealth(1);
 
-            //ACCES TO AUDIOMANAGER
-            audioManager.PlayPunch();
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
         }
 
         // BOSS LEVEL 1 RELATED FUNCTIONS
@@ -121,6 +126,9 @@ public class FightCollision : MonoBehaviour
             // ACCES TO BOSS1 GETHIT FUNCTION
             firstBossScript.Gethit();
 
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+
         }
 
         // BOSS LEVEL 2 RELATED FUNCTIONS
@@ -133,6 +141,9 @@ public class FightCollision : MonoBehaviour
             secondBossScript.getHitCount += 1;
             secondBossScript.Gethit();
 
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+
         }
 
         // BOSS LEVEL 3 RELATED FUNCTIONS
@@ -140,6 +151,13 @@ public class FightCollision : MonoBehaviour
         {
             thirdBossScript = collision.gameObject.GetComponent<ThirdBossScript>();
             thirdBossScript.BossThreeHealth(dealDamageBoss3);
+
+            // ACCES TO BOSS2 GETHIT FUNCTION
+            thirdBossScript.getHitCount += 1;
+            thirdBossScript.Gethit();
+
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
         }
 
         // BOSS LEVEL 4 RELATED FUNCTIONS
@@ -147,6 +165,9 @@ public class FightCollision : MonoBehaviour
         {
             finalBossScript = collision.gameObject.GetComponent<FinalBossScript>();
             finalBossScript.BossFinalHealth(dealDamageBoss4);
+
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
         }
 
 

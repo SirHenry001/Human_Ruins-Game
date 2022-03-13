@@ -89,6 +89,9 @@ MonoBehaviour:
   getHittedCount: 0
   aggroRange: 10
   faceToFaceRange: 3
+  hitAudio: {fileID: 1481695104585285961, guid: 0d64153ddd921624f837bbf264112ce7, type: 3}
+  hitAudio2: {fileID: 8293023706368469548, guid: 9aab0ffa0503bba4fa7724ab0add273f, type: 3}
+  audioSpawnEnemy: {fileID: 7624426916088594144}
   moveSpeed: 3
   fleeSpeed: 10
   minX: -85
@@ -102,6 +105,7 @@ MonoBehaviour:
   monsterRigidbody: {fileID: 0}
   myAnimator: {fileID: 0}
   enemySpawner: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!1 &1565080259270194812
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +137,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1565080259786593791}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -19.899}
 --- !u!212 &1565080259270194814
 SpriteRenderer:
@@ -247,7 +251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1565080259786593791}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.394}
 --- !u!212 &1565080259350675574
 SpriteRenderer:
@@ -329,6 +333,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
   m_Children:
+  - {fileID: 8038926213201872822}
   - {fileID: 1020716726233021741}
   - {fileID: 1565080260478652614}
   - {fileID: 1565080259270194815}
@@ -437,7 +442,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1565080259786593791}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.394}
 --- !u!212 &1565080259829315245
 SpriteRenderer:
@@ -519,7 +524,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1565080259786593791}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.394}
 --- !u!212 &1565080260116757322
 SpriteRenderer:
@@ -601,7 +606,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1565080259786593791}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.394}
 --- !u!212 &1565080260478652617
 SpriteRenderer:
@@ -683,7 +688,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1565080259786593791}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.013}
 --- !u!212 &5481539632965379144
 SpriteRenderer:
@@ -736,3 +741,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7624426916088594144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8038926213201872822}
+  m_Layer: 0
+  m_Name: SpawnAUDIO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8038926213201872822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7624426916088594144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1565080259786593791}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

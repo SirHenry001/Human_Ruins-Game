@@ -12,6 +12,8 @@ public class TriggerScript : MonoBehaviour
     public GameObject[] enemies;
 
 
+
+
     //THIS SCRIPT IS ATTACHED TO PLAYER
 
     // CAMERA TARGETS WHICH IS CHANGED BASED ON WHICH TRIGGER PLAYER ACTIVATES

@@ -44,7 +44,6 @@ public class SecondBossScript : MonoBehaviour
     public Rigidbody2D villainRigidbody;
     public Animator myAnimator;
 
-
     public EnemySpawnerScript enemySpawner;
 
     // Start is called before the first frame update

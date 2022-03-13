@@ -189,7 +189,8 @@ public class BigEnemyAi : MonoBehaviour
         {
             myAnimator.SetTrigger("Dead");
             GetComponent<CapsuleCollider2D>().enabled = false;
-            GetComponent<BigEnemyAi>().enabled = false;
+            moveSpeed = 0;
+            //GetComponent<BigEnemyAi>().enabled = false;
             Destroy(gameObject, 2f);
 
             if(enemySpawner.enabled == true)

@@ -21,6 +21,8 @@ public class FightCollisionEnemy : MonoBehaviour
             playerMovement.SanityLoss(scareSanity);
             playerMovement.GetHit();
             playerMovement.PlayerHealth(dealDamage);
+            Instantiate(monsterAi.hitAudio, monsterAi.audioSpawnEnemy.transform.position, monsterAi.audioSpawnEnemy.transform.rotation);
+            Instantiate(monsterAi.hitAudio2, monsterAi.audioSpawnEnemy.transform.position, monsterAi.audioSpawnEnemy.transform.rotation);
         }
     }
 

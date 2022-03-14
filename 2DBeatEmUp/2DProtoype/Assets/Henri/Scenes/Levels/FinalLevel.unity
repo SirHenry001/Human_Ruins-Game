@@ -10207,13 +10207,16 @@ MonoBehaviour:
   scoreScreenBG: {fileID: 1739548275}
   firstLevelPlayerImage: {fileID: 1456275985}
   levelOne1ClearText: {fileID: 494840237}
+  highScoreText: {fileID: 0}
   clearedTextScorecreen: {fileID: 310802694}
   scoreTextEnd: {fileID: 1929730168}
   hpBonusTextEnd: {fileID: 928017670}
+  sanityBonusTextEnd: {fileID: 0}
   totalTextEnd: {fileID: 1991092389}
   continueButton: {fileID: 406756156}
   backButton: {fileID: 495934858}
   playerMovement: {fileID: 0}
+  scoreScreen: 0
 --- !u!1 &2054967178
 GameObject:
   m_ObjectHideFlags: 0

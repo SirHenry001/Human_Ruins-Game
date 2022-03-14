@@ -100,6 +100,7 @@ MonoBehaviour:
   maxY: 0.4
   attackTimer: 0
   cooldownTimer: 0
+  isActive: 1
   facingLeft: 1
   isFleeing: 0
   monsterRigidbody: {fileID: 0}

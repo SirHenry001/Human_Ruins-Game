@@ -26,6 +26,7 @@ public class SecondBossScript : MonoBehaviour
 
     public float aggroRange;
     public float faceToFaceRange;
+    public float stopRange;
 
     public float moveSpeed;
     public float spotSpeed;
@@ -40,6 +41,7 @@ public class SecondBossScript : MonoBehaviour
 
     public bool isActive = true;
     public bool shortAttacking = true;
+    public bool facingRight;
 
     public Rigidbody2D villainRigidbody;
     public Animator myAnimator;
@@ -103,10 +105,18 @@ public class SecondBossScript : MonoBehaviour
             myAnimator.SetBool("Attack", false);
         }
 
+        if(distToPlayer <= stopRange)
+        {
+            villainRigidbody.velocity = Vector2.zero;
+        }
+
     }
 
     public void Idle()
     {
+
+        villainRigidbody.velocity = Vector2.zero;
+        /*
         timer += Time.deltaTime;
         myAnimator.SetBool("Approach", false);
         villainRigidbody.velocity = new Vector2(stanceSpeed, 0);
@@ -129,6 +139,7 @@ public class SecondBossScript : MonoBehaviour
         {
             transform.localScale = new Vector2(1, 1);
         }
+        */
     }
 
     void ChasePlayer()
@@ -140,6 +151,7 @@ public class SecondBossScript : MonoBehaviour
         {
             villainRigidbody.velocity = new Vector2(moveSpeed, villainRigidbody.velocity.y);
             transform.localScale = new Vector2(-1, 1);
+            facingRight = false;
 
             CompareY();
 
@@ -150,6 +162,7 @@ public class SecondBossScript : MonoBehaviour
         {
             villainRigidbody.velocity = new Vector2(-moveSpeed, villainRigidbody.velocity.y);
             transform.localScale = new Vector2(1, 1);
+            facingRight = true;
 
             CompareY();
         }
@@ -158,8 +171,6 @@ public class SecondBossScript : MonoBehaviour
 
     void CompareY()
     {
-
-        // tietty pointti y missä ei liiku memo
 
         if (transform.position.y < player.position.y)
         {
@@ -173,14 +184,16 @@ public class SecondBossScript : MonoBehaviour
     }
     public IEnumerator Attack()
     {
+        isActive = false;
         myAnimator.SetBool("Attack", true);
         villainRigidbody.velocity = Vector2.zero;
-        moveSpeed = 0;
 
         yield return new WaitForSeconds(3f);
+        isActive = false;
+        villainRigidbody.velocity = Vector2.zero;
 
+        yield return new WaitForSeconds(1f);
         isActive = true;
-        moveSpeed = 2;
 
     }
 
@@ -196,10 +209,14 @@ public class SecondBossScript : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        isActive = true;
-        shortAttacking = true;
+        isActive = false;
+        villainRigidbody.velocity = Vector2.zero;
         myAnimator.SetBool("Charge", false);
         GetComponent<BoxCollider2D>().enabled = true;
+
+        yield return new WaitForSeconds(1f);
+        isActive = true;
+        shortAttacking = true;
     }
 
     public void Gethit()
@@ -209,7 +226,6 @@ public class SecondBossScript : MonoBehaviour
 
     void EnemyBoundaries()
     {
-        //SET Y & X AXIS BOUNDARIES FOR MOVEMENT OF THE PLAYER
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, minX, maxX), Mathf.Clamp(transform.position.y, minY, maxY));
     }
 
@@ -222,6 +238,7 @@ public class SecondBossScript : MonoBehaviour
         {
             myAnimator.SetTrigger("Dead");
             playerMovement.GetComponent<PlayerMovement>().enabled = false;
+            villainRigidbody.velocity = Vector2.zero;
             GetComponent<BoxCollider2D>().enabled = false;
             StartCoroutine(gameMenuScreen.ScoreScreen());
         }

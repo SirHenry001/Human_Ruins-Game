@@ -31,6 +31,7 @@ public class VillainAi : MonoBehaviour
     public Animator myAnimator;
 
     public EnemySpawnerScript enemySpawner;
+    public Boss2Spawner bossSpawner;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class VillainAi : MonoBehaviour
         villainRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
         enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
+        bossSpawner = GameObject.Find("BossFightSpawner").GetComponent<Boss2Spawner>();
     }
 
     // Update is called once per frame
@@ -232,6 +234,7 @@ public class VillainAi : MonoBehaviour
             moveSpeed = 0;
             //GetComponent<VillainAi>().enabled = false;
             Destroy(gameObject, 1.5f);
+            bossSpawner.EnemyCounter();
 
             if (enemySpawner.enabled == true)
             {

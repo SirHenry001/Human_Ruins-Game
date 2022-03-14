@@ -35,6 +35,7 @@ public class FinalBossScript : MonoBehaviour
     public bool shortAttack;
     public bool isCharging;
     public bool isFleeing;
+    public bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -58,17 +59,25 @@ public class FinalBossScript : MonoBehaviour
     private void FixedUpdate()
     {
 
-        chargeTimer += Time.deltaTime;
+        
 
-        if(chargeTimer >= 10)
+        if(isDead == false)
         {
-            isCharging = true;
+
+            chargeTimer += Time.deltaTime;
+
+            if (chargeTimer >= 10)
+            {
+                isCharging = true;
+            }
+
+            else
+            {
+                isCharging = false;
+            }
         }
 
-        else
-        {
-            isCharging = false;
-        }
+
 
         EnemyBoundaries();
 
@@ -263,6 +272,7 @@ public class FinalBossScript : MonoBehaviour
 
         if (bossHealth <= 0)
         {
+            isDead = true;
             Time.timeScale = 0.2f;
             myAnimator.SetTrigger("Dead");
             villainRigidbody.velocity = Vector2.zero;

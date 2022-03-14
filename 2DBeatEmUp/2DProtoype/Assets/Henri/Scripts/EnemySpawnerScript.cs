@@ -33,6 +33,7 @@ public class EnemySpawnerScript : MonoBehaviour
         waweCounterText.SetActive(true);
         waweNumberText.SetActive(true);
 
+        enemiesInGame = 0;
         enemiesKilled = 0;
         waweNumberText.GetComponent<TextMeshProUGUI>().text = enemiesKilled.ToString() + " of 5";
 
@@ -82,9 +83,6 @@ public class EnemySpawnerScript : MonoBehaviour
             completeText.SetActive(true);
             followCamTrigger.SetActive(true);
             
-
-
-
             enemiesInScene = GameObject.FindGameObjectsWithTag("Villain"); //muuttujalle arvo, etsii viholliset tagin avulla
             enemiesInScene2 = GameObject.FindGameObjectsWithTag("Enemy"); //muuttujalle arvo, etsii viholliset tagin avulla
             enemiesInScene3 = GameObject.FindGameObjectsWithTag("BigEnemy"); //muuttujalle arvo, etsii viholliset tagin avulla

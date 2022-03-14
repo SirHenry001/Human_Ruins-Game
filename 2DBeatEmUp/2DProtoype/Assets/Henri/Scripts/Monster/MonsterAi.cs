@@ -34,6 +34,7 @@ public class MonsterAi : MonoBehaviour
     public float cooldownTimer;
 
     // BOOLEANS
+    public bool isActive;
     public bool facingLeft;
     public bool isFleeing;
 
@@ -77,7 +78,7 @@ public class MonsterAi : MonoBehaviour
         }
 
         //START CHASING PLAYER
-        if (distToPlayer < aggroRange && distToPlayer > faceToFaceRange && isFleeing == false) // IN THESE TERMS THIS WONT RESET ATTACKTIMER WHEN FACETOFACE DISTANCE
+        if (distToPlayer < aggroRange && distToPlayer > faceToFaceRange && isFleeing == false && isActive == true) // IN THESE TERMS THIS WONT RESET ATTACKTIMER WHEN FACETOFACE DISTANCE
         {
             ChasePlayer();
         }
@@ -102,15 +103,7 @@ public class MonsterAi : MonoBehaviour
 
         if (distToPlayer < faceToFaceRange && isFleeing == false)
         {
-            if (facingLeft == true)
-            {
-                monsterRigidbody.velocity = new Vector2(fleeSpeed, monsterRigidbody.velocity.y);
-            }
-
-            if (facingLeft == false)
-            {
-                monsterRigidbody.velocity = new Vector2(-fleeSpeed, monsterRigidbody.velocity.y);
-            }
+            monsterRigidbody.velocity = Vector2.zero;
         }
 
     }
@@ -218,11 +211,11 @@ public class MonsterAi : MonoBehaviour
     {
         myAnimator.SetTrigger("Knocked");
         GetComponent<CapsuleCollider2D>().enabled = false;
-        GetComponent<MonsterAi>().enabled = false;
+        monsterRigidbody.velocity = Vector2.zero;
+        isActive = false;
         yield return new WaitForSeconds(2f);
         GetComponent<CapsuleCollider2D>().enabled = true;
-        GetComponent<MonsterAi>().enabled = true;
-
+        isActive = true;
 
     }
 
@@ -232,15 +225,17 @@ public class MonsterAi : MonoBehaviour
 
         if(enemyHealth <= 0)
         {
+
+            
+
             audioManager.PlayFX(1);
             myAnimator.SetTrigger("Dead");
             moveSpeed = 0;
             GetComponent<CapsuleCollider2D>().enabled = false;
-            //GetComponent<MonsterAi>().enabled = false;
             Destroy(gameObject, 2f);
 
 
-            if(enemySpawner.enabled == true)
+            if (enemySpawner.enabled == true)
             {
                 enemySpawner.EnemyCounter();
                 enemySpawner.WaweKillCounter();

@@ -19,14 +19,18 @@ public class GameMenuScreen : MonoBehaviour
     public Image firstLevelPlayerImage;
     
     public GameObject levelOne1ClearText;
+    public GameObject highScoreText;
     public GameObject clearedTextScorecreen;
     public GameObject scoreTextEnd;
     public GameObject hpBonusTextEnd;
+    public GameObject sanityBonusTextEnd;
     public GameObject totalTextEnd;
     public GameObject continueButton;
     public GameObject backButton;
 
     public PlayerMovement playerMovement;
+
+    public bool scoreScreen = false;
 
 
 
@@ -39,10 +43,15 @@ public class GameMenuScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+
+        if(scoreScreen == false)
         {
-            Pause();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Pause();
+            }
         }
+
     }
 
     public void Resume()
@@ -143,26 +152,31 @@ public class GameMenuScreen : MonoBehaviour
     public IEnumerator ScoreScreen()
     {
         print("alku");
+        scoreScreen = true;
         yield return new WaitForSeconds(0.1f);
         Time.timeScale = 0.2f;
         yield return new WaitForSeconds(2f);
         Time.timeScale = 1;
         print("loppu");
-        playerMovement.playerSanity = 100;
+        playerMovement.playerSanity = 10000;
         levelOne1ClearText.SetActive(true);
         yield return new WaitForSeconds(3f);
         fadeOutImage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         scoreScreenBG.gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
         firstLevelPlayerImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
         clearedTextScorecreen.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         scoreTextEnd.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         hpBonusTextEnd.SetActive(true);
         yield return new WaitForSeconds(0.2f);
+        sanityBonusTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
         totalTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        highScoreText.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         continueButton.SetActive(true);
         backButton.SetActive(true);

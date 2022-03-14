@@ -95,6 +95,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             Instantiate(audioSwoosh[Random.Range(0, 3)], audioSpawn.transform.position, audioSpawn.transform.rotation);
+            Destroy(audioSwoosh[0],2f);
+            Destroy(audioSwoosh[1],2f);
+            Destroy(audioSwoosh[2],2f);
+            Destroy(audioSwoosh[3],2f);
             StartCoroutine(Combo());
         }
 
@@ -297,4 +301,5 @@ public class PlayerMovement : MonoBehaviour
         playerSanity += gain;
         sanityImage.fillAmount = playerSanity * 0.0001f;
     }
+
 }

@@ -15,6 +15,7 @@ public class VillainAi : MonoBehaviour
 
     public float moveSpeed;
     public float stanceSpeed;
+    public float fleeSpeed;
     public float timer;
     public float attackTimer;
     public float hittedTimer;
@@ -24,6 +25,7 @@ public class VillainAi : MonoBehaviour
     public float minY, maxY;
 
     public bool isActive = true;
+    public bool facingRight;
 
     public Rigidbody2D villainRigidbody;
     public Animator myAnimator;
@@ -81,6 +83,19 @@ public class VillainAi : MonoBehaviour
             myAnimator.SetBool("Attack", false);
         }
 
+        if(distToPlayer < faceToFaceRange && isActive)
+        {
+            if (facingRight == true)
+            {
+                villainRigidbody.velocity = new Vector2(-fleeSpeed, villainRigidbody.velocity.y);
+            }
+
+            if (facingRight == false)
+            {
+                villainRigidbody.velocity = new Vector2(fleeSpeed, villainRigidbody.velocity.y);
+            }
+        }
+
     }
 
     public void Activation()
@@ -125,6 +140,7 @@ public class VillainAi : MonoBehaviour
         {
             villainRigidbody.velocity = new Vector2(moveSpeed, villainRigidbody.velocity.y);
             transform.localScale = new Vector2(-1, 1);
+            facingRight = true;
 
             CompareY();
 
@@ -135,6 +151,7 @@ public class VillainAi : MonoBehaviour
             {
                 villainRigidbody.velocity = new Vector2(-moveSpeed, villainRigidbody.velocity.y);
                 transform.localScale = new Vector2(1, 1);
+                facingRight = false;
 
             CompareY();
         }

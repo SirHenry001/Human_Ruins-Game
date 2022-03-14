@@ -54,7 +54,7 @@ public class FirstBossScript : MonoBehaviour
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        bossTwoAnimator = GetComponentInChildren<Animator>();
+        //bossTwoAnimator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -89,6 +89,7 @@ public class FirstBossScript : MonoBehaviour
 
         if (10 <= getHitCount)
         {
+            isActive = false;
             StartCoroutine(ChargeAttack());
             getHitCount = 0;
         }

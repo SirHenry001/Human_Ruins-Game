@@ -100,6 +100,19 @@ public class MonsterAi : MonoBehaviour
             getHittedCount = 0;
         }
 
+        if (distToPlayer < faceToFaceRange && isFleeing == false)
+        {
+            if (facingLeft == true)
+            {
+                monsterRigidbody.velocity = new Vector2(fleeSpeed, monsterRigidbody.velocity.y);
+            }
+
+            if (facingLeft == false)
+            {
+                monsterRigidbody.velocity = new Vector2(-fleeSpeed, monsterRigidbody.velocity.y);
+            }
+        }
+
     }
 
     public void ChasePlayer()

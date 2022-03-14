@@ -1150,6 +1150,7 @@ MonoBehaviour:
   faceToFaceRange: 4
   moveSpeed: 3
   stanceSpeed: 0.5
+  fleeSpeed: 2
   timer: 0
   attackTimer: 0
   hittedTimer: 0
@@ -1159,6 +1160,7 @@ MonoBehaviour:
   minY: -4
   maxY: 0.4
   isActive: 1
+  facingRight: 0
   villainRigidbody: {fileID: 0}
   myAnimator: {fileID: 0}
   enemySpawner: {fileID: 0}

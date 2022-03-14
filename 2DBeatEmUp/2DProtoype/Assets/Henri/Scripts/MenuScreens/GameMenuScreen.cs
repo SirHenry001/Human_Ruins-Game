@@ -169,4 +169,34 @@ public class GameMenuScreen : MonoBehaviour
 
 
     }
+
+    public IEnumerator EndScreen()
+    {
+        print("alku");
+        yield return new WaitForSeconds(0.1f);
+        Time.timeScale = 0.2f;
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 1;
+        print("loppu");
+        playerMovement.playerSanity = 100;
+        levelOne1ClearText.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        fadeOutImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        scoreScreenBG.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        firstLevelPlayerImage.gameObject.SetActive(true);
+        clearedTextScorecreen.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        scoreTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        hpBonusTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        totalTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        continueButton.SetActive(true);
+        backButton.SetActive(true);
+
+
+    }
 }

@@ -110,6 +110,9 @@ public class FightCollision : MonoBehaviour
 
             //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
             Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+            Destroy(playerMovement.audioEffect[0],2f);
+            Destroy(playerMovement.audioEffect[1],2f);
+            Destroy(playerMovement.audioEffect[2],2f);
         }
 
         // BOSS LEVEL 1 RELATED FUNCTIONS

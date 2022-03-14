@@ -92,6 +92,7 @@ public class SecondBossScript : MonoBehaviour
 
         if (10 <= getHitCount)
         {
+            isActive = false;
             StartCoroutine(ChargeAttack());
             getHitCount = 0;
         }

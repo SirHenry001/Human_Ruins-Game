@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource myAudio;
     public AudioClip[] inGameEffects;
+    public AudioClip[] music;
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +27,6 @@ public class AudioManager : MonoBehaviour
         myAudio.clip = inGameEffects[trackNumber];
         myAudio.Play();
     }
+
 
 }

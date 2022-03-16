@@ -42,6 +42,7 @@ public class ThirdBossScript : MonoBehaviour
     public bool isActive = true;
     public bool isFleeing = true;
     public bool shortAttacking = true;
+    public bool isDead = false;
 
     public Rigidbody2D villainRigidbody;
     public Animator myAnimator;
@@ -80,13 +81,13 @@ public class ThirdBossScript : MonoBehaviour
             ChasePlayer();
         }
 
-        if (attackTimer2 >= 5 && isActive == true)
+        if (attackTimer2 >= 3 && isActive == true)
         {
             StartCoroutine(Attack());
             
         }
 
-        if (10 <= getHitCount)
+        if (10 <= getHitCount && isDead == false)
         {
             StartCoroutine(Flee());
             getHitCount = 0;
@@ -147,7 +148,9 @@ public class ThirdBossScript : MonoBehaviour
     {
         myAnimator.SetBool("Attack", true);
         villainRigidbody.velocity = Vector2.zero;
+        GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(2f);
+        GetComponent<BoxCollider2D>().enabled = true;
         myAnimator.SetBool("Attack", false);
         attackTimer2 = 0;
 
@@ -155,20 +158,21 @@ public class ThirdBossScript : MonoBehaviour
 
     public IEnumerator Flee()
     {
+        
         isActive = false;
         myAnimator.SetTrigger("Flee");
+        GetComponent<BoxCollider2D>().enabled = false;
         villainRigidbody.velocity = new Vector2(fleeSpeed, 0);
 
         yield return new WaitForSeconds(1f);
         myAnimator.SetBool("LongAttack", true);
 
-
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
         myAnimator.SetBool("LongAttack", false);
         GetComponent<BoxCollider2D>().enabled = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         isActive = true;
     }
 
@@ -186,12 +190,13 @@ public class ThirdBossScript : MonoBehaviour
         bossHealth -= damage;
         gameManager.bossHealthImage.fillAmount = bossHealth * 0.01f;
 
-        if (bossHealth <= 40)
+        if (bossHealth <= 0)
         {
+            isDead = true;
             Time.timeScale = 0.2f;
-            myAnimator.SetTrigger("Switch");
+            myAnimator.SetTrigger("Dead");
             playerMovement.GetComponent<PlayerMovement>().enabled = false;
-            //StartCoroutine(gameMenuScreen.ScoreScreen());
+            StartCoroutine(gameMenuScreen.ScoreScreen());
         }
     }
 

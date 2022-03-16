@@ -6,6 +6,7 @@ public class PickUpScript : MonoBehaviour
 {
 
     public PlayerMovement playerMovement;
+    public GameManager gameManager;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -16,7 +17,9 @@ public class PickUpScript : MonoBehaviour
                 Destroy(collision.gameObject);
                 playerMovement.playerHealth += 20;
                 playerMovement.healthImage.fillAmount = playerMovement.playerHealth * 0.01f;
+
             }
+
         }
 
         if (collision.gameObject.tag == "PickUpMax")
@@ -26,14 +29,21 @@ public class PickUpScript : MonoBehaviour
                 Destroy(collision.gameObject);
                 playerMovement.playerHealth = 100;
                 playerMovement.healthImage.fillAmount = playerMovement.playerHealth * 0.01f;
+
             }
+
         }
+
+
+
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame

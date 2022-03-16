@@ -22,6 +22,7 @@ public class Boss2Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemiesInGame = 0;
         secondBossScript = GameObject.Find("Level2Boss").GetComponent<SecondBossScript>();
     }
 
@@ -58,7 +59,7 @@ public class Boss2Spawner : MonoBehaviour
 
         if (secondBossScript.bossHealth <= 0)
         {
-
+            
             Destroy(spawnPoints[0]);
             Destroy(spawnPoints[1]);
             Destroy(spawnPoints[2]);
@@ -69,7 +70,6 @@ public class Boss2Spawner : MonoBehaviour
             for (int i = 0; i < enemiesInScene.Length; i++)
             {
                 Destroy(enemiesInScene[i]);
-                //Instantiate(smokeEffect, transform.position, transform.rotation);
             }
 
         }

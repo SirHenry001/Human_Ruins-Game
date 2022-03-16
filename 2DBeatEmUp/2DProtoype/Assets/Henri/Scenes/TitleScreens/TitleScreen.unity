@@ -972,7 +972,7 @@ MonoBehaviour:
   m_text: 'Life is har for everyone sometimes,
 
     but there is  a way to handle
-    your bad thought and reach for happiness..
+    your bad thoughts and reach for happiness..
 
 
     Live One day of his everyday
@@ -1870,7 +1870,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db5e6976b174d3a4198d36f51de9ec51, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5a7c82a430bbe94db8dc29c689eb9c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3006,7 +3006,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WASD - Move
+  m_text: 'ARROWS - Move
 
     LCTRL - Hit
 

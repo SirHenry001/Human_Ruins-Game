@@ -47,6 +47,7 @@ public class SecondBossScript : MonoBehaviour
     public Animator myAnimator;
 
     public EnemySpawnerScript enemySpawner;
+    public Boss2Spawner boss2Spawner;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +56,7 @@ public class SecondBossScript : MonoBehaviour
         villainRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
         enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
+        boss2Spawner = GameObject.Find("BossFightSpawner").GetComponent<Boss2Spawner>();
 
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
@@ -236,6 +238,7 @@ public class SecondBossScript : MonoBehaviour
 
         if (bossHealth <= 0)
         {
+            boss2Spawner.WaweKillCounter();
             myAnimator.SetTrigger("Dead");
             playerMovement.GetComponent<PlayerMovement>().enabled = false;
             villainRigidbody.velocity = Vector2.zero;

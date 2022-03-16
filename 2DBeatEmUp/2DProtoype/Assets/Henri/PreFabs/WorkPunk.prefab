@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1147526394411470657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6252273605016539914}
+  m_Layer: 0
+  m_Name: AudioSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6252273605016539914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147526394411470657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8282470807083602029}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4225265241013787024
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +59,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8282470807083602029}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.238}
 --- !u!212 &6265261726997421839
 SpriteRenderer:
@@ -111,6 +141,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.219872, y: 0.219872, z: 0.219872}
   m_Children:
+  - {fileID: 6252273605016539914}
   - {fileID: 4469106839332630871}
   - {fileID: 8282470808069456645}
   - {fileID: 8282470808876430985}
@@ -303,7 +334,7 @@ Transform:
   m_Children:
   - {fileID: 8282470807370630692}
   m_Father: {fileID: 8282470807083602029}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -58.078}
 --- !u!212 &8282470807655233638
 SpriteRenderer:
@@ -536,6 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
+  villainAi: {fileID: 0}
   dealDamage: 5
   scareSanity: 200
 --- !u!58 &1853536508
@@ -584,7 +616,7 @@ Transform:
   m_Children:
   - {fileID: 8282470808831991705}
   m_Father: {fileID: 8282470807083602029}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -32.881}
 --- !u!212 &8282470808045659347
 SpriteRenderer:
@@ -667,7 +699,7 @@ Transform:
   m_Children:
   - {fileID: 8282470808318797580}
   m_Father: {fileID: 8282470807083602029}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 21.326}
 --- !u!212 &8282470808069456666
 SpriteRenderer:
@@ -750,7 +782,7 @@ Transform:
   m_Children:
   - {fileID: 8282470808271733694}
   m_Father: {fileID: 8282470807083602029}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -14.92}
 --- !u!212 &8282470808237398226
 SpriteRenderer:
@@ -1147,7 +1179,7 @@ MonoBehaviour:
   enemyHealth: 30
   getHittedCount: 0
   aggroRange: 20
-  faceToFaceRange: 4
+  faceToFaceRange: 5
   moveSpeed: 3
   stanceSpeed: 0.5
   fleeSpeed: 2
@@ -1155,15 +1187,21 @@ MonoBehaviour:
   attackTimer: 0
   hittedTimer: 0
   knockTimer: 0
+  hitAudio: {fileID: 1481695104585285961, guid: 0d64153ddd921624f837bbf264112ce7, type: 3}
+  hitAudio2: {fileID: 8293023706368469548, guid: 3de13993ecae2374d85bcf9b2ec7bdec, type: 3}
+  deadAudio: {fileID: 8293023706368469548, guid: 05c9c4716d3870945972aede9a652565, type: 3}
+  audioSpawnEnemy: {fileID: 1147526394411470657}
   minX: -85
   maxX: 120
-  minY: -4
+  minY: -2.45
   maxY: 0.4
   isActive: 1
   facingRight: 0
   villainRigidbody: {fileID: 0}
   myAnimator: {fileID: 0}
   enemySpawner: {fileID: 0}
+  audioManager: {fileID: 0}
+  bossSpawner: {fileID: 0}
 --- !u!1 &8282470808609861428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,7 +1397,7 @@ Transform:
   m_Children:
   - {fileID: 8282470807660335053}
   m_Father: {fileID: 8282470807083602029}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 62.101}
 --- !u!212 &8282470808876430990
 SpriteRenderer:
@@ -1509,6 +1547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
+  villainAi: {fileID: 0}
   dealDamage: 5
   scareSanity: 200
 --- !u!58 &1071431206

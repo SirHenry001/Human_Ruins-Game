@@ -21,6 +21,7 @@ TagManager:
   - PickUpMax
   - EnemySpawn
   - EnemySpawn2
+  - BossSpawner
   layers:
   - Default
   - TransparentFX

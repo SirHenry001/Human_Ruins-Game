@@ -16,6 +16,10 @@ public class FightCollision : MonoBehaviour
     public FinalBossScript finalBossScript;
     public PostProcessScript postProcess;
     public AudioManager audioManager;
+    public GameManager gameManager;
+    public LevelHighScore levelScore;
+    public FirstHighScore levelScore1;
+    public ThirdHighScore levelScore3;
 
 
 
@@ -40,6 +44,9 @@ public class FightCollision : MonoBehaviour
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         postProcess = GameObject.Find("PostProcess").GetComponent<PostProcessScript>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        levelScore = GameObject.Find("LevelHighScore").GetComponent<LevelHighScore>();
+        levelScore1 = GameObject.Find("LevelHighScore").GetComponent<FirstHighScore>();
+        levelScore3 = GameObject.Find("LevelHighScore").GetComponent<ThirdHighScore>();
         //firstBossScript = GameObject.Find("Level1Boss").GetComponent<FirstBossScript>();
         //thirdBossScript = GameObject.Find("Level33Boss").GetComponent<FirstBossScript>();
         //secondBossScript = GameObject.Find("Level2Boss").GetComponent<SecondBossScript>();
@@ -61,12 +68,21 @@ public class FightCollision : MonoBehaviour
             enemyScript.GetHitted();
             enemyScript.MonsterHealth(dealDamageMonster);
 
-            // CONNECT TO POSTPROCESS SCRIPT
-
             //ACCES TO AUDIO SPAWN OBJECT TO PLAYER MOVEMENT
-            
+
             Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
-            
+
+            // CONNECT GAMEMANAGER SCORE
+            levelScore.AddScore(10);
+
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+            Destroy(playerMovement.audioEffect[0], 2f);
+            Destroy(playerMovement.audioEffect[1], 2f);
+            Destroy(playerMovement.audioEffect[2], 2f);
+
+
+
 
         }
 
@@ -84,8 +100,16 @@ public class FightCollision : MonoBehaviour
             villainAi.getHittedCount += 1;
             villainAi.Gethit();
 
+            // CONNECT GAMEMANAGER SCORE
+            levelScore.AddScore(25);
+            levelScore1.AddScore(25);
+            levelScore3.AddScore(25);
+
             //ACCESS TO VILLAIN HEALTH LOSS FUNCTION
             villainAi.VillainHealth(dealDamageVillain);
+
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
 
             //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
             Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
@@ -108,6 +132,9 @@ public class FightCollision : MonoBehaviour
             //ACCESS TO VILLAIN HEALTH LOSS FUNCTION
             bigMonsterAi.BigMonsterHealth(1);
 
+            // CONNECT GAMEMANAGER SCORE
+            levelScore.AddScore(50);
+
             //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
             Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
             Destroy(playerMovement.audioEffect[0],2f);
@@ -121,7 +148,8 @@ public class FightCollision : MonoBehaviour
             firstBossScript = collision.gameObject.GetComponent<FirstBossScript>();
             firstBossScript.BossOneHealth(dealDamageBoss1);
 
-            
+            // CONNECT GAMEMANAGER SCORE
+            levelScore1.AddScore(75);
 
             //ACCESS TO BOSS 1 COUNTERS
             firstBossScript.getHitCount += 1;
@@ -131,6 +159,12 @@ public class FightCollision : MonoBehaviour
 
             //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
             Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+            Destroy(playerMovement.audioEffect[0], 2f);
+            Destroy(playerMovement.audioEffect[1], 2f);
+            Destroy(playerMovement.audioEffect[2], 2f);
 
         }
 
@@ -147,6 +181,14 @@ public class FightCollision : MonoBehaviour
             //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
             Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
 
+            // CONNECT GAMEMANAGER SCORE
+            levelScore.AddScore(75);
+
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+            Destroy(playerMovement.audioEffect[0], 2f);
+            Destroy(playerMovement.audioEffect[1], 2f);
+            Destroy(playerMovement.audioEffect[2], 2f);
         }
 
         // BOSS LEVEL 3 RELATED FUNCTIONS
@@ -159,8 +201,17 @@ public class FightCollision : MonoBehaviour
             thirdBossScript.getHitCount += 1;
             thirdBossScript.Gethit();
 
+            // CONNECT GAMEMANAGER SCORE
+            levelScore3.AddScore(75);
+
             //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
             Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+            Destroy(playerMovement.audioEffect[0], 2f);
+            Destroy(playerMovement.audioEffect[1], 2f);
+            Destroy(playerMovement.audioEffect[2], 2f);
         }
 
         // BOSS LEVEL 4 RELATED FUNCTIONS
@@ -171,6 +222,12 @@ public class FightCollision : MonoBehaviour
 
             //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
             Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+
+            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
+            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
+            Destroy(playerMovement.audioEffect[0], 2f);
+            Destroy(playerMovement.audioEffect[1], 2f);
+            Destroy(playerMovement.audioEffect[2], 2f);
         }
 
 

@@ -6,6 +6,7 @@ public class CollisionBig : MonoBehaviour
 {
 
     public PlayerMovement playerMovement;
+    public BigEnemyAi bigEnemy;
 
     public int dealDamage;
     public int scareSanity;
@@ -20,6 +21,8 @@ public class CollisionBig : MonoBehaviour
             playerMovement.SanityLoss(scareSanity);
             playerMovement.GetHit();
             playerMovement.PlayerHealth(dealDamage);
+            Instantiate(bigEnemy.hitAudio, bigEnemy.audioSpawnEnemy.transform.position, bigEnemy.audioSpawnEnemy.transform.rotation);
+            Instantiate(bigEnemy.hitAudio2, bigEnemy.audioSpawnEnemy.transform.position, bigEnemy.audioSpawnEnemy.transform.rotation);
         }
     }
 

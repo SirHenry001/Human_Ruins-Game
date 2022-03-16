@@ -87,10 +87,11 @@ MonoBehaviour:
   enemyHealth: 20
   hitCount: 0
   getHittedCount: 0
-  aggroRange: 10
+  aggroRange: 15
   faceToFaceRange: 3
   hitAudio: {fileID: 1481695104585285961, guid: 0d64153ddd921624f837bbf264112ce7, type: 3}
   hitAudio2: {fileID: 8293023706368469548, guid: 9aab0ffa0503bba4fa7724ab0add273f, type: 3}
+  deadAudio: {fileID: 8293023706368469548, guid: 57cb05024bf07d54d946d0bb140d8638, type: 3}
   audioSpawnEnemy: {fileID: 7624426916088594144}
   moveSpeed: 3
   fleeSpeed: 10

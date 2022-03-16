@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -24,6 +25,13 @@ public class GameManager : MonoBehaviour
     public AudioSource myAudio;
     public AudioClip[] music;
 
+    // VARIABLES FOR SCORE
+    public int sanityScore;
+    public GameObject hpBonusText;
+    public GameObject sanityBonusText;
+
+    public bool musicOn;
+    public bool bossMusicOn;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +41,7 @@ public class GameManager : MonoBehaviour
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
         myAudio = GetComponent<AudioSource>();
 
+
         // PLAY THIS MUSIC AT START
         //PlayMusic(0);
 
@@ -41,7 +50,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void PLayFX()
@@ -49,10 +58,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void PlayMusic(int trackNumber)
+    public void SanityBonus(int sanitybonus)
     {
-        myAudio.clip = music[trackNumber];
-        myAudio.Play();
+        sanityScore += sanitybonus;
+        sanityBonusText.GetComponent<TextMeshProUGUI>().text = "Sanity bonus - " + sanityScore.ToString();
     }
 
     // PLAYER DEAT ACTIVATION

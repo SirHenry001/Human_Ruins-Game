@@ -21,6 +21,12 @@ public class VillainAi : MonoBehaviour
     public float hittedTimer;
     public float knockTimer;
 
+    // VARIABLE FOR AUDIO EFFECTS
+    public GameObject hitAudio;
+    public GameObject hitAudio2;
+    public GameObject deadAudio;
+    public GameObject audioSpawnEnemy;
+
     public float minX, maxX;
     public float minY, maxY;
 
@@ -31,6 +37,7 @@ public class VillainAi : MonoBehaviour
     public Animator myAnimator;
 
     public EnemySpawnerScript enemySpawner;
+    public AudioManager audioManager;
     public Boss2Spawner bossSpawner;
 
     // Start is called before the first frame update
@@ -40,6 +47,7 @@ public class VillainAi : MonoBehaviour
         villainRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
         enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         bossSpawner = GameObject.Find("BossFightSpawner").GetComponent<Boss2Spawner>();
     }
 
@@ -87,15 +95,7 @@ public class VillainAi : MonoBehaviour
 
         if(distToPlayer < faceToFaceRange && isActive)
         {
-            if (facingRight == true)
-            {
-                villainRigidbody.velocity = new Vector2(-fleeSpeed, villainRigidbody.velocity.y);
-            }
-
-            if (facingRight == false)
-            {
-                villainRigidbody.velocity = new Vector2(fleeSpeed, villainRigidbody.velocity.y);
-            }
+            villainRigidbody.velocity = Vector2.zero;
         }
 
     }
@@ -230,17 +230,20 @@ public class VillainAi : MonoBehaviour
         if(enemyHealth <= 0)
         {
             myAnimator.SetTrigger("Dead");
+            Instantiate(deadAudio, audioSpawnEnemy.transform.position, audioSpawnEnemy.transform.rotation);
             GetComponent<BoxCollider2D>().enabled = false;
             moveSpeed = 0;
-            //GetComponent<VillainAi>().enabled = false;
             Destroy(gameObject, 1.5f);
-            bossSpawner.EnemyCounter();
+            
+
 
             if (enemySpawner.enabled == true)
             {
                 enemySpawner.EnemyCounter();
                 enemySpawner.WaweKillCounter();
             }
+
+            bossSpawner.EnemyCounter();
         }
     }
 }

@@ -6,6 +6,7 @@ public class CollisionVillain : MonoBehaviour
 {
 
     public PlayerMovement playerMovement;
+    public VillainAi villainAi;
 
     public int dealDamage;
     public int scareSanity;
@@ -20,6 +21,9 @@ public class CollisionVillain : MonoBehaviour
             playerMovement.SanityLoss(scareSanity);
             playerMovement.GetHit();
             playerMovement.PlayerHealth(dealDamage);
+
+            Instantiate(villainAi.hitAudio, villainAi.audioSpawnEnemy.transform.position, villainAi.audioSpawnEnemy.transform.rotation);
+            Instantiate(villainAi.hitAudio2, villainAi.audioSpawnEnemy.transform.position, villainAi.audioSpawnEnemy.transform.rotation);
         }
     }
 

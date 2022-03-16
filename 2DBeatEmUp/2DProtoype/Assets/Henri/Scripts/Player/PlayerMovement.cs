@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator myAnimator;
     public Image healthImage;
     public Image sanityImage;
+    public GameObject healthText;
 
     // VARIABLES FOR OTHER SCRIPTS
     public VillainAi villainAi;
@@ -95,10 +97,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             Instantiate(audioSwoosh[Random.Range(0, 3)], audioSpawn.transform.position, audioSpawn.transform.rotation);
-            Destroy(audioSwoosh[0],2f);
-            Destroy(audioSwoosh[1],2f);
-            Destroy(audioSwoosh[2],2f);
-            Destroy(audioSwoosh[3],2f);
             StartCoroutine(Combo());
         }
 
@@ -270,6 +268,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerHealth -= damage;
         healthImage.fillAmount = playerHealth * 0.01f;
+        //healthText.GetComponent<TextMeshProUGUI>().text = "Health Bonus -  " + playerHealth.ToString();
 
         if (playerHealth <= 0)
         {

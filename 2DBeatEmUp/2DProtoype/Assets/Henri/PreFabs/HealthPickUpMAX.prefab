@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!58 &835704986765120491
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -111,9 +112,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008677754, y: -0.000000711758}
+  m_Offset: {x: -0.16354159, y: -0.00000082118976}
   serializedVersion: 2
-  m_Radius: 1.0896583
+  m_Radius: 4.6721754
 --- !u!95 &5959067285110586261
 Animator:
   serializedVersion: 3

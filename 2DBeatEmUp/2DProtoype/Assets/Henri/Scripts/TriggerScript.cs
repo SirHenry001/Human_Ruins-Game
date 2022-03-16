@@ -45,6 +45,9 @@ public class TriggerScript : MonoBehaviour
     public FirstBossScript firstBoss;
     public PlayerMovement playerMovement;
     public GameManager gameManager;
+    public AudioManager audioManager;
+    public MusicManager musicManager;
+    public Boss2Spawner boss2Spawner;
     public ParallaxCamera parallaxCamera;
     public ParallaxCamera parallaxCamera2;
 
@@ -83,6 +86,13 @@ public class TriggerScript : MonoBehaviour
             gameManager.bossNameText.SetActive(true);
             parallaxCamera.GetComponent<ParallaxCamera>().enabled = false;
             parallaxCamera2.GetComponent<ParallaxCamera>().enabled = false;
+
+        }
+
+        if (collision.gameObject.tag == "BossSpawner")
+        {
+            boss2Spawner.enabled = true;
+            enemySpawner.enabled = false;
         }
 
         // PLAYER ACTIVATES CAMERATARGER WHICH FOLLOWS PLAYER
@@ -108,27 +118,33 @@ public class TriggerScript : MonoBehaviour
 
             if (playerMovement.playerSanity >= 9000)
             {
+                print("toimnitko?");
                 sanityValueText.SetActive(true);
+                gameManager.SanityBonus(1250);
             }
 
             if (playerMovement.playerSanity < 9000 && playerMovement.playerSanity >= 8000)
             {
                 sanityValueText2.SetActive(true);
+                gameManager.SanityBonus(950);
             }
 
             if (playerMovement.playerSanity < 8000 && playerMovement.playerSanity >= 6000)
             {
                 sanityValueText3.SetActive(true);
+                gameManager.SanityBonus(650);
             }
 
             if (playerMovement.playerSanity < 6000 && playerMovement.playerSanity >= 4000)
             {
                 sanityValueText4.SetActive(true);
+                gameManager.SanityBonus(250);
             }
 
             if (playerMovement.playerSanity < 4000)
             {
                 sanityValueText5.SetActive(true);
+                gameManager.SanityBonus(0);
             }
         }
 
@@ -162,7 +178,11 @@ public class TriggerScript : MonoBehaviour
         cameraController = GameObject.Find("CameraTarget").GetComponent<CameraController>();
         enemySpawner = GameObject.Find("EnemySpawnerObject").GetComponent<EnemySpawnerScript>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        boss2Spawner = GameObject.Find("BossFightSpawner").GetComponent<Boss2Spawner>();
+        musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
         parallaxCamera = GameObject.Find("BGMiddle1").GetComponent<ParallaxCamera>();
         parallaxCamera2 = GameObject.Find("BGMiddle2").GetComponent<ParallaxCamera>();
     }

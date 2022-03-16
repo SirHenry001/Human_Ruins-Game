@@ -20,6 +20,12 @@ public class BigEnemyAi : MonoBehaviour
     public float longAttackRange;
     public float shortAttackRange;
 
+    // VARIABLE FOR AUDIO EFFECTS
+    public GameObject hitAudio;
+    public GameObject hitAudio2;
+    public GameObject deadAudio;
+    public GameObject audioSpawnEnemy;
+
     //VARIABLES FOR SPEED
     public float moveSpeed;
     public float ySnapSpeed;
@@ -38,6 +44,7 @@ public class BigEnemyAi : MonoBehaviour
     //BOOLEANS
     public bool facingLeft;
     public bool isAttacking;
+    public bool isDead;
 
     public EnemySpawnerScript enemySpawner;
 
@@ -81,8 +88,9 @@ public class BigEnemyAi : MonoBehaviour
         }
 
         //SHORTATTACK
-        if(distToPlayer < shortAttackRange)
+        if(distToPlayer < shortAttackRange && isDead == false)
         {
+
             ShortAttack();
         }
 
@@ -159,9 +167,11 @@ public class BigEnemyAi : MonoBehaviour
     public void ShortAttack()
     {
         shortAttackTimer += Time.deltaTime;
+        bigRigidbody.velocity = Vector2.zero;
 
         if (shortAttackTimer > 1)
         {
+            bigRigidbody.velocity = Vector2.zero;
             shortAttackTimer = 0;
             myAnimator.SetTrigger("AttackShort");
         }
@@ -187,10 +197,11 @@ public class BigEnemyAi : MonoBehaviour
 
         if (enemyHealth <= 0)
         {
+            isDead = true;
             myAnimator.SetTrigger("Dead");
+            Instantiate(deadAudio, audioSpawnEnemy.transform.position, audioSpawnEnemy.transform.rotation);
             GetComponent<CapsuleCollider2D>().enabled = false;
-            moveSpeed = 0;
-            //GetComponent<BigEnemyAi>().enabled = false;
+            bigRigidbody.velocity = Vector2.zero;
             Destroy(gameObject, 2f);
 
             if(enemySpawner.enabled == true)

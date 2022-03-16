@@ -29,6 +29,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.73, z: 0}
   m_LocalScale: {x: 0.24, y: 0.24, z: 0.24}
   m_Children:
+  - {fileID: 69294290167830594}
   - {fileID: 8593262391120113175}
   - {fileID: 131270436398618870}
   - {fileID: 131270437676204156}
@@ -336,7 +337,7 @@ Transform:
   m_Children:
   - {fileID: 131270436678775483}
   m_Father: {fileID: 131270435577797919}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &131270436398618869
 SpriteRenderer:
@@ -666,7 +667,7 @@ Transform:
   m_Children:
   - {fileID: 131270435593357970}
   m_Father: {fileID: 131270435577797919}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 32.43}
 --- !u!212 &131270436871387035
 SpriteRenderer:
@@ -749,7 +750,7 @@ Transform:
   m_Children:
   - {fileID: 131270436908130338}
   m_Father: {fileID: 131270435577797919}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -34.793}
 --- !u!212 &131270436884664796
 SpriteRenderer:
@@ -915,7 +916,7 @@ Transform:
   m_Children:
   - {fileID: 131270436853965056}
   m_Father: {fileID: 131270435577797919}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.584}
 --- !u!212 &131270436985137095
 SpriteRenderer:
@@ -1278,7 +1279,7 @@ Transform:
   m_Children:
   - {fileID: 131270437224959004}
   m_Father: {fileID: 131270435577797919}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.905}
 --- !u!212 &131270437676204147
 SpriteRenderer:
@@ -1360,7 +1361,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 131270435577797919}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &866453787733970309
 SpriteRenderer:
@@ -1413,6 +1414,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3340193730306527110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69294290167830594}
+  m_Layer: 0
+  m_Name: AudioSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &69294290167830594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340193730306527110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 131270435577797919}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4348929252811751939
 GameObject:
   m_ObjectHideFlags: 0

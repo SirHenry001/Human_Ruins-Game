@@ -21,6 +21,7 @@ public class MonsterAi : MonoBehaviour
     // VARIABLE FOR AUDIO EFFECTS
     public GameObject hitAudio;
     public GameObject hitAudio2;
+    public GameObject deadAudio;
     public GameObject audioSpawnEnemy;
 
     //VARIABLES FOR MOVEMENT
@@ -226,11 +227,10 @@ public class MonsterAi : MonoBehaviour
         if(enemyHealth <= 0)
         {
 
-            
-
             audioManager.PlayFX(1);
             myAnimator.SetTrigger("Dead");
-            moveSpeed = 0;
+            Instantiate(deadAudio, audioSpawnEnemy.transform.position, audioSpawnEnemy.transform.rotation);
+            monsterRigidbody.velocity = Vector2.zero;
             GetComponent<CapsuleCollider2D>().enabled = false;
             Destroy(gameObject, 2f);
 

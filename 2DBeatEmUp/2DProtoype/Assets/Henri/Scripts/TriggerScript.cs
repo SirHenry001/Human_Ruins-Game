@@ -118,7 +118,6 @@ public class TriggerScript : MonoBehaviour
 
             if (playerMovement.playerSanity >= 9000)
             {
-                print("toimnitko?");
                 sanityValueText.SetActive(true);
                 gameManager.SanityBonus(1250);
             }

@@ -87,18 +87,22 @@ public class PlayerMovement : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
+        //healthText = GameObject.Find("HpBonusTextSCORE (2)");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         // GET PLAYER TO PUNCH WITH ANIMATION 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             Instantiate(audioSwoosh[Random.Range(0, 3)], audioSpawn.transform.position, audioSpawn.transform.rotation);
             StartCoroutine(Combo());
         }
+
+
+
 
     }
 
@@ -132,8 +136,6 @@ public class PlayerMovement : MonoBehaviour
             y = Input.GetAxis("Vertical");
             myRigidbody.velocity = new Vector2(x, y).normalized * speed;
 
-            
-
             myAnimator.SetFloat("Horizontal", x);
             myAnimator.SetFloat("Vertical", y);
         }
@@ -157,6 +159,26 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
             facingRight = !facingRight;
+        }
+
+        if (x < -0.01f && Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            myAnimator.SetTrigger("Reset");
+        }
+
+        if (x > 0.01f && Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            myAnimator.SetTrigger("Reset");
+        }
+
+        if (y < -0.01f && Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            myAnimator.SetTrigger("Reset");
+        }
+
+        if (y > 0.01f && Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            myAnimator.SetTrigger("Reset");
         }
 
     }
@@ -192,8 +214,6 @@ public class PlayerMovement : MonoBehaviour
                 if(combo == 2)
                 {
                     canPunch2 = true;
-                    //myAnimator.SetTrigger("Hit2");
-                    //myAnimator.SetBool("Punch", false);
                     myAnimator.SetBool("Punch2", true);
                     myAnimator.SetBool("Punch", false);
                     
@@ -203,7 +223,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     canPunch3 = true;
                     myAnimator.SetBool("Punch3", true);
-                
                     myAnimator.SetBool("Punch", false);
                 }
 
@@ -220,15 +239,13 @@ public class PlayerMovement : MonoBehaviour
                 {
 
                     canKick2 = true;
-                    myAnimator.SetBool("Kick2", true);
-                    
+                    myAnimator.SetBool("Kick2", true);  
                     myAnimator.SetBool("Punch", false);
                 }
 
                 yield return null;
             }
 
-            //myAnimator.SetTrigger("Reset");
             myAnimator.SetBool("Punch", false);
             myAnimator.SetBool("Punch2", false);
             myAnimator.SetBool("Punch3", false);
@@ -268,7 +285,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerHealth -= damage;
         healthImage.fillAmount = playerHealth * 0.01f;
-        //healthText.GetComponent<TextMeshProUGUI>().text = "Health Bonus -  " + playerHealth.ToString();
+        healthText.GetComponent<TextMeshProUGUI>().text = "Health Bonus -  " + playerHealth.ToString();
 
         if (playerHealth <= 0)
         {

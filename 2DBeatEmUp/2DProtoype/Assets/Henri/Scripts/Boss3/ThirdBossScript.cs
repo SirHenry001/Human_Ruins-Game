@@ -196,7 +196,7 @@ public class ThirdBossScript : MonoBehaviour
             Time.timeScale = 0.2f;
             myAnimator.SetTrigger("Dead");
             playerMovement.GetComponent<PlayerMovement>().enabled = false;
-            StartCoroutine(gameMenuScreen.ScoreScreen());
+            StartCoroutine(gameMenuScreen.ScoreScreen3());
         }
     }
 

@@ -243,7 +243,7 @@ public class SecondBossScript : MonoBehaviour
             playerMovement.GetComponent<PlayerMovement>().enabled = false;
             villainRigidbody.velocity = Vector2.zero;
             GetComponent<BoxCollider2D>().enabled = false;
-            StartCoroutine(gameMenuScreen.ScoreScreen());
+            StartCoroutine(gameMenuScreen.ScoreScreen2());
         }
     }
 

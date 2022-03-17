@@ -4717,6 +4717,7 @@ MonoBehaviour:
   music:
   - {fileID: 8300000, guid: 15da5483de7d548488a1e6e4978599ea, type: 3}
   - {fileID: 8300000, guid: af9ea40d122f11146b197c2bb6bb2ff5, type: 3}
+  - {fileID: 8300000, guid: af9ea40d122f11146b197c2bb6bb2ff5, type: 3}
 --- !u!4 &390686928
 Transform:
   m_ObjectHideFlags: 0
@@ -23695,7 +23696,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -91.0716, y: 0, z: 80.17151, w: 0}
+  m_margin: {x: -91.0716, y: 0, z: -27.184147, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -26411,6 +26412,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3871641001752453789, guid: edacbe6d48e05a944890c43c0866a7c3, type: 3}
+      propertyPath: maxTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871641001752453789, guid: edacbe6d48e05a944890c43c0866a7c3, type: 3}
+      propertyPath: cooldown
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871641001752453789, guid: edacbe6d48e05a944890c43c0866a7c3, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 1965393417}
     - target: {fileID: 3871641001752453789, guid: edacbe6d48e05a944890c43c0866a7c3, type: 3}
       propertyPath: healthImage
       value: 

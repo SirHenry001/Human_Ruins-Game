@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class MenuScreen : MonoBehaviour
@@ -27,8 +28,22 @@ public class MenuScreen : MonoBehaviour
     public GameObject PickUpHdText;
     public GameObject PickUpText;
     public GameObject PickUp2Text;
+
+    public GameObject highScore1Text;
+    public GameObject highScore2Text;
+    public GameObject highScore3Text;
+
     public Image HealthSmall;
     public Image HealthMax;
+
+
+
+    public void Start()
+    {
+        highScore1Text.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("HiScoreText1").ToString();
+        highScore2Text.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("HiScoreText").ToString();
+        highScore3Text.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("HiScoreText3").ToString();
+    }
 
     public void StartGame()
     {
@@ -136,12 +151,6 @@ public class MenuScreen : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

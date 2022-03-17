@@ -68,14 +68,28 @@ public class GameMenuScreen : MonoBehaviour
         sanityBonusTextEnd = gameManager.sanityBonusText;
 
         levelScore = GameObject.Find("LevelHighScore").GetComponent<LevelHighScore>();
-        scoreTextEnd = levelScore.scoreTextMenu;
-        highScoreText = levelScore.hiScoreText;
         levelScore1 = GameObject.Find("LevelHighScore").GetComponent<FirstHighScore>();
-        scoreTextEnd = levelScore1.scoreTextMenu;
-        highScoreText1 = levelScore1.hiScoreText1;
         levelScore3 = GameObject.Find("LevelHighScore").GetComponent<ThirdHighScore>();
-        scoreTextEnd = levelScore3.scoreTextMenu;
-        highScoreText3 = levelScore3.hiScoreText3;
+
+        if (levelScore != null)
+        {
+            scoreTextEnd = levelScore.scoreTextMenu;
+            highScoreText = levelScore.hiScoreText;
+        }
+
+        if (levelScore1 != null)
+        {
+            scoreTextEnd = levelScore1.scoreTextMenu;
+            highScoreText1 = levelScore1.hiScoreText1;
+        }
+
+        if (levelScore3 != null)
+        {
+            scoreTextEnd = levelScore3.scoreTextMenu;
+            highScoreText3 = levelScore3.hiScoreText3;
+        }
+
+
 
     }
 
@@ -196,8 +210,6 @@ public class GameMenuScreen : MonoBehaviour
         Time.timeScale = 0.2f;
         yield return new WaitForSeconds(2f);
         Time.timeScale = 1;
-        
-        playerMovement.playerSanity = 10000;
         levelOne1ClearText.SetActive(true);
         yield return new WaitForSeconds(3f);
         fadeOutImage.gameObject.SetActive(true);
@@ -213,19 +225,29 @@ public class GameMenuScreen : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         sanityBonusTextEnd.SetActive(true);
         yield return new WaitForSeconds(0.2f);
+        int totalscore = levelScore1.score + gameManager.sanityScore + playerMovement.playerHealth;
+        totalTextEnd.GetComponent<TextMeshProUGUI>().text = totalscore.ToString();
         totalTextEnd.SetActive(true);
         yield return new WaitForSeconds(0.2f);
+
+        if(totalscore > levelScore1.hiScore)
+        {
+            levelScore1.hiScore = totalscore;
+            PlayerPrefs.SetInt("HiScoreText1", totalscore);
+        }
+
         highScoreText1.SetActive(true);
+        highScoreText1.GetComponent<TextMeshProUGUI>().text = "High Score" + PlayerPrefs.GetInt("HiScoreText1").ToString();
         yield return new WaitForSeconds(0.2f);
         continueButton.SetActive(true);
         backButton.SetActive(true);
+        //PlayerPrefs.SetInt("Level1HighScore", levelScore1.hiScore);
         print("loppu");
-
-
     }
 
     public IEnumerator ScoreScreen2()
     {
+        /*
         print("alku");
         scoreScreen = true;
         yield return new WaitForSeconds(0.1f);
@@ -255,12 +277,53 @@ public class GameMenuScreen : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         continueButton.SetActive(true);
         backButton.SetActive(true);
+        */
+
+        print("alku");
+        scoreScreen = true;
+        yield return new WaitForSeconds(0.1f);
+        Time.timeScale = 0.2f;
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 1;
+        levelOne1ClearText.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        fadeOutImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        scoreScreenBG.gameObject.SetActive(true);
+        firstLevelPlayerImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        clearedTextScorecreen.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        scoreTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        hpBonusTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        sanityBonusTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        int totalscore = levelScore.score + gameManager.sanityScore + playerMovement.playerHealth;
+        totalTextEnd.GetComponent<TextMeshProUGUI>().text = totalscore.ToString();
+        totalTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+
+        if (totalscore > levelScore.hiScore)
+        {
+            levelScore.hiScore = totalscore;
+            PlayerPrefs.SetInt("HiScoreText", totalscore);
+        }
+
+        highScoreText1.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        continueButton.SetActive(true);
+        backButton.SetActive(true);
+        //PlayerPrefs.SetInt("Level2HighScore", levelScore.hiScore);
+        print("loppu");
 
 
     }
 
     public IEnumerator ScoreScreen3()
     {
+        /*
         print("alku");
         scoreScreen = true;
         yield return new WaitForSeconds(0.1f);
@@ -290,7 +353,46 @@ public class GameMenuScreen : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         continueButton.SetActive(true);
         backButton.SetActive(true);
+        */
 
+        print("alku");
+        scoreScreen = true;
+        yield return new WaitForSeconds(0.1f);
+        Time.timeScale = 0.2f;
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 1;
+        levelOne1ClearText.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        fadeOutImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        scoreScreenBG.gameObject.SetActive(true);
+        firstLevelPlayerImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        clearedTextScorecreen.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        scoreTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        hpBonusTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        sanityBonusTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        int totalscore = levelScore3.score + gameManager.sanityScore + playerMovement.playerHealth;
+        totalTextEnd.GetComponent<TextMeshProUGUI>().text = totalscore.ToString();
+        totalTextEnd.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+
+        if (totalscore > levelScore3.hiScore)
+        {
+            levelScore3.hiScore = totalscore;
+            PlayerPrefs.SetInt("HiScoreText", totalscore);
+        }
+
+        highScoreText1.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        continueButton.SetActive(true);
+        backButton.SetActive(true);
+        //PlayerPrefs.SetInt("Level3HighScore", levelScore3.hiScore);
+        print("loppu");
 
     }
 

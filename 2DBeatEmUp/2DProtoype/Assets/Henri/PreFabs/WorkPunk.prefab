@@ -568,7 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   villainAi: {fileID: 0}
-  dealDamage: 5
+  dealDamage: 3
   scareSanity: 200
 --- !u!58 &1853536508
 CircleCollider2D:
@@ -1548,7 +1548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   villainAi: {fileID: 0}
-  dealDamage: 5
+  dealDamage: 3
   scareSanity: 200
 --- !u!58 &1071431206
 CircleCollider2D:

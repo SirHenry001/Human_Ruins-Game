@@ -202,9 +202,12 @@ public class MonsterAi : MonoBehaviour
 
     public void GetHitted()
     {
+
+        myAnimator.SetTrigger("GetHitted");
+        attackTimer = 0;
         hitCount = 0;
         isFleeing = false;
-        myAnimator.SetTrigger("GetHitted");
+        isActive = true;
 
     }
 
@@ -213,11 +216,11 @@ public class MonsterAi : MonoBehaviour
         myAnimator.SetTrigger("Knocked");
         GetComponent<CapsuleCollider2D>().enabled = false;
         monsterRigidbody.velocity = Vector2.zero;
+        isFleeing = false;
         isActive = false;
         yield return new WaitForSeconds(2f);
         GetComponent<CapsuleCollider2D>().enabled = true;
         isActive = true;
-
     }
 
     public void MonsterHealth(int damage)
@@ -226,11 +229,10 @@ public class MonsterAi : MonoBehaviour
 
         if(enemyHealth <= 0)
         {
-
-            audioManager.PlayFX(1);
             myAnimator.SetTrigger("Dead");
             Instantiate(deadAudio, audioSpawnEnemy.transform.position, audioSpawnEnemy.transform.rotation);
             monsterRigidbody.velocity = Vector2.zero;
+            moveSpeed = 0;
             GetComponent<CapsuleCollider2D>().enabled = false;
             Destroy(gameObject, 2f);
 

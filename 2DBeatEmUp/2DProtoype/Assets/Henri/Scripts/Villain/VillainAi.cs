@@ -199,7 +199,7 @@ public class VillainAi : MonoBehaviour
     {
         
         myAnimator.SetTrigger("GetHitted");
-
+        isActive = true;
     }
 
     public IEnumerator Knocked()

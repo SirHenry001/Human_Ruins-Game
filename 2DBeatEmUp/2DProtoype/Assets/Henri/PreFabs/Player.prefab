@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 926812374722822827}
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -109.326}
 --- !u!212 &2443582489716586226
 SpriteRenderer:
@@ -112,7 +112,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3572725454413960185
 SpriteRenderer:
@@ -196,7 +196,7 @@ Transform:
   m_LocalScale: {x: -11.844644, y: 2.0135715, z: 9.475715}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5620741838931738393
 SpriteRenderer:
@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &662902977092414880
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4573651550122501644
 SpriteRenderer:
@@ -646,7 +647,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2492669110645921525
 SpriteRenderer:
@@ -728,7 +729,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3001352009317206001
 SpriteRenderer:
@@ -810,7 +811,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3320257814177589663
 SpriteRenderer:
@@ -893,7 +894,7 @@ Transform:
   m_Children:
   - {fileID: 6778904745431540574}
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.64}
 --- !u!212 &5521017932348672450
 SpriteRenderer:
@@ -975,7 +976,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2673268597179928926
 SpriteRenderer:
@@ -1057,7 +1058,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2084642017507893278
 SpriteRenderer:
@@ -1315,6 +1316,10 @@ MonoBehaviour:
   finalBossScript: {fileID: 0}
   postProcess: {fileID: 0}
   audioManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  levelScore: {fileID: 0}
+  levelScore1: {fileID: 0}
+  levelScore3: {fileID: 0}
   dealDamageMonster: 2
   gainSanityMonster: 100
   dealDamageVillain: 2
@@ -1354,7 +1359,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 81.73}
 --- !u!212 &4680322030710654085
 SpriteRenderer:
@@ -1605,7 +1610,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6063650461079877797
 SpriteRenderer:
@@ -1696,6 +1701,10 @@ MonoBehaviour:
   finalBossScript: {fileID: 0}
   postProcess: {fileID: 0}
   audioManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  levelScore: {fileID: 0}
+  levelScore1: {fileID: 0}
+  levelScore3: {fileID: 0}
   dealDamageMonster: 2
   gainSanityMonster: 100
   dealDamageVillain: 2
@@ -1735,7 +1744,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5350148113253787126
 SpriteRenderer:
@@ -1901,6 +1910,7 @@ Transform:
   m_LocalScale: {x: 0.17317484, y: 0.17317484, z: 0.17317484}
   m_Children:
   - {fileID: 1662521930845063788}
+  - {fileID: 8247086899366743984}
   - {fileID: 4087025239420618935}
   - {fileID: 4727266598955515317}
   - {fileID: 3156870198174704493}
@@ -2115,7 +2125,7 @@ Transform:
   m_Children:
   - {fileID: 7107220788832587018}
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -23.308}
 --- !u!212 &8706765088637403180
 SpriteRenderer:
@@ -2197,7 +2207,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6490416407808558656
 SpriteRenderer:
@@ -2609,7 +2619,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -94.166}
 --- !u!212 &5315873301418886722
 SpriteRenderer:
@@ -2692,7 +2702,7 @@ Transform:
   m_Children:
   - {fileID: 8289774460427404504}
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7782456877696082124
 SpriteRenderer:
@@ -2857,7 +2867,7 @@ Transform:
   m_Children:
   - {fileID: 4658347982766790467}
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 16.292}
 --- !u!212 &8803758213761619192
 SpriteRenderer:
@@ -2940,7 +2950,7 @@ Transform:
   m_Children:
   - {fileID: 6332959040198164160}
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.62}
 --- !u!212 &3508903502598248107
 SpriteRenderer:
@@ -3023,7 +3033,7 @@ Transform:
   m_Children:
   - {fileID: 8334689572058343802}
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -7.985}
 --- !u!212 &5303193431517636071
 SpriteRenderer:
@@ -3105,7 +3115,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &789680098242721037
 SpriteRenderer:
@@ -3188,7 +3198,7 @@ Transform:
   m_Children:
   - {fileID: 5164632135038148127}
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 53.95}
 --- !u!212 &6131628345234115319
 SpriteRenderer:
@@ -3354,7 +3364,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &599575379934499931
 SpriteRenderer:
@@ -3445,6 +3455,10 @@ MonoBehaviour:
   finalBossScript: {fileID: 0}
   postProcess: {fileID: 0}
   audioManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  levelScore: {fileID: 0}
+  levelScore1: {fileID: 0}
+  levelScore3: {fileID: 0}
   dealDamageMonster: 2
   gainSanityMonster: 100
   dealDamageVillain: 2
@@ -3485,7 +3499,7 @@ Transform:
   m_Children:
   - {fileID: 2326705431334912426}
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -7.701}
 --- !u!212 &638445551928027726
 SpriteRenderer:
@@ -3567,7 +3581,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8173867511157204085
 SpriteRenderer:
@@ -3649,7 +3663,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8502305583055221549
 SpriteRenderer:
@@ -3813,7 +3827,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3741147265810362958
 SpriteRenderer:
@@ -3962,6 +3976,8 @@ MonoBehaviour:
   bossCollider1: {fileID: 0}
   bossCollider2: {fileID: 0}
   followCamTrigger2: {fileID: 0}
+  musicTrigger1: {fileID: 0}
+  musicTrigger2: {fileID: 0}
   sanityValueText: {fileID: 0}
   sanityValueText2: {fileID: 0}
   sanityValueText3: {fileID: 0}
@@ -3972,6 +3988,9 @@ MonoBehaviour:
   firstBoss: {fileID: 0}
   playerMovement: {fileID: 0}
   gameManager: {fileID: 0}
+  audioManager: {fileID: 0}
+  musicManager: {fileID: 0}
+  boss2Spawner: {fileID: 0}
   parallaxCamera: {fileID: 0}
   parallaxCamera2: {fileID: 0}
 --- !u!114 &4115612590455272597
@@ -3988,12 +4007,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 100
   playerSanity: 10000
-  hitEffect1: {fileID: 0}
-  hitEffect2: {fileID: 0}
-  hitEffect3: {fileID: 0}
-  hitSpawn1: {fileID: 0}
-  hitSpawn2: {fileID: 0}
-  hitSpawn3: {fileID: 0}
+  hitEffect1: {fileID: 1083505190721661362, guid: b05e5740e50e17d489bc87da7cf44608, type: 3}
+  hitSpawn: {fileID: 8247086899366743984}
   audioEffect:
   - {fileID: 3702787226352615324, guid: 0b5006db677bdc84a80a43a6a1d19595, type: 3}
   - {fileID: 8749174016140344209, guid: 83646c889d38b914ea0fcbd03078e460, type: 3}
@@ -4029,6 +4044,7 @@ MonoBehaviour:
   myAnimator: {fileID: 0}
   healthImage: {fileID: 0}
   sanityImage: {fileID: 0}
+  healthText: {fileID: 0}
   villainAi: {fileID: 0}
   enemyScript: {fileID: 0}
   bigMonsterAi: {fileID: 0}
@@ -4114,7 +4130,7 @@ Transform:
   m_Children:
   - {fileID: 6199768198013470188}
   m_Father: {fileID: 3769301281297990533}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.337}
 --- !u!212 &7317387984575076770
 SpriteRenderer:
@@ -4520,6 +4536,10 @@ MonoBehaviour:
   finalBossScript: {fileID: 0}
   postProcess: {fileID: 0}
   audioManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  levelScore: {fileID: 0}
+  levelScore1: {fileID: 0}
+  levelScore3: {fileID: 0}
   dealDamageMonster: 2
   gainSanityMonster: 100
   dealDamageVillain: 2
@@ -4612,3 +4632,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &9183375749146539777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8247086899366743984}
+  m_Layer: 0
+  m_Name: EffectSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8247086899366743984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9183375749146539777}
+  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.57, y: -0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3769301281297990533}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

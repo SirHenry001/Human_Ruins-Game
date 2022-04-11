@@ -14,12 +14,8 @@ public class PlayerMovement : MonoBehaviour
     //VARIABLES FOR AUDIO SPAWN
 
     public GameObject hitEffect1;
-    public GameObject hitEffect2;
-    public GameObject hitEffect3;
 
-    public GameObject hitSpawn1;
-    public GameObject hitSpawn2;
-    public GameObject hitSpawn3;
+    public Transform hitSpawn;
 
     public GameObject[] audioEffect;
     public GameObject[] audioSwoosh;
@@ -88,22 +84,23 @@ public class PlayerMovement : MonoBehaviour
         gameMenuScreen = GameObject.Find("Canvas").GetComponent<GameMenuScreen>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
+        healthText.GetComponent<TextMeshProUGUI>().text = "Health Bonus -  " + (playerHealth * 10f).ToString();
+
         //healthText = GameObject.Find("HpBonusTextSCORE (2)");
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         // GET PLAYER TO PUNCH WITH ANIMATION 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             Instantiate(audioSwoosh[Random.Range(0, 3)], audioSpawn.transform.position, audioSpawn.transform.rotation);
             StartCoroutine(Combo());
         }
-
-
-
-
+        
+        
     }
 
     private void FixedUpdate()
@@ -123,7 +120,6 @@ public class PlayerMovement : MonoBehaviour
         {
             playerSanity = 10000;
         }
-
 
         // GOES FUNCTION AND SET BOUNDARIES FOR Y AXIS FOR MOVEMENT OF THE PLAYER
         PlayerBoundaries();
@@ -161,25 +157,6 @@ public class PlayerMovement : MonoBehaviour
             facingRight = !facingRight;
         }
 
-        if (x < -0.01f && Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            myAnimator.SetTrigger("Reset");
-        }
-
-        if (x > 0.01f && Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            myAnimator.SetTrigger("Reset");
-        }
-
-        if (y < -0.01f && Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            myAnimator.SetTrigger("Reset");
-        }
-
-        if (y > 0.01f && Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            myAnimator.SetTrigger("Reset");
-        }
 
     }
 
@@ -199,7 +176,6 @@ public class PlayerMovement : MonoBehaviour
     // PLAYER HIT ACTIONS IF BUTTON IS PRESSED AND ENEMY IS HITTED
     public IEnumerator Combo()
     {
-        //myAnimator.SetTrigger("Hit1");
         myAnimator.SetBool("Punch", true);
         canPunch = true;
         lastTime = Time.time;
@@ -285,7 +261,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerHealth -= damage;
         healthImage.fillAmount = playerHealth * 0.01f;
-        healthText.GetComponent<TextMeshProUGUI>().text = "Health Bonus -  " + playerHealth.ToString();
+        healthText.GetComponent<TextMeshProUGUI>().text = "Health Bonus -  " + (playerHealth * 10).ToString();
 
         if (playerHealth <= 0)
         {

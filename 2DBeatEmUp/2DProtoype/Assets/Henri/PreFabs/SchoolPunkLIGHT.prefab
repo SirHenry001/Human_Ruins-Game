@@ -1697,7 +1697,7 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   villainAi: {fileID: 0}
   dealDamage: 2
-  scareSanity: 100
+  scareSanity: 0
 --- !u!1 &8323696119100838724
 GameObject:
   m_ObjectHideFlags: 0

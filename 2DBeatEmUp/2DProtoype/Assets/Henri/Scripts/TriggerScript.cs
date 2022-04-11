@@ -29,6 +29,9 @@ public class TriggerScript : MonoBehaviour
     public GameObject bossCollider2;
     public GameObject followCamTrigger2;
 
+    public GameObject musicTrigger1;
+    public GameObject musicTrigger2;
+
     public GameObject sanityValueText;
     public GameObject sanityValueText2;
     public GameObject sanityValueText3;
@@ -104,6 +107,21 @@ public class TriggerScript : MonoBehaviour
             enemySpawner.waweCounterText.SetActive(false);
             enemySpawner.completeText.SetActive(false);
 
+        }
+
+        if (collision.gameObject.tag == "MusicTrigger1")
+        {
+            musicManager.myAudio.Stop();
+            musicManager.PlayMusic(0);
+            Destroy(collision.gameObject);
+
+        }
+
+        if (collision.gameObject.tag == "MusicTrigger2")
+        {
+            musicManager.myAudio.Stop();
+            musicManager.PlayMusic(1);
+            Destroy(collision.gameObject);
         }
 
         // ACTIVATES THE SECOND FOLLOW CAM

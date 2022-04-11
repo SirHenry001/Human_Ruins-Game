@@ -22,6 +22,8 @@ TagManager:
   - EnemySpawn
   - EnemySpawn2
   - BossSpawner
+  - MusicTrigger1
+  - MusicTrigger2
   layers:
   - Default
   - TransparentFX

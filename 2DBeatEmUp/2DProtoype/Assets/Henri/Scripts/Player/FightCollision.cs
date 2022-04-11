@@ -58,14 +58,37 @@ public class FightCollision : MonoBehaviour
         // MONSTER AI RELATED FUNCTIONS
         if(collision.gameObject.tag == "Enemy")
         {
+
+
+
             //CONNECT TO ENEMY AI SCRIPT
             enemyScript = collision.gameObject.GetComponent<MonsterAi>();
             playerMovement.enemyScript = collision.gameObject.GetComponent<MonsterAi>();
 
+            //CREATE HIT EFFECT
+            Instantiate(playerMovement.hitEffect1, playerMovement.hitSpawn.transform.position, playerMovement.hitSpawn.transform.rotation);
+
             //IF HITTED TO MONSTER ENEMY, SANITY GAIN 100 POINTS
             playerMovement.SanityGain(gainSanityMonster);
-            enemyScript.getHittedCount += 1;    
-            enemyScript.GetHitted();
+            enemyScript.getHittedCount += 1;
+
+
+            if (enemyScript.facingLeft == true && enemyScript.getHittedCount < 5)
+            {
+                enemyScript.isActive = false;
+                enemyScript.monsterRigidbody.AddForce(Vector3.right * 2000f);          
+                enemyScript.GetHitted();
+
+            }
+
+            if (enemyScript.facingLeft == false && enemyScript.getHittedCount < 5)
+            {
+                enemyScript.isActive = false;
+                enemyScript.monsterRigidbody.AddForce(Vector3.left * 2000f);
+                enemyScript.GetHitted();
+
+            }
+
             enemyScript.MonsterHealth(dealDamageMonster);
 
             //ACCES TO AUDIO SPAWN OBJECT TO PLAYER MOVEMENT
@@ -74,15 +97,8 @@ public class FightCollision : MonoBehaviour
 
             // CONNECT GAMEMANAGER SCORE
             levelScore.AddScore(10);
-
-            //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
-            Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
-            Destroy(playerMovement.audioEffect[0], 2f);
-            Destroy(playerMovement.audioEffect[1], 2f);
-            Destroy(playerMovement.audioEffect[2], 2f);
-
-
-
+            levelScore1.AddScore(10);
+            levelScore3.AddScore(10);
 
         }
 
@@ -93,12 +109,14 @@ public class FightCollision : MonoBehaviour
             villainAi = collision.gameObject.GetComponent<VillainAi>();
             playerMovement.villainAi = collision.gameObject.GetComponent<VillainAi>();
 
+            //CREATE HIT EFFECT
+            Instantiate(playerMovement.hitEffect1, playerMovement.hitSpawn.transform.position, playerMovement.hitSpawn.transform.rotation);
+
             //IF HITTED TO MONSTER ENEMY, SANITY GAIN 100 POINTS
             playerMovement.SanityGain(gainSanityVillain);
 
             //ACCESS TO VILLAIN GETHIT FUNCTIONS
             villainAi.getHittedCount += 1;
-            villainAi.Gethit();
 
             // CONNECT GAMEMANAGER SCORE
             levelScore.AddScore(25);
@@ -114,6 +132,20 @@ public class FightCollision : MonoBehaviour
             //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
             Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
 
+            if (villainAi.facingRight == true && villainAi.getHittedCount < 5)
+            {
+                villainAi.isActive = false;
+                villainAi.villainRigidbody.AddForce(Vector3.left * 2000f);
+                villainAi.Gethit();
+            }
+
+            if (villainAi.facingRight == false && villainAi.getHittedCount < 5)
+            {
+                villainAi.isActive = false;
+                villainAi.villainRigidbody.AddForce(Vector3.right * 2000f);
+                villainAi.Gethit();
+            }
+
         }
 
         // BIGENEMY AI RELATED FUNCTION
@@ -123,10 +155,28 @@ public class FightCollision : MonoBehaviour
             bigMonsterAi = collision.gameObject.GetComponent<BigEnemyAi>();
             playerMovement.bigMonsterAi = collision.gameObject.GetComponent<BigEnemyAi>();
 
+            //CREATE HIT EFFECT
+            Instantiate(playerMovement.hitEffect1, playerMovement.hitSpawn.transform.position, playerMovement.hitSpawn.transform.rotation);
+
             //IF HITTED TO MONSTER ENEMY, SANITY GAIN 100 POINTS
             playerMovement.SanityGain(gainSanityBig);
 
             //ACCESS TO VILLAIN GETHIT FUNCTIONS
+
+            if (bigMonsterAi.facingLeft == true)
+            {
+                bigMonsterAi.bigRigidbody.AddForce(Vector3.left * 1500f);
+                bigMonsterAi.GetHit();
+
+            }
+
+            if (enemyScript.facingLeft == false)
+            {
+                bigMonsterAi.bigRigidbody.AddForce(Vector3.left * 1500f);
+                bigMonsterAi.GetHit();
+
+            }
+
             bigMonsterAi.GetHit();
 
             //ACCESS TO VILLAIN HEALTH LOSS FUNCTION
@@ -134,6 +184,8 @@ public class FightCollision : MonoBehaviour
 
             // CONNECT GAMEMANAGER SCORE
             levelScore.AddScore(50);
+            levelScore1.AddScore(50);
+            levelScore3.AddScore(50);
 
             //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
             Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
@@ -147,6 +199,9 @@ public class FightCollision : MonoBehaviour
         {
             firstBossScript = collision.gameObject.GetComponent<FirstBossScript>();
             firstBossScript.BossOneHealth(dealDamageBoss1);
+
+            //CREATE HIT EFFECT
+            Instantiate(playerMovement.hitEffect1, playerMovement.hitSpawn.transform.position, playerMovement.hitSpawn.transform.rotation);
 
             // CONNECT GAMEMANAGER SCORE
             levelScore1.AddScore(75);
@@ -165,7 +220,6 @@ public class FightCollision : MonoBehaviour
             Destroy(playerMovement.audioEffect[0], 2f);
             Destroy(playerMovement.audioEffect[1], 2f);
             Destroy(playerMovement.audioEffect[2], 2f);
-
         }
 
         // BOSS LEVEL 2 RELATED FUNCTIONS
@@ -173,6 +227,9 @@ public class FightCollision : MonoBehaviour
         {
             secondBossScript = collision.gameObject.GetComponent<SecondBossScript>();
             secondBossScript.BossTwoHealth(dealDamageBoss2);
+
+            //CREATE HIT EFFECT
+            Instantiate(playerMovement.hitEffect1, playerMovement.hitSpawn.transform.position, playerMovement.hitSpawn.transform.rotation);
 
             // ACCES TO BOSS2 GETHIT FUNCTION
             secondBossScript.getHitCount += 1;
@@ -197,6 +254,9 @@ public class FightCollision : MonoBehaviour
             thirdBossScript = collision.gameObject.GetComponent<ThirdBossScript>();
             thirdBossScript.BossThreeHealth(dealDamageBoss3);
 
+            //CREATE HIT EFFECT
+            Instantiate(playerMovement.hitEffect1, playerMovement.hitSpawn.transform.position, playerMovement.hitSpawn.transform.rotation);
+
             // ACCES TO BOSS2 GETHIT FUNCTION
             thirdBossScript.getHitCount += 1;
             thirdBossScript.Gethit();
@@ -220,6 +280,9 @@ public class FightCollision : MonoBehaviour
             finalBossScript = collision.gameObject.GetComponent<FinalBossScript>();
             finalBossScript.BossFinalHealth(dealDamageBoss4);
 
+            //CREATE HIT EFFECT
+            Instantiate(playerMovement.hitEffect1, playerMovement.hitSpawn.transform.position, playerMovement.hitSpawn.transform.rotation);
+
             //ACCESS TO AUDIOSPAWN IN PLAYERMOVEMENT SCRIPT
             Instantiate(playerMovement.audioEffect[Random.Range(0, 2)], playerMovement.audioSpawn.transform.position, playerMovement.audioSpawn.transform.rotation);
 
@@ -229,16 +292,6 @@ public class FightCollision : MonoBehaviour
             Destroy(playerMovement.audioEffect[1], 2f);
             Destroy(playerMovement.audioEffect[2], 2f);
         }
-
-
-
-        /*
-        if(playerMovement.gameObject.tag == "ComboTrigger")
-        {
-            playerMovement.Combo();
-        }
-        */
-
 
     }
 
@@ -250,4 +303,5 @@ public class FightCollision : MonoBehaviour
     {
 
     }
+
 }

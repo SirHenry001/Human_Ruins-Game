@@ -1030,7 +1030,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 3732935696303844295}
-    m_Position: {x: 90, y: -10, z: 0}
+    m_Position: {x: 40, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5338882899683971866}
     m_Position: {x: -1010, y: 210, z: 0}
@@ -1253,7 +1253,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GetHit
-  m_Speed: 1
+  m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 169961985939564685}

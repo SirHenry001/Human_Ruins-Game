@@ -198,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   bigEnemy: {fileID: 5238317616992100193}
-  dealDamage: 10
+  dealDamage: 8
   scareSanity: 100
 --- !u!70 &4458437876382959097
 CapsuleCollider2D:
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  enemyHealth: 20
+  enemyHealth: 10
   getHittedCount: 0
   aggroRange: 15
   fleeRange: 0

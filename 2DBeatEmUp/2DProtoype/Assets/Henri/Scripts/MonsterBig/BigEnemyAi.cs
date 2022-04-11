@@ -199,6 +199,7 @@ public class BigEnemyAi : MonoBehaviour
         {
             isDead = true;
             myAnimator.SetTrigger("Dead");
+            moveSpeed = 0;
             Instantiate(deadAudio, audioSpawnEnemy.transform.position, audioSpawnEnemy.transform.rotation);
             GetComponent<CapsuleCollider2D>().enabled = false;
             bigRigidbody.velocity = Vector2.zero;

@@ -33,6 +33,8 @@ public class GameMenuScreen : MonoBehaviour
 
     public PlayerMovement playerMovement;
     public GameManager gameManager;
+    public MusicManager musicManager;
+    public AudioManager audioManager;
     public LevelHighScore levelScore;
     public FirstHighScore levelScore1;
     public ThirdHighScore levelScore3;
@@ -64,6 +66,8 @@ public class GameMenuScreen : MonoBehaviour
     {
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent < AudioManager>();
         hpBonusTextEnd = gameManager.hpBonusText;
         sanityBonusTextEnd = gameManager.sanityBonusText;
 
@@ -207,7 +211,9 @@ public class GameMenuScreen : MonoBehaviour
         print("alku");
         scoreScreen = true;
         yield return new WaitForSeconds(0.1f);
+        musicManager.myAudio.Stop();
         Time.timeScale = 0.2f;
+        audioManager.PlayFX(1);
         yield return new WaitForSeconds(2f);
         Time.timeScale = 1;
         levelOne1ClearText.SetActive(true);
@@ -226,7 +232,7 @@ public class GameMenuScreen : MonoBehaviour
         sanityBonusTextEnd.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         int totalscore = levelScore1.score + gameManager.sanityScore + playerMovement.playerHealth;
-        totalTextEnd.GetComponent<TextMeshProUGUI>().text = totalscore.ToString();
+        totalTextEnd.GetComponent<TextMeshProUGUI>().text = "Total score - " + totalscore.ToString();
         totalTextEnd.SetActive(true);
         yield return new WaitForSeconds(0.2f);
 
@@ -237,7 +243,7 @@ public class GameMenuScreen : MonoBehaviour
         }
 
         highScoreText1.SetActive(true);
-        highScoreText1.GetComponent<TextMeshProUGUI>().text = "High Score" + PlayerPrefs.GetInt("HiScoreText1").ToString();
+        highScoreText1.GetComponent<TextMeshProUGUI>().text = "High Score - " + PlayerPrefs.GetInt("HiScoreText1").ToString();
         yield return new WaitForSeconds(0.2f);
         continueButton.SetActive(true);
         backButton.SetActive(true);
@@ -247,42 +253,13 @@ public class GameMenuScreen : MonoBehaviour
 
     public IEnumerator ScoreScreen2()
     {
-        /*
-        print("alku");
-        scoreScreen = true;
-        yield return new WaitForSeconds(0.1f);
-        Time.timeScale = 0.2f;
-        yield return new WaitForSeconds(2f);
-        Time.timeScale = 1;
-        print("loppu");
-        playerMovement.playerSanity = 10000;
-        levelOne1ClearText.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        fadeOutImage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        scoreScreenBG.gameObject.SetActive(true);
-        firstLevelPlayerImage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        clearedTextScorecreen.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        scoreTextEnd.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        hpBonusTextEnd.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        sanityBonusTextEnd.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        totalTextEnd.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        highScoreText.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        continueButton.SetActive(true);
-        backButton.SetActive(true);
-        */
 
         print("alku");
         scoreScreen = true;
         yield return new WaitForSeconds(0.1f);
+        musicManager.myAudio.Stop();
         Time.timeScale = 0.2f;
+        audioManager.PlayFX(1);
         yield return new WaitForSeconds(2f);
         Time.timeScale = 1;
         levelOne1ClearText.SetActive(true);
@@ -301,7 +278,7 @@ public class GameMenuScreen : MonoBehaviour
         sanityBonusTextEnd.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         int totalscore = levelScore.score + gameManager.sanityScore + playerMovement.playerHealth;
-        totalTextEnd.GetComponent<TextMeshProUGUI>().text = totalscore.ToString();
+        totalTextEnd.GetComponent<TextMeshProUGUI>().text = "Total score - " + totalscore.ToString();
         totalTextEnd.SetActive(true);
         yield return new WaitForSeconds(0.2f);
 
@@ -311,7 +288,8 @@ public class GameMenuScreen : MonoBehaviour
             PlayerPrefs.SetInt("HiScoreText", totalscore);
         }
 
-        highScoreText1.SetActive(true);
+        highScoreText.SetActive(true);
+        highScoreText.GetComponent<TextMeshProUGUI>().text = "High Score - " + PlayerPrefs.GetInt("HiScoreText").ToString();
         yield return new WaitForSeconds(0.2f);
         continueButton.SetActive(true);
         backButton.SetActive(true);
@@ -323,42 +301,13 @@ public class GameMenuScreen : MonoBehaviour
 
     public IEnumerator ScoreScreen3()
     {
-        /*
-        print("alku");
-        scoreScreen = true;
-        yield return new WaitForSeconds(0.1f);
-        Time.timeScale = 0.2f;
-        yield return new WaitForSeconds(2f);
-        Time.timeScale = 1;
-        print("loppu");
-        playerMovement.playerSanity = 10000;
-        levelOne1ClearText.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        fadeOutImage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        scoreScreenBG.gameObject.SetActive(true);
-        firstLevelPlayerImage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        clearedTextScorecreen.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        scoreTextEnd.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        hpBonusTextEnd.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        sanityBonusTextEnd.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        totalTextEnd.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        highScoreText3.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        continueButton.SetActive(true);
-        backButton.SetActive(true);
-        */
 
         print("alku");
         scoreScreen = true;
         yield return new WaitForSeconds(0.1f);
+        musicManager.myAudio.Stop();
         Time.timeScale = 0.2f;
+        audioManager.PlayFX(1);
         yield return new WaitForSeconds(2f);
         Time.timeScale = 1;
         levelOne1ClearText.SetActive(true);
@@ -377,17 +326,18 @@ public class GameMenuScreen : MonoBehaviour
         sanityBonusTextEnd.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         int totalscore = levelScore3.score + gameManager.sanityScore + playerMovement.playerHealth;
-        totalTextEnd.GetComponent<TextMeshProUGUI>().text = totalscore.ToString();
+        totalTextEnd.GetComponent<TextMeshProUGUI>().text = "Total score - " + totalscore.ToString();
         totalTextEnd.SetActive(true);
         yield return new WaitForSeconds(0.2f);
 
         if (totalscore > levelScore3.hiScore)
         {
             levelScore3.hiScore = totalscore;
-            PlayerPrefs.SetInt("HiScoreText", totalscore);
+            PlayerPrefs.SetInt("HiScoreText3", totalscore);
         }
 
-        highScoreText1.SetActive(true);
+        highScoreText3.SetActive(true);
+        highScoreText3.GetComponent<TextMeshProUGUI>().text = "High Score - " + PlayerPrefs.GetInt("HiScoreText3").ToString();
         yield return new WaitForSeconds(0.2f);
         continueButton.SetActive(true);
         backButton.SetActive(true);
@@ -400,22 +350,26 @@ public class GameMenuScreen : MonoBehaviour
     {
         scoreScreen = true;
         yield return new WaitForSeconds(0.1f);
+        musicManager.myAudio.Stop();
         Time.timeScale = 0.2f;
+        audioManager.PlayFX(1);
         yield return new WaitForSeconds(2f);
         Time.timeScale = 1;
         playerMovement.playerSanity = 10000;
         levelOne1ClearText.SetActive(true);
         yield return new WaitForSeconds(3f);
+        musicManager.PlayMusic(0);
         fadeOutImage.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
         endBG.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2f);
         Layer1.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
         gameByText.SetActive(true);
         name1.SetActive(true);
         name2.SetActive(true);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(10f);
         Layer2.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
         conceptText.SetActive(true);
         name_1.SetActive(true);
         name_2.SetActive(true);
@@ -423,8 +377,9 @@ public class GameMenuScreen : MonoBehaviour
         name__1.SetActive(true);
         artText.SetActive(true);
         name__2.SetActive(true);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(10f);
         Layer3.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
         thankYouText.SetActive(true);
         yield return new WaitForSeconds(1f);
         quitButton_2.SetActive(true);

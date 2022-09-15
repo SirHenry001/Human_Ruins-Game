@@ -126,6 +126,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -940,6 +941,41 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      "J\xE4b\xE4FistSide": -7392727473149805925
+      FrontLowerArmLifted: 7470127891461813416
+      "J\xE4b\xE4Torso": -3401249455882200730
+      "J\xE4b\xE4LowerArm": 5874553358570746521
+      "J\xE4b\xE4BackShoe2": -3199269578223250729
+      "J\xE4b\xE42Upperarmlifted": 7443760337783841433
+      "J\xE4b\xE4BackNeck": -6433851616783531853
+      "J\xE4b\xE4UpperArm": -4553640949815252028
+      "J\xE4b\xE4ShoePointingDown": 7677337622336669742
+      "J\xE4b\xE4Neck": 8185956647994738359
+      "J\xE4b\xE4FrontFist": 9067742698945543133
+      "J\xE4b\xE4Fist2": 8620461604607869437
+      "J\xE4b\xE4BackShoe": 873625937774437113
+      "J\xE4b\xE4FiistSide": -1996680837089657572
+      "J\xE4b\xE4LowerArm2": 3360108235293120413
+      "J\xE4b\xE4FrontShoe": -3381037230442499796
+      "J\xE4b\xE4BackTorso": -624213886605260465
+      "J\xE4b\xE4BackThigh": 252501566980181268
+      "J\xE4b\xE4Fist": -5527745966892050646
+      "J\xE4b\xE4Backshinlifted": -3921068222580276385
+      "J\xE4b\xE4Shin": -3826911782643883028
+      "J\xE4b\xE4Shoe2": 732279003000087325
+      "J\xE4b\xE4BackThighLifted": 2055110586215144022
+      "J\xE4b\xE4Thighlifted": -76923463840316544
+      "J\xE4b\xE4FrontTorso": -661442755004179146
+      "J\xE4b\xE4UpperArm2": 9148228387203685254
+      "J\xE4b\xE4Head": 8306078035044128059
+      "J\xE4b\xE4Shoe": 6150042080044332445
+      "J\xE4b\xE4Thigh": -8735552919487572879
+      "J\xE4b\xE4ShinLifted": 589593573497568523
+      "J\xE4b\xE4BackHead": 5071720715263229618
+      "J\xE4b\xE4FrontHead": 6063270236704797406
+      "J\xE4b\xE4SinPontingBack": 19272595248650586
+      "J\xE4b\xE4BackShin": 5466487860388941082
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1

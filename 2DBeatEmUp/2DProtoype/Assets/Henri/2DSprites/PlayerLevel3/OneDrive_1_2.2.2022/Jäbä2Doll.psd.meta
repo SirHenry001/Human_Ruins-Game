@@ -78,6 +78,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -556,6 +557,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      "J\xE4b\xE42Doll_16": 6150042080044332445
+      "J\xE4b\xE42Doll_7": 3360108235293120413
+      "J\xE4b\xE42Doll_10": -3826911782643883028
+      "J\xE4b\xE42Doll_3": -8735552919487572879
+      "J\xE4b\xE42Doll_14": -5527745966892050646
+      "J\xE4b\xE42Doll_13": 5466487860388941082
+      "J\xE4b\xE42Doll_2": -3401249455882200730
+      "J\xE4b\xE42Doll_6": 252501566980181268
+      "J\xE4b\xE42Doll_15": 7470127891461813416
+      "J\xE4b\xE42Doll_17": 732279003000087325
+      "J\xE4b\xE42Doll_0": 8306078035044128059
+      "J\xE4b\xE42Doll_8": 7443760337783841433
+      "J\xE4b\xE42Doll_1": 8185956647994738359
+      "J\xE4b\xE42Doll_11": 8620461604607869437
+      "J\xE4b\xE42Doll_5": 6063270236704797406
+      "J\xE4b\xE42Doll_9": -4553640949815252028
+      "J\xE4b\xE42Doll_4": 9148228387203685254
+      "J\xE4b\xE42Doll_12": 5874553358570746521
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

@@ -39,6 +39,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -220,6 +221,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Level2BGStuff_0: -3489640810954497193
+      Level2BGStuff_4: 8265650324928981873
+      Level2BGStuff_1: -9055075799940205066
+      Level2BGStuff_2: 5871895105661205927
+      Level2BGStuff_3: -2600008123260991251
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1

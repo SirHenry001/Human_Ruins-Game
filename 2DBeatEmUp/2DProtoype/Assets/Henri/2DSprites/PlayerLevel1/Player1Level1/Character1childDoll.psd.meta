@@ -129,6 +129,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -898,6 +899,40 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      C1Child_FthighBackward: -932377523454864829
+      C1Child_LowerarmPointing: -5840087249572973785
+      C1Child_FTorso: 983827360749024038
+      C1Child_Fshin: 8950054085101404865
+      C1Child_Foot: 8057610439220945395
+      C1Child_FFoot: 59769129129388081
+      C1Child_FShinBackward: -8259046886450275081
+      C1Child_Bthigh: -942448157653175250
+      C1Child_FShinToFront: 4403885663883405798
+      C1Child_SideFist2: -216139900804918345
+      C1Child_LowerArm: -6936159421237369207
+      C1Child_Bottomfoot: 1172421203023107701
+      C1Child_BHead: -6313897722299258838
+      C1Child_Bfoot: -6711680470621646414
+      C1Child_UpperArm: 6405599009040912320
+      C1Child_SideFist: 6353679914789205122
+      C1Child_STorso: -3436279074647735348
+      C1Child_Neck: 1611692621516342985
+      C1Child_BShinForwards: -2035492993302597360
+      C1Child_Head: -4448568410888349185
+      C1Child_Backshin: -796091505207390050
+      C1Child_BTorso: 7152227233172373737
+      C1Child_BThigh2: 5373797344828879755
+      C1Child_Fist: 2204093158782630335
+      C1Child_FThighToFront: 1438601449073407251
+      C1Child_Shin: -1248861975471215445
+      C1Child_UpperarmPointing: -3086283628993546434
+      C1Child_FHead: -8427374960678323937
+      C1Child_FThigh: 6147252477647290553
+      C1Child_Fist2: -238523248337791391
+      C1Child_FrontFist: -8120015673435911340
+      C1Child_Thigh: -7255477149958306633
+      C1Child_TopFoot: 123828716473529352
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1

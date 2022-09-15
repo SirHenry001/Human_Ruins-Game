@@ -132,6 +132,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -382,7 +383,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5781035d5e45fed20800000000000000
-      internalID: 3309957597241546869
+      internalID: 8916739374948815497
       vertices: []
       indices: 
       edges: []
@@ -655,7 +656,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2d0f651fed1e2a6a0800000000000000
-      internalID: -6439336169538391854
+      internalID: 3309957597241546869
       vertices: []
       indices: 
       edges: []
@@ -922,6 +923,41 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      BackHead: -4032904730012396694
+      Torso: 3480885305900462624
+      FrontTorso: 5709539475709960749
+      UpperArmForward: 3730666837337981893
+      LowerArm: 4344769581249895902
+      Fist: 1003910956448420565
+      Thigh2: -274881171736701965
+      Neck: 8664860125531812632
+      Head: -1908878058562655558
+      BackThigh2: -6948858299881104192
+      ShoeTop: -7518408595002820381
+      FrontFist: -4595777171086338758
+      BakcShoe: 5306074761367359257
+      BackTorso: -255472755833943259
+      LowerArmForward: -1176829894246868818
+      FrontShinBackward: 6850769457332747567
+      FrontShinForward: -6113045903033619065
+      FrontShoe: 4034873040393204040
+      FrontShin: -2441591195302031584
+      Sidefist2: 5750616005324128182
+      UpperArm: 7089686410717200060
+      BackShin: -5000281080202857226
+      FrontThigh: 8916739374948815497
+      Shoe: 6677651804733770418
+      BackShinFrontward: -4177118610273996435
+      Fist2: -8120755548816260817
+      Thigh: 8156802084225502654
+      FrontHead: 5893041894670858291
+      FrontThighForward: -535131236112468643
+      SideFist: -420039629738391439
+      Shin: -8057191736067391038
+      ShoeBottom: 5462754359316431916
+      FrontThigh2: 3309957597241546869
+      BackThigh: 7631517380250920225
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1

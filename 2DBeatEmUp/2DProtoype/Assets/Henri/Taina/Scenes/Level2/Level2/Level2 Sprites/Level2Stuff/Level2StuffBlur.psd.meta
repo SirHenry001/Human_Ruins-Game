@@ -51,6 +51,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -316,6 +317,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      CoatBlur2: 7512472002541701035
+      LockerBlur1: -6013201270850543912
+      CoatBlkur1: 7150554876124321117
+      ChairBlur: -3472783041400894095
+      BackpackBlur: 210850506066549019
+      BookBlur: -5113283896124789321
+      LockerBlurOpen: -6655978138753351253
+      CanBlur: 2541793622432213646
+      TableBlur: -5053664012421469320
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1

@@ -63,6 +63,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -412,6 +413,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Chair: -8820616374192196999
+      Coat1: -3615833106926923863
+      CoatHook: 6469956689115815081
+      LockerOpen: 973626714533099720
+      Coat2: -8759215293262526153
+      Book: -92619694057219232
+      CoatRackRight: 7091251605921153189
+      Can: -8687633347573281856
+      Locker1: 7211563661551346881
+      BackPack1: -420655729434799484
+      Desk: 3488406442549999691
+      CoatRackMid: -8304209254719965067
+      CoatRackLeft: -5981949563954321331
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1

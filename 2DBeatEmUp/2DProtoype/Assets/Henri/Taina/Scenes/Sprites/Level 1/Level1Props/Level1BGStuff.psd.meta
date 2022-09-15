@@ -63,6 +63,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -412,6 +413,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      BlurYoungTree2: -6058185574871373192
+      OldTree2: -7425540557362290948
+      Tree: -6851141746259363262
+      BlurTree: 8032096572110309029
+      YoungTree1: -2607346597872505236
+      2xBlurTree: -935286392871908594
+      OldTree1: -4452595896161061878
+      2xBlurOldTree2: -8306906142208289452
+      BlurOldTree2: 6738410227158836059
+      YoungTree2: -1885454282237375791
+      BlurYoungTree1: -2558938565144899210
+      2xBlurOldtree1: -6496544533969348998
+      BlurOldTree1: -4391445633500722524
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1

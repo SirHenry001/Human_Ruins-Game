@@ -75,6 +75,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -508,6 +509,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Fool: -6179921338634914953
+      Useless: 8057764172327227683
+      Discusting: 6500442872331108723
+      PieceOfShit: -4188294520992713674
+      Stupid: 5366650223830998319
+      YouAreLazy: -6033431938200842302
+      Annoying: -8717164565344901065
+      Weak: -2944457305087549371
+      EfektiTekstit_69: 2554020714411559197
+      Pitiful: -8424937963464072634
+      EfektiTekstit_19: 8330538741217854853
+      YouStink: -5550665106262361945
+      YouAreTrash: -6082353313950475968
+      EfektiTekstit_39: 5104455354558907783
+      Idiot: 1920056277297787059
+      EfektiTekstit_41: 645074954304905636
+      Ugly: -1349904961190278043
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

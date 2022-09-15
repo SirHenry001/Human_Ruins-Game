@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -280,7 +281,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2d0b6aead6eafa1f0800000000000000
-      internalID: -1031414003539726126
+      internalID: 9163066102686815475
       vertices: []
       indices: 
       edges: []
@@ -322,7 +323,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 442d4975b3272a300800000000000000
-      internalID: 261897327538917956
+      internalID: -7401354213964140657
       vertices: []
       indices: 
       edges: []
@@ -364,7 +365,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bc5ef596575949140800000000000000
-      internalID: 4725566240530097611
+      internalID: -1031414003539726126
       vertices: []
       indices: 
       edges: []
@@ -484,6 +485,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      SkirtingLef: -2858659963971078791
+      BrokenWallTop4: -1031414003539726126
+      BrokenWall1: 2029603016695656400
+      SkirtingBroken2: 4419895515107148841
+      SkirtingLeft: 4948975480665631257
+      SkirtingMid: 3050078739295607600
+      BrokenWallTop1: -8185252286816643056
+      BrokenWallTop2: 4723250963254362342
+      BrokenWallTop3: 9163066102686815475
+      BrokenWallBottom2: -7401354213964140657
+      Wall: -24075806118037059
+      BrokenWallBottom1: 1115358595779141345
+      SkirtingBroken1: 6941044494407015772
+      BrokenWall2: 8147275610191718606
+      WallEnd: -4818650310412941511
+      BrokenWallBottom3: -8797753539667543100
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1

@@ -4,5 +4,5 @@ UNITY BASED GAME
 
 School project Spring 2022
 
-My Role on the Project:
-2D Game Coding/programming Story Consept and Aniamtions
+# My Role on the Project:
+2D Game Coding/programming Story Consept and Animations
